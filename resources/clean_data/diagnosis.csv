@@ -1,0 +1,209 @@
+id,diagnosis,subtype,vhi_score,rsi_score
+voice100,healthy,no subtype,0,5
+voice101,healthy,no subtype,80,10
+voice192,hyperkinetic dysphonia,no subtype,0,10
+voice193,hyperkinetic dysphonia,no subtype,0,36
+voice008,reflux laryngitis,no subtype,19,15
+voice009,hyperkinetic dysphonia,nodule,10,15
+voice149,hyperkinetic dysphonia,no subtype,26,7
+voice148,hypokinetic dysphonia,presbiphonia,32,17
+voice041,reflux laryngitis,no subtype,0,0
+voice040,healthy,no subtype,1,25
+voice036,hypokinetic dysphonia,no subtype,8,21
+voice037,reflux laryngitis,no subtype,24,12
+voice177,healthy,no subtype,0,3
+voice176,healthy,no subtype,0,6
+voice143,hyperkinetic dysphonia,prolapse,44,11
+voice142,hypokinetic dysphonia,extraglottic air leak,46,13
+voice002,healthy,no subtype,17,12
+voice003,hyperkinetic dysphonia,nodule,42,26
+voice198,hyperkinetic dysphonia,prolapse,80,13
+voice199,hyperkinetic dysphonia,nodule,40,14
+voice090,healthy,no subtype,0,11
+voice091,healthy,no subtype,0,14
+voice075,hypokinetic dysphonia,no subtype,7,19
+voice074,reflux laryngitis,no subtype,5,20
+voice134,healthy,no subtype,86,0
+voice135,hypokinetic dysphonia,no subtype,86,8
+voice056,hypokinetic dysphonia,no subtype,6,25
+voice057,reflux laryngitis,no subtype,11,6
+voice185,hyperkinetic dysphonia,prolapse,30,0
+voice184,healthy,no subtype,0,0
+voice117,hyperkinetic dysphonia,vocal fold prolapse,51,11
+voice116,hypokinetic dysphonia,conversion dysphonia,59,5
+voice068,hyperkinetic dysphonia,no subtype,11,12
+voice069,reflux laryngitis,no subtype,11,10
+voice160,hyperkinetic dysphonia,no subtype,4,0
+voice161,hypokinetic dysphonia,glottic insufficiency,45,0
+voice021,hyperkinetic dysphonia,no subtype,25,8
+voice020,hyperkinetic dysphonia,reinke's edema,9,22
+voice129,hyperkinetic dysphonia,polyps,14,21
+voice128,hyperkinetic dysphonia,prolapse,8,8
+voice087,hypokinetic dysphonia,vocal fold paralysis,63,20
+voice086,hyperkinetic dysphonia,polyps,0,14
+voice015,reflux laryngitis,no subtype,0,29
+voice014,reflux laryngitis,no subtype,11,20
+voice154,reflux laryngitis,no subtype,22,0
+voice155,hyperkinetic dysphonia,no subtype,34,0
+voice123,healthy,no subtype,0,3
+voice122,hypokinetic dysphonia,bilateral vocal fold,23,3
+voice204,healthy,no subtype,0,7
+voice062,reflux laryngitis,no subtype,0,15
+voice063,reflux laryngitis,no subtype,1,12
+voice205,hyperkinetic dysphonia,nodule,62,19
+voice159,hyperkinetic dysphonia,no subtype,6,0
+voice158,healthy,no subtype,0,0
+voice051,healthy,no subtype,2,13
+voice050,reflux laryngitis,no subtype,39,3
+voice110,healthy,no subtype,5,15
+voice111,healthy,no subtype,0,21
+voice182,healthy,no subtype,0,0
+voice183,healthy,no subtype,0,6
+voice018,hyperkinetic dysphonia,no subtype,19,26
+voice019,healthy,no subtype,45,10
+voice167,hyperkinetic dysphonia,no subtype,41,6
+voice166,hyperkinetic dysphonia,no subtype,74,19
+voice208,hyperkinetic dysphonia,no subtype,32,15
+voice026,hypokinetic dysphonia,no subtype,31,1
+voice027,reflux laryngitis,no subtype,0,19
+voice012,reflux laryngitis,no subtype,4,3
+voice013,reflux laryngitis,no subtype,8,25
+voice188,hyperkinetic dysphonia,no subtype,18,9
+voice189,hypokinetic dysphonia,glottic insufficiency,106,12
+voice080,hyperkinetic dysphonia,prolapse,40,16
+voice081,reflux laryngitis,no subtype,8,5
+voice153,hyperkinetic dysphonia,polyps,69,21
+voice152,hyperkinetic dysphonia,vocal fold nodules,51,14
+voice124,hypokinetic dysphonia,no subtype,41,17
+voice125,healthy,no subtype,0,11
+voice065,reflux laryngitis,no subtype,25,15
+voice203,healthy,no subtype,0,9
+voice202,hypokinetic dysphonia,no subtype,78,14
+voice064,hyperkinetic dysphonia,cordite,31,0
+voice195,healthy,no subtype,0,7
+voice194,hyperkinetic dysphonia,no subtype,0,39
+voice107,healthy,no subtype,22,10
+voice106,hypokinetic dysphonia,no subtype,35,13
+voice046,reflux laryngitis,no subtype,5,26
+voice047,reflux laryngitis,no subtype,3,4
+voice031,reflux laryngitis,no subtype,16,21
+voice030,reflux laryngitis,no subtype,57,23
+voice139,healthy,no subtype,22,11
+voice138,hyperkinetic dysphonia,reinke's edema,26,7
+voice078,hyperkinetic dysphonia,no subtype,14,18
+voice079,reflux laryngitis,no subtype,5,15
+voice170,hyperkinetic dysphonia,vocal fold paralysis,54,5
+voice171,hypokinetic dysphonia,glottic insufficiency,57,7
+voice144,hypokinetic dysphonia,no subtype,59,21
+voice145,hyperkinetic dysphonia,prolapse,38,19
+voice097,healthy,no subtype,13,12
+voice096,healthy,no subtype,3,0
+voice005,hypokinetic dysphonia,no subtype,39,23
+voice004,hypokinetic dysphonia,no subtype,20,9
+voice072,hyperkinetic dysphonia,no subtype,63,11
+voice073,reflux laryngitis,no subtype,35,23
+voice133,reflux laryngitis,no subtype,44,8
+voice132,hyperkinetic dysphonia,rigid vocal fold,20,23
+voice084,hypokinetic dysphonia,no subtype,10,7
+voice085,healthy,no subtype,11,4
+voice016,hyperkinetic dysphonia,no subtype,19,13
+voice017,hyperkinetic dysphonia,no subtype,43,20
+voice157,hyperkinetic dysphonia,prolapse,31,0
+voice156,hyperkinetic dysphonia,no subtype,90,0
+voice120,healthy,no subtype,22,4
+voice121,hypokinetic dysphonia,laryngitis,31,4
+voice028,reflux laryngitis,no subtype,11,20
+voice029,reflux laryngitis,no subtype,3,10
+voice169,hyperkinetic dysphonia,no subtype,47,1
+voice168,hypokinetic dysphonia,no subtype,62,0
+voice207,healthy,no subtype,0,26
+voice061,healthy,no subtype,19,12
+voice060,healthy,no subtype,10,9
+voice206,healthy,no subtype,0,6
+voice055,hyperkinetic dysphonia,no subtype,15,10
+voice055,hyperkinetic dysphonia,no subtype,15,19
+voice186,hyperkinetic dysphonia,no subtype,28,17
+voice187,hyperkinetic dysphonia,no subtype,30,0
+voice114,healthy,no subtype,13,6
+voice115,healthy,no subtype,26,14
+voice163,hyperkinetic dysphonia,no subtype,30,11
+voice162,hypokinetic dysphonia,no subtype,71,0
+voice022,hypokinetic dysphonia,no subtype,86,20
+voice023,hyperkinetic dysphonia,no subtype,13,18
+voice048,reflux laryngitis,no subtype,12,5
+voice049,healthy,no subtype,4,20
+voice140,hypokinetic dysphonia,no subtype,24,13
+voice141,hypokinetic dysphonia,no subtype,26,6
+voice001,hyperkinetic dysphonia,no subtype,15,5
+voice093,hypokinetic dysphonia,vocal fold paralysis,24,13
+voice092,healthy,no subtype,0,18
+voice109,healthy,no subtype,11,14
+voice108,healthy,no subtype,0,4
+voice076,hyperkinetic dysphonia,no subtype,18,17
+voice077,hypokinetic dysphonia,no subtype,1,0
+voice137,hyperkinetic dysphonia,polyps,50,9
+voice136,hypokinetic dysphonia,vocal fold paralysis,104,3
+voice103,healthy,no subtype,27,22
+voice102,healthy,no subtype,67,15
+voice099,healthy,no subtype,28,21
+voice098,healthy,no subtype,13,18
+voice191,hyperkinetic dysphonia,no subtype,0,19
+voice190,hyperkinetic dysphonia,no subtype,23,21
+voice042,reflux laryngitis,no subtype,53,11
+voice043,hypokinetic dysphonia,no subtype,17,41
+voice035,reflux laryngitis,no subtype,17,15
+voice034,healthy,no subtype,19,16
+voice174,hypokinetic dysphonia,glottic insufficiency,67,7
+voice175,hypokinetic dysphonia,adduction deficit,39,3
+voice147,hyperkinetic dysphonia,adduction deficit,47,9
+voice146,hyperkinetic dysphonia,polyps,36,4
+voice094,hypokinetic dysphonia,glottic insufficiency,28,17
+voice095,healthy,no subtype,29,0
+voice005,hypokinetic dysphonia,no subtype,39,25
+voice007,hyperkinetic dysphonia,nodule,24,28
+voice179,healthy,no subtype,0,14
+voice178,healthy,no subtype,0,16
+voice071,reflux laryngitis,no subtype,7,20
+voice070,healthy,no subtype,24,0
+voice130,hyperkinetic dysphonia,no subtype,10,8
+voice131,hyperkinetic dysphonia,no subtype,14,9
+voice038,hyperkinetic dysphonia,no subtype,17,14
+voice039,hyperkinetic dysphonia,no subtype,28,11
+voice196,healthy,no subtype,0,22
+voice197,healthy,no subtype,0,4
+voice104,healthy,no subtype,0,21
+voice105,hyperkinetic dysphonia,prolapse,31,26
+voice045,healthy,no subtype,3,20
+voice044,reflux laryngitis,no subtype,11,14
+voice032,healthy,no subtype,16,18
+voice033,hyperkinetic dysphonia,no subtype,24,16
+voice173,hyperkinetic dysphonia,no subtype,20,0
+voice172,hyperkinetic dysphonia,no subtype,37,3
+voice011,reflux laryngitis,no subtype,31,27
+voice010,hypokinetic dysphonia,no subtype,9,12
+voice083,reflux laryngitis,no subtype,2,11
+voice082,reflux laryngitis,no subtype,2,3
+voice119,hyperkinetic dysphonia,polyps,22,0
+voice118,hypokinetic dysphonia,dysphonia by chordal groove,14,13
+voice058,hypokinetic dysphonia,no subtype,14,5
+voice059,hyperkinetic dysphonia,no subtype,10,25
+voice150,hyperkinetic dysphonia,no subtype,16,10
+voice151,reflux laryngitis,no subtype,24,17
+voice127,reflux laryngitis,no subtype,3,14
+voice126,hyperkinetic dysphonia,reinke's edema,2,13
+voice066,reflux laryngitis,no subtype,12,4
+voice200,hyperkinetic dysphonia,no subtype,41,3
+voice201,hypokinetic dysphonia,glottic insufficiency,65,23
+voice067,healthy,no subtype,7,13
+voice052,hyperkinetic dysphonia,no subtype,10,6
+voice053,reflux laryngitis,no subtype,20,10
+voice113,hyperkinetic dysphonia,prolapse,17,10
+voice112,hypokinetic dysphonia,vocal fold paralysis,44,15
+voice089,hyperkinetic dysphonia,no subtype,11,20
+voice088,hypokinetic dysphonia,spasmodic dysphonia,15,8
+voice181,healthy,no subtype,0,0
+voice180,healthy,no subtype,0,3
+voice164,hyperkinetic dysphonia,no subtype,34,1
+voice165,hypokinetic dysphonia,glottic insufficiency,97,16
+voice025,healthy,no subtype,16,1
+voice024,healthy,no subtype,6,12
