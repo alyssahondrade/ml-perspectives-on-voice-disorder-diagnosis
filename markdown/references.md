@@ -23,6 +23,7 @@
 
 - [?] (Research Paper) pyAudioAnalysis: An Open-Source Python Library for Audio Signal Analysis [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4676707/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4676707/)
 
+
 ## Machine Learning
 - [] VOICED Database [https://physionet.org/content/voiced/1.0.0/](https://physionet.org/content/voiced/1.0.0/)
 
@@ -40,13 +41,24 @@
 
 - [] Stacking Ensemble Machine Learning with Python [https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/)
 
+- [] Convolution with color images [https://dev.to/sandeepbalachandran/machine-learning-convolution-with-color-images-2p41](https://dev.to/sandeepbalachandran/machine-learning-convolution-with-color-images-2p41)
+
+- [] Keras Conv2D and Convolutional Layers [https://pyimagesearch.com/2018/12/31/keras-conv2d-and-convolutional-layers/](https://pyimagesearch.com/2018/12/31/keras-conv2d-and-convolutional-layers/)
+
+- [] Simple MNIST convnet [https://keras.io/examples/vision/mnist_convnet/](https://keras.io/examples/vision/mnist_convnet/)
+
+
 ## Python
 - [] Hide axes and gridlines in matplotlib [https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib](https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib)
 
 - [] Matplotlib Savefig [https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html)
 
+- [] Pillow Image Module Documentation [https://pillow.readthedocs.io/en/stable/reference/Image.html](https://pillow.readthedocs.io/en/stable/reference/Image.html)
+
+
 ## Signal Processing
 - [] Audio Analysis with Machine Learning [https://www.altexsoft.com/blog/audio-analysis/](https://www.altexsoft.com/blog/audio-analysis/)
+
 
 ## Voice Disorders
 - [] Voice Disorders [https://www.asha.org/practice-portal/clinical-topics/voice-disorders/](https://www.asha.org/practice-portal/clinical-topics/voice-disorders/)
