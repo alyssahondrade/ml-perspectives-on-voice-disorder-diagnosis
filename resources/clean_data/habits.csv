@@ -1,7 +1,7 @@
 id,alcohol_consumption,alcohol_pd,smoker,cigarettes_pd,carbonated_beverages,carbonated_pd,chocolate,chocolate_grams_pd,coffee,coffee_pd,citrus_fruits,citrus_fruits_pd,soft_cheese,soft_cheese_pd,tomatoes,water_litres_pd
 voice100,casual,0.36,no,0,almost always,3.0,sometimes,30,always,3,never,0.0,almost always,100,never,1.5
 voice101,nondrinker,0.0,no,0,almost always,3.0,sometimes,30,always,4,never,0.0,sometimes,100,sometimes,1.5
-voice192,nondrinker,0.0,no,0,never,0.0,always,14,always,3,almost always,1.0,sometimes,100,sometimes,2.5
+voice192,nondrinker,0.0,no,0,never,0.0,always,14,always,3,almost always,1.17,sometimes,100,sometimes,2.5
 voice193,casual,0.36,yes,15,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
 voice008,casual,0.36,no,0,almost never,0.09,almost always,20,always,2,almost always,1.0,sometimes,100,almost always,1.0
 voice009,habitual,1.0,yes,20,almost never,0.09,almost always,15,always,3,almost always,1.0,sometimes,125,almost never,1.5
@@ -11,37 +11,37 @@ voice041,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,almost always,
 voice040,casual,0.29,no,0,sometimes,0.61,sometimes,30,always,4,always,2.0,sometimes,100,sometimes,1.0
 voice036,nondrinker,0.0,no,0,sometimes,1.0,sometimes,30,always,2,sometimes,1.0,always,150,almost always,1.5
 voice037,casual,1.0,no,0,never,0.0,almost never,10,almost always,3,always,1.0,sometimes,100,sometimes,2.0
-voice177,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,2,almost always,1.0,sometimes,100,sometimes,1.0
+voice177,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,2,almost always,1.17,sometimes,100,sometimes,1.0
 voice176,casual,0.36,no,0,never,0.0,sometimes,30,sometimes,2,sometimes,1.0,sometimes,100,sometimes,2.0
-voice143,casual,0.36,no,0,almost never,0.09,almost never,10,always,1,sometimes,1.0,almost always,100,sometimes,1.5
+voice143,casual,0.36,no,0,almost never,0.09,almost never,6,always,1,sometimes,1.0,almost always,100,sometimes,1.5
 voice142,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,never,0,almost never,0.22,almost always,100,sometimes,1.5
 voice002,habitual,1.0,casual,2,almost always,3.0,sometimes,30,sometimes,3,almost always,2.0,almost always,50,sometimes,0.5
 voice003,casual,1.0,no,0,sometimes,1.0,sometimes,20,almost always,3,almost never,0.22,almost always,200,sometimes,1.5
 voice198,casual,0.36,yes,15,sometimes,0.61,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,1.0
-voice199,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,never,0,almost always,1.0,sometimes,100,sometimes,2.0
+voice199,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,never,0,almost always,1.17,sometimes,100,sometimes,2.0
 voice090,casual,0.36,no,0,almost never,0.09,almost always,29,almost never,1,sometimes,1.0,sometimes,100,almost always,0.5
 voice091,casual,0.36,no,0,never,0.0,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,2.0
-voice075,nondrinker,0.0,no,0,never,0.0,almost never,10,sometimes,2,almost always,1.0,sometimes,100,sometimes,1.5
-voice074,nondrinker,0.0,yes,20,sometimes,0.61,almost never,10,always,3,always,1.5,almost never,100,always,1.0
-voice134,nondrinker,0.0,no,0,almost never,0.09,almost never,10,almost always,3,sometimes,1.0,sometimes,100,sometimes,1.5
+voice075,nondrinker,0.0,no,0,never,0.0,almost never,6,sometimes,2,almost always,1.0,sometimes,100,sometimes,1.5
+voice074,nondrinker,0.0,yes,20,sometimes,0.61,almost never,6,always,3,always,1.5,almost never,100,always,1.0
+voice134,nondrinker,0.0,no,0,almost never,0.09,almost never,6,almost always,3,sometimes,1.0,sometimes,100,sometimes,1.5
 voice135,nondrinker,0.0,no,0,almost always,3.0,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,1.0
 voice056,nondrinker,0.0,yes,15,sometimes,0.14,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
 voice057,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,4,almost always,1.0,sometimes,100,almost never,1.5
 voice185,casual,0.36,yes,20,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,almost never,100,sometimes,2.0
 voice184,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,1.5
-voice117,casual,0.36,yes,30,almost never,0.09,almost never,10,always,4,almost never,0.22,sometimes,100,sometimes,1.0
-voice116,casual,0.36,no,0,almost always,3.0,sometimes,30,always,1,almost always,1.0,almost always,100,sometimes,0.5
+voice117,casual,0.36,yes,30,almost never,0.09,almost never,6,always,4,almost never,0.22,sometimes,100,sometimes,1.0
+voice116,casual,0.36,no,0,almost always,3.0,sometimes,30,always,1,almost always,1.17,almost always,100,sometimes,0.5
 voice068,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,almost never,100,sometimes,0.5
 voice069,nondrinker,0.0,casual,2,never,0.0,sometimes,30,always,3,sometimes,1.0,always,150,sometimes,0.5
-voice160,casual,0.36,no,0,almost never,0.09,almost never,10,always,1,almost never,0.22,sometimes,100,sometimes,2.0
-voice161,casual,0.36,casual,2,sometimes,0.61,almost never,10,always,2,almost never,0.22,sometimes,100,sometimes,1.0
+voice160,casual,0.36,no,0,almost never,0.09,almost never,6,always,1,almost never,0.22,sometimes,100,sometimes,2.0
+voice161,casual,0.36,casual,2,sometimes,0.61,almost never,6,always,2,almost never,0.22,sometimes,100,sometimes,1.0
 voice021,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,never,0,always,1.5,always,200,almost always,1.0
 voice020,nondrinker,0.0,yes,20,never,0.0,sometimes,30,always,4,almost never,0.22,sometimes,100,sometimes,1.5
 voice129,habitual,1.32,yes,7,sometimes,0.61,sometimes,30,always,3,never,0.0,sometimes,100,sometimes,1.5
-voice128,nondrinker,0.0,no,0,sometimes,0.61,almost never,10,always,3,almost never,0.22,sometimes,100,sometimes,2.0
+voice128,nondrinker,0.0,no,0,sometimes,0.61,almost never,6,always,3,almost never,0.22,sometimes,100,sometimes,2.0
 voice087,habitual,1.32,yes,15,almost always,3.0,always,14,always,4,sometimes,1.0,almost never,100,sometimes,1.0
 voice086,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,almost never,0.22,sometimes,100,sometimes,1.5
-voice015,casual,0.36,no,0,sometimes,0.61,almost never,10,almost always,2,almost never,0.22,sometimes,100,sometimes,2.0
+voice015,casual,0.36,no,0,sometimes,0.61,almost never,6,almost always,2,almost never,0.22,sometimes,100,sometimes,2.0
 voice014,casual,0.36,no,0,almost always,3.0,sometimes,300,never,0,almost always,2.0,almost always,400,almost always,1.0
 voice154,casual,0.36,yes,10,almost always,3.0,almost always,29,always,4,sometimes,1.0,sometimes,100,sometimes,1.0
 voice155,nondrinker,0.0,casual,2,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.5
@@ -56,7 +56,7 @@ voice158,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,always,2,sometimes,1
 voice051,nondrinker,0.0,no,0,almost never,0.08,almost never,2,almost always,3,almost always,2.0,almost always,100,almost always,2.0
 voice050,habitual,1.0,no,0,sometimes,1.0,sometimes,15,always,3,almost never,0.14,almost always,100,almost always,1.5
 voice110,casual,0.36,no,0,almost never,0.09,always,14,always,3,almost never,0.22,sometimes,100,sometimes,1.0
-voice111,casual,0.36,no,0,almost never,0.09,almost never,10,always,2,almost always,1.0,sometimes,100,sometimes,2.0
+voice111,casual,0.36,no,0,almost never,0.09,almost never,6,always,2,almost always,1.17,sometimes,100,sometimes,2.0
 voice182,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,2.0
 voice183,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,almost never,2.0
 voice018,nondrinker,0.0,no,0,never,0.0,almost always,3,sometimes,3,almost always,1.5,sometimes,20,sometimes,2.0
@@ -65,27 +65,27 @@ voice167,casual,0.36,no,0,almost never,0.09,sometimes,30,sometimes,3,almost neve
 voice166,casual,0.36,yes,20,sometimes,0.61,sometimes,30,almost always,4,almost never,0.22,sometimes,100,almost always,1.0
 voice208,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,almost never,0.22,almost never,100,sometimes,2.0
 voice026,casual,0.36,no,0,sometimes,0.5,sometimes,20,always,2,sometimes,0.6,sometimes,30,sometimes,2.0
-voice027,casual,0.36,no,0,never,0.0,almost never,10,always,1,sometimes,1.0,sometimes,100,sometimes,1.0
-voice012,casual,2.0,no,0,never,0.0,almost never,10,almost never,1,almost never,0.29,sometimes,100,sometimes,2.5
+voice027,casual,0.36,no,0,never,0.0,almost never,6,always,1,sometimes,1.0,sometimes,100,sometimes,1.0
+voice012,casual,2.0,no,0,never,0.0,almost never,6,almost never,1,almost never,0.29,sometimes,100,sometimes,2.5
 voice013,casual,0.36,no,0,never,0.0,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,2.0
-voice188,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,almost always,1.0,almost never,100,sometimes,1.5
+voice188,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,almost always,1.17,almost never,100,sometimes,1.5
 voice189,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
 voice080,habitual,2.0,yes,20,almost never,0.07,sometimes,20,almost always,3,almost always,1.0,sometimes,100,almost always,1.0
 voice081,casual,0.36,no,0,almost never,0.09,sometimes,30,almost never,1,almost never,0.22,sometimes,100,sometimes,1.5
 voice153,casual,0.36,yes,25,sometimes,0.61,sometimes,30,always,4,almost never,0.22,sometimes,100,sometimes,1.0
 voice152,casual,0.36,yes,10,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.5
-voice124,nondrinker,0.0,no,0,almost never,0.09,almost never,10,always,4,sometimes,1.0,sometimes,100,almost never,2.0
+voice124,nondrinker,0.0,no,0,almost never,0.09,almost never,6,always,4,sometimes,1.0,sometimes,100,almost never,2.0
 voice125,nondrinker,0.0,no,0,never,0.0,sometimes,30,always,1,never,0.0,sometimes,100,sometimes,2.0
 voice065,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,almost never,0.22,sometimes,100,sometimes,2.0
-voice203,nondrinker,0.0,no,0,almost never,0.09,almost never,10,almost never,1,sometimes,1.0,sometimes,100,sometimes,2.0
+voice203,nondrinker,0.0,no,0,almost never,0.09,almost never,6,almost never,1,sometimes,1.0,sometimes,100,sometimes,2.0
 voice202,casual,0.36,no,0,almost never,0.09,sometimes,30,almost always,3,sometimes,1.0,sometimes,100,sometimes,2.0
 voice064,habitual,2.0,no,0,never,0.0,sometimes,20,almost never,5,sometimes,1.0,almost always,200,sometimes,1.5
 voice195,casual,0.36,no,0,sometimes,0.61,almost always,29,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
-voice194,casual,0.36,no,0,never,0.0,sometimes,30,always,3,almost always,1.0,sometimes,100,sometimes,1.0
-voice107,casual,0.36,yes,15,almost never,0.09,almost never,10,always,4,sometimes,1.0,almost always,100,sometimes,2.0
+voice194,casual,0.36,no,0,never,0.0,sometimes,30,always,3,almost always,1.17,sometimes,100,sometimes,1.0
+voice107,casual,0.36,yes,15,almost never,0.09,almost never,6,always,4,sometimes,1.0,almost always,100,sometimes,2.0
 voice106,nondrinker,0.0,casual,2,sometimes,0.61,almost always,29,almost always,3,sometimes,1.0,almost never,100,almost always,1.5
 voice046,nondrinker,0.0,no,0,never,0.0,sometimes,30,sometimes,2,almost always,1.33,sometimes,100,sometimes,1.0
-voice047,habitual,2.0,no,0,never,0.0,almost never,10,almost always,2,almost always,1.5,sometimes,175,sometimes,1.5
+voice047,habitual,2.0,no,0,never,0.0,almost never,6,almost always,2,almost always,1.5,sometimes,175,sometimes,1.5
 voice031,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,almost always,4,almost always,1.5,almost always,50,sometimes,1.5
 voice030,nondrinker,0.0,no,0,almost never,0.09,almost always,29,sometimes,1,sometimes,1.0,always,150,sometimes,0.25
 voice139,nondrinker,0.0,no,0,never,0.0,sometimes,30,never,0,sometimes,1.0,almost never,100,almost always,2.0
@@ -95,64 +95,62 @@ voice079,casual,0.14,no,0,never,0.0,sometimes,100,sometimes,1,almost always,1.0,
 voice170,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,2.0
 voice171,nondrinker,0.0,no,0,never,0.0,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,2.0
 voice144,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
-voice145,nondrinker,0.0,yes,12,never,0.0,almost never,10,always,6,sometimes,1.0,sometimes,100,sometimes,2.0
-voice097,casual,0.36,no,0,sometimes,0.61,almost never,10,sometimes,2,almost always,1.0,sometimes,100,sometimes,2.0
-voice096,nondrinker,0.0,no,0,almost never,0.09,almost always,29,almost never,1,almost always,1.0,almost never,100,sometimes,1.5
-voice005,casual,0.36,no,0,never,0.0,sometimes,150,never,0,almost always,1.0,sometimes,200,sometimes,1.5
+voice145,nondrinker,0.0,yes,12,never,0.0,almost never,6,always,6,sometimes,1.0,sometimes,100,sometimes,2.0
+voice097,casual,0.36,no,0,sometimes,0.61,almost never,6,sometimes,2,almost always,1.17,sometimes,100,sometimes,2.0
+voice096,nondrinker,0.0,no,0,almost never,0.09,almost always,29,almost never,1,almost always,1.17,almost never,100,sometimes,1.5
 voice004,casual,0.36,casual,2,almost never,0.09,sometimes,30,always,3,sometimes,1.0,almost always,100,sometimes,1.0
 voice072,casual,0.43,no,0,sometimes,0.29,sometimes,100,almost never,0,sometimes,2.0,always,150,almost always,2.0
 voice073,nondrinker,0.0,no,0,sometimes,0.61,almost always,38,always,2,almost always,2.0,sometimes,100,almost always,1.0
 voice133,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,3,almost never,0.22,sometimes,100,sometimes,2.0
-voice132,nondrinker,0.0,no,0,sometimes,0.61,almost never,10,always,1,almost never,0.22,almost always,100,sometimes,2.0
+voice132,nondrinker,0.0,no,0,sometimes,0.61,almost never,6,always,1,almost never,0.22,almost always,100,sometimes,2.0
 voice084,habitual,1.5,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,sometimes,100,almost always,1.0
 voice085,nondrinker,0.0,no,0,always,4.0,almost always,29,almost never,1,sometimes,1.0,sometimes,100,sometimes,1.0
-voice016,habitual,2.0,yes,3,never,0.0,sometimes,30,always,3,almost always,1.0,sometimes,100,almost always,2.0
-voice017,habitual,1.0,no,0,almost never,0.09,almost never,10,almost always,3,sometimes,1.0,almost always,50,sometimes,1.0
+voice016,habitual,2.0,yes,3,never,0.0,sometimes,30,always,3,almost always,1.17,sometimes,100,almost always,2.0
+voice017,habitual,1.0,no,0,almost never,0.09,almost never,6,almost always,3,sometimes,1.0,almost always,50,sometimes,1.0
 voice157,casual,0.36,yes,15,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
 voice156,nondrinker,0.0,no,0,never,0.0,sometimes,30,always,1,sometimes,1.0,almost never,100,sometimes,2.0
 voice120,casual,0.36,no,0,almost never,0.09,sometimes,30,always,2,almost never,0.22,sometimes,100,sometimes,1.0
 voice121,nondrinker,0.0,no,0,almost never,0.09,always,14,always,2,never,0.0,sometimes,100,almost always,1.0
-voice028,nondrinker,0.0,yes,15,never,0.0,almost never,10,always,3,almost always,2.0,never,0,sometimes,1.0
+voice028,nondrinker,0.0,yes,15,never,0.0,almost never,6,always,3,almost always,2.0,never,0,sometimes,1.0
 voice029,casual,0.1,no,0,sometimes,0.1,sometimes,100,always,2,always,3.0,always,100,always,1.5
 voice169,casual,0.36,no,0,sometimes,0.61,sometimes,30,almost always,4,never,0.0,sometimes,100,almost always,2.0
 voice168,casual,0.36,yes,10,almost never,0.09,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
 voice207,nondrinker,0.0,no,0,never,0.0,sometimes,30,never,0,sometimes,1.0,sometimes,100,sometimes,2.0
 voice061,habitual,1.0,casual,2,almost never,0.09,sometimes,30,almost always,2,almost never,0.22,sometimes,100,almost always,1.0
-voice060,casual,0.36,no,0,almost always,4.0,almost never,10,never,0,almost always,3.0,sometimes,100,never,1.0
+voice060,casual,0.36,no,0,almost always,4.0,almost never,6,never,0,almost always,3.0,sometimes,100,never,1.0
 voice206,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,sometimes,2,almost never,0.22,sometimes,100,sometimes,2.5
-voice055,nondrinker,0.0,no,0,never,0.0,almost never,50,always,3,never,0.0,sometimes,100,almost never,1.0
 voice186,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,2.0
 voice187,nondrinker,0.0,yes,20,sometimes,0.61,sometimes,30,almost always,3,sometimes,1.0,sometimes,100,almost always,1.0
 voice114,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,6,almost never,0.22,sometimes,100,sometimes,1.5
-voice115,habitual,1.32,yes,15,almost never,0.09,almost never,10,never,0,sometimes,1.0,sometimes,100,almost always,2.0
+voice115,habitual,1.32,yes,15,almost never,0.09,almost never,6,never,0,sometimes,1.0,sometimes,100,almost always,2.0
 voice163,nondrinker,0.0,casual,2,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,almost never,100,sometimes,1.5
 voice162,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
 voice022,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,never,0,always,1.5,sometimes,100,sometimes,1.0
 voice023,nondrinker,0.0,no,0,never,0.0,almost always,100,sometimes,1,never,0.0,never,0,almost never,1.0
 voice048,habitual,2.0,no,0,almost never,0.09,sometimes,30,sometimes,3,sometimes,1.0,sometimes,200,almost always,2.0
-voice049,casual,0.36,casual,2,almost never,0.09,almost never,10,always,3,almost always,2.0,almost never,100,sometimes,1.5
-voice140,casual,0.36,no,0,almost never,0.09,almost never,10,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
+voice049,casual,0.36,casual,2,almost never,0.09,almost never,6,always,3,almost always,2.0,almost never,100,sometimes,1.5
+voice140,casual,0.36,no,0,almost never,0.09,almost never,6,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
 voice141,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,never,0,sometimes,1.0,sometimes,100,sometimes,1.0
-voice001,casual,0.36,no,0,almost never,0.09,almost never,10,almost always,4,sometimes,1.0,sometimes,100,sometimes,1.5
+voice001,casual,0.36,no,0,almost never,0.09,almost never,6,almost always,4,sometimes,1.0,sometimes,100,sometimes,1.5
 voice093,casual,0.36,no,0,almost never,0.09,never,0,always,1,never,0.0,sometimes,100,sometimes,1.0
-voice092,casual,0.36,no,0,never,0.0,sometimes,30,always,2,almost always,1.0,sometimes,100,almost always,0.75
-voice109,casual,0.36,yes,15,always,4.0,almost never,10,always,5,almost never,0.22,almost always,100,never,1.0
+voice092,casual,0.36,no,0,never,0.0,sometimes,30,always,2,almost always,1.17,sometimes,100,almost always,0.75
+voice109,casual,0.36,yes,15,always,4.0,almost never,6,always,5,almost never,0.22,almost always,100,never,1.0
 voice108,nondrinker,0.0,no,0,always,4.0,always,14,always,2,almost never,0.22,almost always,100,almost never,1.5
-voice076,nondrinker,0.0,no,0,almost never,1.0,almost never,10,never,0,sometimes,1.0,almost never,100,almost always,1.5
+voice076,nondrinker,0.0,no,0,almost never,1.0,almost never,6,never,0,sometimes,1.0,almost never,100,almost always,1.5
 voice077,casual,0.36,no,0,never,0.0,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,1.0
 voice137,habitual,1.32,yes,20,sometimes,0.61,sometimes,30,always,5,sometimes,1.0,sometimes,100,sometimes,1.0
-voice136,nondrinker,0.0,no,0,almost never,0.09,almost never,10,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
+voice136,nondrinker,0.0,no,0,almost never,0.09,almost never,6,always,2,sometimes,1.0,sometimes,100,sometimes,1.0
 voice103,habitual,1.32,no,0,almost never,0.09,sometimes,30,always,5,sometimes,1.0,sometimes,100,sometimes,1.5
-voice102,nondrinker,0.0,no,0,never,0.0,almost never,10,always,3,almost always,1.0,sometimes,100,sometimes,1.0
-voice099,casual,0.36,no,0,almost never,0.09,almost never,10,almost never,1,almost always,1.0,almost never,100,almost always,2.0
-voice098,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,sometimes,2,almost always,1.0,sometimes,100,almost always,2.0
+voice102,nondrinker,0.0,no,0,never,0.0,almost never,6,always,3,almost always,1.17,sometimes,100,sometimes,1.0
+voice099,casual,0.36,no,0,almost never,0.09,almost never,6,almost never,1,almost always,1.17,almost never,100,almost always,2.0
+voice098,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,sometimes,2,almost always,1.17,sometimes,100,almost always,2.0
 voice191,nondrinker,0.0,no,0,almost never,0.09,always,14,always,4,always,1.5,always,150,almost always,2.0
 voice190,casual,0.36,no,0,almost never,0.09,sometimes,30,always,4,almost never,0.22,sometimes,100,sometimes,2.0
 voice042,nondrinker,0.0,no,0,sometimes,1.0,always,2,always,2,sometimes,1.0,always,150,almost always,1.5
 voice043,nondrinker,0.0,no,0,never,0.0,sometimes,30,sometimes,1,sometimes,1.0,sometimes,100,sometimes,1.5
 voice035,casual,0.36,no,0,sometimes,0.29,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,0.75
 voice034,casual,0.29,no,0,almost never,0.09,sometimes,30,always,3,almost always,1.0,sometimes,100,sometimes,1.5
-voice174,casual,0.36,yes,20,almost never,0.09,almost never,10,always,3,sometimes,1.0,almost never,100,sometimes,1.0
+voice174,casual,0.36,yes,20,almost never,0.09,almost never,6,always,3,sometimes,1.0,almost never,100,sometimes,1.0
 voice175,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
 voice147,habitual,1.32,no,0,sometimes,0.61,sometimes,30,always,4,sometimes,1.0,almost never,100,almost never,1.0
 voice146,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,4,sometimes,1.0,almost never,100,sometimes,2.0
@@ -162,9 +160,9 @@ voice007,habitual,0.3,yes,18,almost never,0.1,sometimes,10,always,3,almost alway
 voice179,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.5
 voice178,nondrinker,0.0,casual,2,almost never,0.09,sometimes,30,sometimes,2,sometimes,1.0,sometimes,100,almost never,2.0
 voice071,casual,0.36,yes,15,almost never,0.09,sometimes,30,always,5,sometimes,1.0,sometimes,100,sometimes,1.0
-voice070,casual,0.36,yes,6,never,0.0,almost never,10,always,3,always,1.5,sometimes,100,sometimes,1.5
+voice070,casual,0.36,yes,6,never,0.0,almost never,6,always,3,always,1.5,sometimes,100,sometimes,1.5
 voice130,nondrinker,0.0,yes,20,almost never,0.09,sometimes,30,always,6,almost never,0.22,sometimes,100,almost always,1.0
-voice131,nondrinker,0.0,no,0,sometimes,0.61,almost never,10,always,1,sometimes,1.0,sometimes,100,sometimes,1.5
+voice131,nondrinker,0.0,no,0,sometimes,0.61,almost never,6,always,1,sometimes,1.0,sometimes,100,sometimes,1.5
 voice038,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
 voice039,casual,0.36,yes,12,sometimes,1.0,sometimes,50,almost always,3,sometimes,1.0,almost always,150,sometimes,1.0
 voice196,casual,0.36,no,0,almost never,0.09,sometimes,30,always,3,sometimes,1.0,almost never,100,sometimes,1.5
@@ -172,36 +170,36 @@ voice197,nondrinker,0.0,no,0,almost always,3.0,always,14,always,3,almost never,0
 voice104,nondrinker,0.0,no,0,almost always,3.0,sometimes,30,almost never,1,sometimes,1.0,sometimes,100,almost never,2.0
 voice105,nondrinker,0.0,yes,15,almost never,0.09,almost always,29,always,3,sometimes,1.0,never,0,almost never,2.0
 voice045,casual,0.36,no,0,never,0.0,sometimes,30,always,3,sometimes,0.67,sometimes,100,sometimes,1.5
-voice044,casual,0.29,no,0,never,0.0,almost never,10,always,6,sometimes,0.43,sometimes,100,sometimes,2.0
+voice044,casual,0.29,no,0,never,0.0,almost never,6,always,6,sometimes,0.43,sometimes,100,sometimes,2.0
 voice032,casual,0.36,no,0,almost never,0.09,sometimes,30,almost always,4,sometimes,1.0,sometimes,100,sometimes,1.0
 voice033,nondrinker,0.0,no,0,never,0.0,sometimes,30,always,3,almost always,1.0,almost always,50,almost always,1.0
 voice173,casual,0.36,yes,40,almost never,0.09,sometimes,30,always,4,sometimes,1.0,almost always,100,sometimes,2.0
-voice172,nondrinker,0.0,no,0,almost never,0.09,almost never,10,always,2,sometimes,1.0,sometimes,100,sometimes,2.0
-voice011,casual,0.36,no,0,never,0.0,almost never,10,almost never,1,almost never,0.22,almost never,100,sometimes,1.0
+voice172,nondrinker,0.0,no,0,almost never,0.09,almost never,6,always,2,sometimes,1.0,sometimes,100,sometimes,2.0
+voice011,casual,0.36,no,0,never,0.0,almost never,6,almost never,1,almost never,0.22,almost never,100,sometimes,1.0
 voice010,casual,0.36,no,0,sometimes,0.61,sometimes,30,sometimes,1,almost always,1.0,sometimes,100,almost always,1.5
 voice083,casual,0.36,no,0,sometimes,0.61,always,14,always,8,sometimes,1.0,always,150,sometimes,1.5
 voice082,casual,0.36,no,0,sometimes,0.61,sometimes,30,always,3,sometimes,1.0,sometimes,100,almost always,1.0
-voice119,casual,0.36,yes,10,almost always,3.0,almost never,10,always,4,sometimes,1.0,sometimes,100,almost always,1.5
+voice119,casual,0.36,yes,10,almost always,3.0,almost never,6,always,4,sometimes,1.0,sometimes,100,almost always,1.5
 voice118,casual,0.36,yes,5,always,4.0,always,14,always,6,never,0.0,sometimes,100,sometimes,1.0
 voice058,casual,0.36,no,0,almost never,0.09,sometimes,30,almost always,2,sometimes,1.0,sometimes,100,sometimes,1.5
 voice059,habitual,1.0,no,0,almost never,0.09,sometimes,100,always,4,almost always,1.0,sometimes,100,sometimes,1.5
-voice150,nondrinker,0.0,no,0,sometimes,0.61,almost never,10,always,2,sometimes,1.0,sometimes,100,sometimes,1.5
+voice150,nondrinker,0.0,no,0,sometimes,0.61,almost never,6,always,2,sometimes,1.0,sometimes,100,sometimes,1.5
 voice151,casual,0.36,yes,10,almost always,3.0,almost always,29,always,3,sometimes,1.0,sometimes,100,sometimes,1.0
-voice127,habitual,1.32,no,0,never,0.0,almost never,10,always,1,never,0.0,never,0,almost never,1.5
+voice127,habitual,1.32,no,0,never,0.0,almost never,6,always,1,never,0.0,never,0,almost never,1.5
 voice126,nondrinker,0.0,no,0,never,0.0,almost always,29,always,3,almost never,0.22,sometimes,100,sometimes,2.5
-voice066,casual,0.36,no,0,almost never,0.09,almost always,50,always,3,almost always,1.0,sometimes,100,sometimes,2.0
+voice066,casual,0.36,no,0,almost never,0.09,almost always,50,always,3,almost always,1.17,sometimes,100,sometimes,2.0
 voice200,habitual,1.32,yes,40,sometimes,0.61,sometimes,30,always,4,sometimes,1.0,sometimes,100,sometimes,1.0
-voice201,nondrinker,0.0,no,0,almost never,0.09,almost never,10,always,2,almost never,0.22,almost never,100,sometimes,1.0
+voice201,nondrinker,0.0,no,0,almost never,0.09,almost never,6,always,2,almost never,0.22,almost never,100,sometimes,1.0
 voice067,casual,0.5,yes,15,sometimes,0.5,almost always,20,always,6,sometimes,1.0,almost always,100,almost always,2.0
 voice052,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,sometimes,3.0,sometimes,100,almost always,2.0
 voice053,nondrinker,0.0,no,0,sometimes,0.14,sometimes,10,almost always,2,sometimes,2.0,sometimes,300,sometimes,1.0
 voice113,nondrinker,0.0,yes,12,almost never,0.09,sometimes,30,always,2,sometimes,1.0,sometimes,100,almost always,2.0
 voice112,nondrinker,0.0,no,0,sometimes,0.61,sometimes,30,always,2,sometimes,1.0,sometimes,100,sometimes,2.0
 voice089,nondrinker,0.0,no,0,never,0.0,sometimes,30,always,4,sometimes,1.0,almost always,100,almost always,2.0
-voice088,casual,0.36,no,0,never,0.0,never,0,always,3,almost always,1.0,sometimes,100,sometimes,1.5
+voice088,casual,0.36,no,0,never,0.0,never,0,always,3,almost always,1.17,sometimes,100,sometimes,1.5
 voice181,nondrinker,0.0,no,0,almost never,0.09,sometimes,30,always,3,always,1.5,sometimes,100,almost always,1.5
 voice180,casual,0.36,no,0,never,0.0,sometimes,30,never,0,never,0.0,sometimes,100,sometimes,1.5
 voice164,casual,0.36,no,0,sometimes,0.61,sometimes,30,sometimes,2,sometimes,1.0,sometimes,100,sometimes,1.0
 voice165,casual,0.36,no,0,sometimes,0.61,sometimes,30,sometimes,2,never,0.0,almost never,100,sometimes,1.5
 voice025,habitual,1.0,no,0,almost never,0.09,sometimes,10,always,1,almost always,1.0,sometimes,5,sometimes,1.5
-voice024,casual,0.36,no,0,never,0.0,almost never,10,always,1,sometimes,0.14,sometimes,5,sometimes,1.5
+voice024,casual,0.36,no,0,never,0.0,almost never,6,always,1,sometimes,0.14,sometimes,5,sometimes,1.5
