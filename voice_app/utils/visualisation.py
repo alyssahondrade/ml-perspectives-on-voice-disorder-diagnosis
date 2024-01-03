@@ -1,4 +1,5 @@
 # Import dependencies
+import streamlit as st
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
@@ -26,3 +27,87 @@ def display_waveform(filepath_audio):
     plt.title('Waveform')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
+
+
+def calculate_score(options, responses):
+    """
+    Purposes:
+    - Map options to a numerical score for calculations
+
+    Input: Responses in a dictionary format
+    Output: Mapped scores
+    """
+    
+    # Get the responses as a list
+    word_response = list(responses.values())
+
+    # Convert to numerical value
+    num_response = [options.index(word) for word in word_response]
+
+    return sum(num_response)
+
+
+def create_questionnaire(type, questions, options):
+    """
+    Purpose:
+    - Build questionnaire
+
+    Input:
+    - Questions in a dictionary format
+    - Options, as it would appear in the form
+
+    Output: Sum of all scores
+    """
+
+    # Initialise a dictionary to hold responses
+    responses = dict()
+
+    # Loop through each key in the questions dictionary
+    for idx, (key, value) in enumerate(questions.items()):
+
+        # Headers
+        st.header(f"Question {idx+1}")
+        st.subheader(value)
+
+        # Radiobutton
+        if type == 'vhi':
+            
+            # Horizontal buttons for VHI
+            response = st.radio(
+                label = f"Question {idx+1}: {value}",
+                options = options,
+                horizontal = True,
+                label_visibility = "hidden"
+            )
+        else:
+
+            # Vertical buttons for RSI
+            response = st.radio(
+                label = f"Question {idx+1}: {value}",
+                options = options,
+                label_visibility = "hidden"
+            )
+
+        # Add divider for formatting
+        st.divider()
+
+        # Populate the response dictionary
+        responses[key] = response
+
+    # Submit button
+    if st.button(label = "Submit", use_container_width = True):
+        
+        # Calculate the raw score
+        raw_score = calculate_score(options, responses)
+
+        # Scale the score
+        if type == 'vhi':
+            final_score = raw_score * 106 / 40
+        else:
+            final_score = raw_score
+
+        # Display the final score
+        st.subheader(f"{type.upper()} Score: {int(final_score)}")
+        
+    
+    return responses

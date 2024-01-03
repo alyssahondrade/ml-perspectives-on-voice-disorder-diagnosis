@@ -1,0 +1,40 @@
+# Import dependencies
+import streamlit as st
+from utils.visualisation import create_questionnaire
+
+
+def main():
+
+    st.title("Voice Handicap Index Questionnaire")
+    
+    # Instructions
+    st.subheader("Instructions")
+    st.write(
+        """
+        These are statements many people have used to describe their voices\
+        and the effects of their voices on their lives.
+
+        Please select the response that indicates how frequently you have\
+        the same experience.
+        """
+    )
+    
+    # Questions derived from Melbourne ENT Group VHI-10 Questionnaire
+    questions = {
+        'Question 1': 'My voice makes it difficult for people to hear me',
+        'Question 2': 'People have difficulty understanding me in a noisy room',
+        'Question 3': 'My voice difficulties restrict my personal & social life',
+        'Question 4': 'I feel left out of conversations because of my voice',
+        'Question 5': 'My voice problem causes me to lose income',
+        'Question 6': 'I feel as though I have to strain to produce voice',
+        'Question 7': 'The clarity of my voice is unpredictable',
+        'Question 8': 'My voice upsets me',
+        'Question 9': 'My voice makes me feel handicapped',
+        'Question 10': 'People ask, "What\'s wrong with your voice?"'
+    }
+
+    options = ['Never', 'Almost Never', 'Sometimes', 'Almost Always', 'Always']
+    user_responses = create_questionnaire('vhi', questions, options)
+
+if __name__ == '__main__':
+    main()
