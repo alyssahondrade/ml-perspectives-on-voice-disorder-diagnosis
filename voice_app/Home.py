@@ -1,11 +1,11 @@
 # Import dependencies
 import streamlit as st
 import pandas as pd
-import numpy
+import numpy as np
 import os
 
 import matplotlib.pyplot as plt
-from utils.visualisation import display_waveform
+from utils.visualisation import display_waveform, display_spectrogram
 
 def page_configuration():
     st.set_page_config(
@@ -13,12 +13,8 @@ def page_configuration():
         page_icon = ":home:"
     )
     
-    st.title("Perspectives on Voice Disorder Diagnosis")
+    st.title("Voice Disorder Diagnosis")
     st.header("Machine Learning Models")
-
-    # Test image
-    image_path = "assets/images/icons8-home-50.png"
-    st.image(image_path, caption = "My home icon", use_column_width=True)
 
 
 def audio_select():
@@ -53,13 +49,21 @@ def audio_select():
     )
     
     # Plot the selected waveform
-    fig, ax = plt.subplots()
+    st.subheader("Waveform")
+    fig_wave = plt.figure()
     display_waveform(selected_audio)
-    st.pyplot(fig)
+    st.pyplot(fig_wave)
+
+    # Plot the selected spectrogram
+    st.subheader("Spectrogram")
+    fig_spec = plt.figure()
+    display_spectrogram(selected_audio)
+    st.pyplot(fig_spec)
 
 
 def main():
     page_configuration()
+    st.divider()
     audio_select()
     
 

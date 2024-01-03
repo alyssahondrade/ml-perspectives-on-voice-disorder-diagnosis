@@ -24,17 +24,16 @@ def main():
     questions = {
         'Question 1': 'Hoarseness or a problem with your voice',
         'Question 2': 'Clearing your throat',
-        'Question 3': '',
-        'Question 4': '',
-        'Question 5': '',
-        'Question 6': '',
-        'Question 7': '',
-        'Question 8': '',
-        'Question 9': '',
-        'Question 10': ''
+        'Question 3': 'Excess throat or mucous post-nasal drip',
+        'Question 4': 'Difficulty swallowing food, liquids, or pills',
+        'Question 5': 'Coughing after you ate or after lying down',
+        'Question 6': 'Breathing difficulties or choking episodes',
+        'Question 7': 'Troublesome or annoying cough',
+        'Question 8': 'Sensations of something sticking in your throat',
+        'Question 9': 'Heartburn, chest pain, or indigestion'
     }
 
-    
+    # Define the options
     options = [
         'No problem',
         'Very mild problem',
@@ -43,6 +42,8 @@ def main():
         'Severe problem',
         'Problem as bad as it can be'
     ]
+
+    # Use function to create questionnaire
     user_responses = create_questionnaire('rsi', questions, options)
 
 if __name__ == '__main__':

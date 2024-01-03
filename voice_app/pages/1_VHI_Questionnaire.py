@@ -4,7 +4,6 @@ from utils.visualisation import create_questionnaire
 
 
 def main():
-
     st.title("Voice Handicap Index Questionnaire")
     
     # Instructions
@@ -33,7 +32,10 @@ def main():
         'Question 10': 'People ask, "What\'s wrong with your voice?"'
     }
 
+    # Define the options
     options = ['Never', 'Almost Never', 'Sometimes', 'Almost Always', 'Always']
+
+    # Use function to create questionnaire
     user_responses = create_questionnaire('vhi', questions, options)
 
 if __name__ == '__main__':

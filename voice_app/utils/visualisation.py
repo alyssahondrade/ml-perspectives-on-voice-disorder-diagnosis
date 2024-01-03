@@ -1,5 +1,6 @@
 # Import dependencies
 import streamlit as st
+import numpy as np
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
@@ -27,6 +28,40 @@ def display_waveform(filepath_audio):
     plt.title('Waveform')
     plt.xlabel('Time (s)')
     plt.ylabel('Amplitude')
+
+
+def display_spectrogram(filepath_audio):
+    """
+    Purpose:
+    - Display audio file's spectrogram.
+
+    Input: filepath_audio
+    Output: Displays plot
+    """
+    
+    # Load the audio file using librosa
+    y, sr = librosa.load(
+        filepath_audio,
+        sr = None # preserve sampling rate
+    )
+
+    # Plot the spectrogram
+    D = librosa.amplitude_to_db(
+        np.abs(librosa.stft(y)),
+        ref = np.max
+    )
+
+    # Plot the spectrogram
+    librosa.display.specshow(
+        D,
+        sr = sr,
+        x_axis = 'time',
+        y_axis = 'log' # can also choose: linear
+    )
+    
+    # Add labels
+    plt.title('Spectrogram')
+    plt.colorbar(format='%+2.0f dB')
 
 
 def calculate_score(options, responses):
@@ -61,6 +96,12 @@ def create_questionnaire(type, questions, options):
 
     # Initialise a dictionary to hold responses
     responses = dict()
+
+    # Initialise default final_score for later update
+    final_score = 0
+
+    # Add divider for formatting
+    st.divider()
 
     # Loop through each key in the questions dictionary
     for idx, (key, value) in enumerate(questions.items()):
@@ -99,7 +140,7 @@ def create_questionnaire(type, questions, options):
         
         # Calculate the raw score
         raw_score = calculate_score(options, responses)
-
+        
         # Scale the score
         if type == 'vhi':
             final_score = raw_score * 106 / 40
@@ -110,4 +151,4 @@ def create_questionnaire(type, questions, options):
         st.subheader(f"{type.upper()} Score: {int(final_score)}")
         
     
-    return responses
+    return final_score
