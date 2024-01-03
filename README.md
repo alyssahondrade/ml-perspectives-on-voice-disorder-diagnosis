@@ -5,14 +5,14 @@ Github repository at: [https://github.com/alyssahondrade/Project4.git](https://g
 
 
 ## Table of Contents
-1. [Introduction]()
-    1. [Background]()
-    2. [Scope]()
-    3. [Repository Structure]()
-    4. [Dataset]()
-2. [Technology]()
-3. [Process]()
-4. [References]()
+1. [Introduction](https://github.com/alyssahondrade/Project4#introduction)
+    1. [Background](https://github.com/alyssahondrade/Project4#background)
+    2. [Scope](https://github.com/alyssahondrade/Project4#scope)
+    3. [Repository Structure](https://github.com/alyssahondrade/Project4#repository-structure)
+    4. [Dataset](https://github.com/alyssahondrade/Project4#dataset)
+2. [Technology](https://github.com/alyssahondrade/Project4#technology)
+3. [Process](https://github.com/alyssahondrade/Project4#process)
+4. [References](https://github.com/alyssahondrade/Project4#references)
 
 
 ## Introduction
@@ -54,18 +54,18 @@ The VOICED database includes clinically-verified 208 voice samples, from 150 pat
 
 The dataset can be downloaded from: [https://physionet.org/content/voiced/1.0.0/](https://physionet.org/content/voiced/1.0.0/)
 
-The original publication is available at: [https://www.sciencedirect.com/science/article/abs/pii/S0045790617338739?via%3Dihub](https://www.sciencedirect.com/science/article/abs/pii/S0045790617338739?via%3Dihub)
+The original publication is available at: [https://www.sciencedirect.com/science/article/abs/pii/S0045790617338739](https://www.sciencedirect.com/science/article/abs/pii/S0045790617338739)
 
 
 ## Technology
 1. Python Pandas - for data cleaning and preprocessing.
-2. Python Matplotlibn - for visualising waveforms and spectrograms.
+2. Python Matplotlib - for visualising waveforms and spectrograms.
 3. SQL database - to store engineered features.
 
 
 ## Process
-Available at: []()
+Available at: [https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md)
 
 
 ## References
-Available at: []()
+Available at: [https://github.com/alyssahondrade/Project4/blob/main/markdown/references.md](https://github.com/alyssahondrade/Project4/blob/main/markdown/references.md)
