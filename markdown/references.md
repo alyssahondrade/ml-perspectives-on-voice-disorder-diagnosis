@@ -55,6 +55,8 @@
 
 - [] Pillow Image Module Documentation [https://pillow.readthedocs.io/en/stable/reference/Image.html](https://pillow.readthedocs.io/en/stable/reference/Image.html)
 
+- [] Seaborn Heatmap [https://seaborn.pydata.org/generated/seaborn.heatmap.html](https://seaborn.pydata.org/generated/seaborn.heatmap.html)
+
 
 ## Signal Processing
 - [] Audio Analysis with Machine Learning [https://www.altexsoft.com/blog/audio-analysis/](https://www.altexsoft.com/blog/audio-analysis/)
