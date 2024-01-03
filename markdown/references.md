@@ -60,6 +60,15 @@
 - [] Audio Analysis with Machine Learning [https://www.altexsoft.com/blog/audio-analysis/](https://www.altexsoft.com/blog/audio-analysis/)
 
 
+## Streamlit
+- [] Create an app [https://docs.streamlit.io/get-started/tutorials/create-an-app](https://docs.streamlit.io/get-started/tutorials/create-an-app)
+
+- [] A Guide for Multi-Page Web Application [https://medium.com/@prateek1994kumar2109/a-guide-for-building-a-multi-page-web-application-using-streamlit-5ffe3bbae645](https://medium.com/@prateek1994kumar2109/a-guide-for-building-a-multi-page-web-application-using-streamlit-5ffe3bbae645)
+
+- [] Multi-Page Apps [https://docs.streamlit.io/library/advanced-features/multipage-apps](https://docs.streamlit.io/library/advanced-features/multipage-apps)
+
+- [] st.radio [https://docs.streamlit.io/library/api-reference/widgets/st.radio](https://docs.streamlit.io/library/api-reference/widgets/st.radio)
+
 ## Voice Disorders
 - [] Voice Disorders [https://www.asha.org/practice-portal/clinical-topics/voice-disorders/](https://www.asha.org/practice-portal/clinical-topics/voice-disorders/)
 
@@ -68,3 +77,7 @@
 - [] Waveform Database [https://wfdb.io/](https://wfdb.io/)
 
 - [] Harmonics vs Formants [https://www.voicescienceworks.org/harmonics-vs-formants.html](https://www.voicescienceworks.org/harmonics-vs-formants.html)
+
+- [] Voice Handicap Index (VHI-10) [https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Voice-Handicap-Index-VHI-10.pdf](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Voice-Handicap-Index-VHI-10.pdf)
+
+- [] Reflux Severity Index (RSI) [https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf)

@@ -42,11 +42,13 @@ Perspectives
 - `markdown` directory contains all markdown files which support the README and project.
 - `models` directory contains all pre-trained models.
 - `notebooks` directory contains all Jupyter notebooks.
+- `voice_app` directory contains all files related to the Streamlit app.
 
 The `resources` directory contains the following subdirectories:
 - `audio_files` contains the samples in `wav` format.
 - `clean_data` contains the cleaned data in `csv` format.
-- `spectrograms_linear` contains the images in `png` format.
+- `spectrograms` contains the images in `png` format.
+- `tracker` contains the performance trackers in `csv` format.
 - `voiced_dataset` is the raw dataset.
 
 ### Dataset
