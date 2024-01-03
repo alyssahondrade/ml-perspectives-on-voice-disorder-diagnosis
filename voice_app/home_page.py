@@ -4,9 +4,8 @@ import pandas as pd
 import numpy
 import os
 
-import librosa
-import librosa.display
 import matplotlib.pyplot as plt
+from utils.visualisation import display_waveform
 
 st.set_page_config(
     page_title = "Voice Disorder Diagnosis",
@@ -47,20 +46,6 @@ selected_audio = os.path.join(
 st.audio(selected_audio, format="audio/wav", start_time=0)
 
 # Plot the selected waveform
-
-
-def display_waveform(filepath_audio):
-    y, sr = librosa.load(
-        filepath_audio, # full file path
-        sr = None # preserve sampling rate
-    )
-
-    librosa.display.waveshow(y, sr=sr)
-
-    plt.title('Waveform')
-    plt.xlabel('Time (s)')
-    plt.ylabel('Amplitude')
-
 fig, ax = plt.subplots()
 display_waveform(selected_audio)
 st.pyplot(fig)
