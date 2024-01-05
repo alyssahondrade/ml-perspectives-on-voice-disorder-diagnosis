@@ -6,5 +6,25 @@
     "M"
   ],
   "max_vhi_score": 120,
-  "max_vhi10_score": 40
+  "max_vhi10_score": 40,
+  "min_vhi_score": 0,
+  "avg_vhi_score": 23,
+  "min_rsi_score": 0,
+  "max_rsi_score": 45,
+  "avg_rsi_score": 11,
+  "smoker_options": [
+    "No",
+    "Casual",
+    "Yes"
+  ],
+  "avg_cig_pd": 3,
+  "min_cig_pd": 0,
+  "alcohol_options": [
+    "Nondrinker",
+    "Casual",
+    "Habitual"
+  ],
+  "min_alc_pd": 0.0,
+  "avg_alc_pd": 1,
+  "avg_alc_pw": 3
 }

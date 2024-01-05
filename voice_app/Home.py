@@ -72,19 +72,16 @@ def main():
     with open(data_path, 'r') as file:
         data = json.load(file)
     
+    st.divider()
     st.header('Questionnaire')
-    
-    
-    col1, col2 = st.columns(2)
 
-    with col1:
-        st.subheader("Age")
+    demographic, sa_scores = st.columns(2)
+    with demographic:
+        st.subheader("Demographic Information")
 
-    with col2:
-        
         # Age input
         user_age = st.number_input(
-            label = "Age",
+            label = f"Age ({data['min_age']}-{data['max_age']})",
             min_value = data['min_age'],
             max_value = data['max_age'],
             value = "min"
@@ -97,9 +94,85 @@ def main():
             horizontal = True
         )
         
+    with sa_scores:
+        st.subheader("Self-Assessment Scores")
+        
         # VHI Score
-        # user_vhi = st.number_input(
-            # label = "VHI Score",
+        user_vhi = st.number_input(
+            label = f"VHI Score ({data['min_vhi_score']}-{data['max_vhi_score']})",
+            min_value = data['min_vhi_score'],
+            max_value = data['max_vhi_score'],
+            value = data['avg_vhi_score']
+        )
+        
+        # RSI Score
+        user_rsi = st.number_input(
+            label = f"RSI Score ({data['min_rsi_score']}-{data['max_rsi_score']})",
+            min_value = data['min_rsi_score'],
+            max_value = data['max_rsi_score'],
+            value = data['avg_rsi_score']
+        )
+
+    # Lifestyle questions
+    st.subheader("Lifestyle")
+    
+    # Set up two columns for the smoker questions
+    initial_smoker, followup_smoker = st.columns(2)
+    with initial_smoker:
+        # Options: no, casual, yes
+        user_smoker_opt = st.radio(
+            label = "Do you smoke?",
+            options = data['smoker_options']
+        )            
+    with followup_smoker:
+        # Number of cigarettes per day
+        if user_smoker_opt in ["Casual", "Yes"]:
+            user_smoker_count = st.number_input(
+                label = "How many cigarettes per day?",
+                value = data['avg_cig_pd']
+            )
+        else:
+            # Disable selection if: no
+            st.number_input(
+                label = "How many cigarettes per day?",
+                value = data['min_cig_pd'],
+                disabled = True
+            )
+
+    # Set up two columns for alcohol consumption questions
+    initial_alcohol, followup_alcohol = st.columns(2)
+    with initial_alcohol:
+        # Options: nondrinker, casual, habitual
+        user_alc_opt = st.radio(
+            label = "Alcohol consumption",
+            options = data['alcohol_options']
+        )
+    with followup_alcohol:
+        if user_alc_opt in ["Casual", "Habitual"]:
+            # User to select units: per day v. per week
+            alc_units = st.selectbox(
+                label = "Units: per day or per week",
+                options = ['Per day', 'Per week']
+            )
+
+            # Trigger based on selected option
+            if alc_units == "Per day":
+                alc_pd = st.number_input(
+                    label = "How many glasses per day?",
+                    value = data['avg_alc_pd']
+                )
+            else:
+                alc_pw = st.number_input(
+                    label = "How many glasses per week?",
+                    value = data['avg_alc_pw']
+                )
+        else:
+            # Disable selection if: nondrinker
+            st.selectbox(
+                label = "Units: per day or per week",
+                options = ['Per day', 'Per week'],
+                disabled = True
+            )
 
 
 if __name__ == '__main__':
