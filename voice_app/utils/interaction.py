@@ -399,7 +399,8 @@ def metadata_questionnaire():
     habit_pd = dict()
     metadata_habits(habit_bool, habit_pd)
     
+    # Add the habits to metadata_dict
+    metadata_dict['habit_bool'] = habit_bool
+    metadata_dict['habit_pd'] = habit_pd
     
-    pprint(metadata_dict)
-    pprint(habit_bool)
-    pprint(habit_pd)
+    return metadata_dict

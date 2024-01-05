@@ -8,6 +8,7 @@ import json
 import matplotlib.pyplot as plt
 from utils.visualisation import display_waveform, display_spectrogram
 from utils.interaction import metadata_questionnaire
+from utils.preprocessing import meta_preprocessing
 
 def page_configuration():
     st.set_page_config(
@@ -66,12 +67,19 @@ def audio_select():
 def main():
     page_configuration()
     st.divider()
+    user_voice = st.file_uploader(
+        label = "Upload your voice sample",
+        type = "wav",
+        accept_multiple_files = False,
+        label_visibility = "visible"
+    )
     audio_select()
     
     st.divider()
     st.header('Questionnaire')
-    metadata_questionnaire()
-
+    user_responses = metadata_questionnaire()
+    
+    meta_preprocessing(user_responses)
     
 
 if __name__ == '__main__':
