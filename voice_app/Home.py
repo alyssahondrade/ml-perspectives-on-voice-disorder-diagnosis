@@ -122,7 +122,8 @@ def main():
         # Options: no, casual, yes
         user_smoker_opt = st.radio(
             label = "Do you smoke?",
-            options = data['smoker_options']
+            options = data['smoker_options'],
+            index = int(len(data['smoker_options'])/2)
         )            
     with followup_smoker:
         # Number of cigarettes per day
@@ -145,7 +146,8 @@ def main():
         # Options: nondrinker, casual, habitual
         user_alc_opt = st.radio(
             label = "Alcohol consumption",
-            options = data['alcohol_options']
+            options = data['alcohol_options'],
+            index = int(len(data['alcohol_options'])/2)
         )
     with followup_alcohol:
         if user_alc_opt in ["Casual", "Habitual"]:
@@ -173,6 +175,11 @@ def main():
                 options = ['Per day', 'Per week'],
                 disabled = True
             )
+            alc_pd = st.number_input(
+                label = "How many glasses per day?",
+                value = data['avg_alc_pd'],
+                disabled = True
+            )
 
     # Water consumption
     user_water = st.slider(
@@ -185,6 +192,7 @@ def main():
     
     # Habits
     habit_bool = dict()
+    habit_pd = dict()
     
     for habit in sorted(data['habit_cols']):
         # Clean up the name
@@ -197,7 +205,8 @@ def main():
                 # Create a toggle
                 response_bool = st.radio(
                     label = clean_name,
-                    options = data['habit_options']
+                    options = data['habit_options'],
+                    index = int(len(data['habit_options'])/2)
                 )
 
                 # Save the response to the dictionary
@@ -206,13 +215,21 @@ def main():
             with pd_col:
                 if response_bool != "Never":
                     # Integer habits
-                    if habit in ['chocolate', 'coffee', 'soft_cheese']:
+                    if habit in ['chocolate', 'soft_cheese']:
                         response_pd = st.slider(
                             label = f"How many {habit} per day?",
                             min_value = 0,
                             max_value = data[f'max_{habit}'],
                             value = data[f'avg_{habit}'],
                             step = 10
+                        )
+                    elif habit == 'coffee':
+                        response_pd = st.slider(
+                            label = f"How many {habit} per day?",
+                            min_value = 0,
+                            max_value = data[f'max_{habit}'],
+                            value = data[f'avg_{habit}'],
+                            step = 1
                         )
                     # Float habits
                     else:
@@ -223,6 +240,10 @@ def main():
                             value = data[f'avg_{habit}'],
                             step = 0.5
                         )
+                    
+                    # Save the response to the dictionary
+                    habit_pd[clean_name] = response_pd
+                    
                 else:
                     # Disable selection if: never
                     # Integer habits
@@ -248,6 +269,7 @@ def main():
                 response_bool = st.radio(
                     label = clean_name,
                     options = data['habit_options'],
+                    index = int(len(data['habit_options'])/2),
                     horizontal = True
                 )
 
@@ -255,7 +277,7 @@ def main():
                 habit_bool[clean_name] = response_bool
             
     
-    print(habit_bool)
+    print(habit_bool, habit_pd)
 
     
 
