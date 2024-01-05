@@ -66,6 +66,32 @@ def main():
     st.divider()
     audio_select()
     
+    st.header('Questionnaire')
+    
+
+    
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("Age")
+
+    with col2:
+        
+        # Age input
+        user_age = st.number_input(
+            label = "Age",
+            min_value = 18,
+            max_value = 70,
+            value = "min"
+        )
+        
+        # Gender input
+        user_gender = st.radio(
+            label = "Gender",
+            options = ['F', 'M'],
+            horizontal = True
+        )
+
 
 if __name__ == '__main__':
     main()

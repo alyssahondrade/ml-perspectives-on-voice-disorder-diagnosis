@@ -2,8 +2,8 @@
 import streamlit as st
 from utils.visualisation import create_questionnaire
 
-
-def main():
+def build_header():
+    # Title
     st.title("Voice Handicap Index Questionnaire")
     
     # Instructions
@@ -18,6 +18,12 @@ def main():
         """
     )
     
+    # Reference
+    ref_text = "Source: Melbourne ENT Group - Voice Handicap Index (VHI-10)"
+    ref_link = "https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Voice-Handicap-Index-VHI-10.pdf"
+    st.markdown(f"[{ref_text}]({ref_link})")
+    
+def main():
     # Questions derived from Melbourne ENT Group VHI-10 Questionnaire
     questions = {
         'Question 1': 'My voice makes it difficult for people to hear me',
@@ -39,4 +45,5 @@ def main():
     user_responses = create_questionnaire('vhi', questions, options)
 
 if __name__ == '__main__':
+    build_header()
     main()

@@ -2,8 +2,8 @@
 import streamlit as st
 from utils.visualisation import create_questionnaire
 
-
-def main():
+def build_header():
+    # Title
     st.title("Reflux Severity Index Questionnaire")
     
     # Instructions
@@ -20,6 +20,12 @@ def main():
         """
     )
     
+    # Reference
+    ref_text = "Source: Melbourne ENT Group - Reflux Severity Index (RSI)"
+    ref_link = "https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf"
+    st.markdown(f"[{ref_text}]({ref_link})")
+    
+def main():    
     # Questions derived from Melbourne ENT Group RSI Questionnaire
     questions = {
         'Question 1': 'Hoarseness or a problem with your voice',
@@ -47,4 +53,5 @@ def main():
     user_responses = create_questionnaire('rsi', questions, options)
 
 if __name__ == '__main__':
+    build_header()
     main()
