@@ -1,6 +1,7 @@
 # Import dependencies
 import streamlit as st
 import json
+from pprint import pprint
 
 # Read JSON file
 data_path = 'assets/default_data.json'
@@ -99,6 +100,10 @@ def create_questionnaire(type, questions, options):
     return final_score
 
 def metadata_questionnaire():
+    # Initialise dictionary to hold results
+    metadata_dict = dict()
+    
+    # Demographic questions
     demographic, sa_scores = st.columns(2)
     with demographic:
         st.subheader("Demographic Information")
@@ -118,6 +123,10 @@ def metadata_questionnaire():
             horizontal = True
         )
         
+        # Save the responses to the dictionary
+        metadata_dict['age'] = user_age
+        metadata_dict['gender'] = user_gender
+        
     with sa_scores:
         st.subheader("Self-Assessment Scores")
         
@@ -136,6 +145,10 @@ def metadata_questionnaire():
             max_value = data['max_rsi_score'],
             value = data['avg_rsi_score']
         )
+        
+        # Save the responses to the dictionary
+        metadata_dict['vhi_score'] = user_vhi
+        metadata_dict['rsi_score'] = user_rsi
 
     # Lifestyle questions
     st.subheader("Lifestyle")
@@ -148,7 +161,7 @@ def metadata_questionnaire():
             label = "Do you smoke?",
             options = data['smoker_options'],
             index = int(len(data['smoker_options'])/2)
-        )            
+        )
     with followup_smoker:
         # Number of cigarettes per day
         if user_smoker_opt in ["Casual", "Yes"]:
@@ -163,6 +176,9 @@ def metadata_questionnaire():
                 value = data['min_cig_pd'],
                 disabled = True
             )
+    # Save the responses to the dictionary
+    metadata_dict['smoker'] = user_smoker_opt
+    metadata_dict['cigarettes_pd'] = user_smoker_count
 
     # Alcohol Consumption
     initial_alcohol, followup_alcohol = st.columns(2)
@@ -187,11 +203,15 @@ def metadata_questionnaire():
                     label = "How many glasses per day?",
                     value = data['avg_alc_pd']
                 )
+                # Save the response
+                metadata_dict['alc_pd'] = alc_pd
             else:
                 alc_pw = st.number_input(
                     label = "How many glasses per week?",
                     value = data['avg_alc_pw']
                 )
+                # Save the response
+                metadata_dict['alc_pw'] = alc_pw
         else:
             # Disable selection if: nondrinker
             st.selectbox(
@@ -204,6 +224,11 @@ def metadata_questionnaire():
                 value = data['avg_alc_pd'],
                 disabled = True
             )
+    # Save the responses to the dictionary
+    metadata_dict['alcohol_consumption'] = user_alc_opt
+    metadata_dict['alcohol_units'] = alc_units
+    
+    
 
     # Water consumption
     user_water = st.slider(
@@ -213,6 +238,8 @@ def metadata_questionnaire():
         value = 0.5 * data['max_water'],
         step = 0.25
     )
+    # Save the response to the dictionary
+    metadata_dict['water_litres_pd'] = user_water
     
     # Habits
     habit_bool = dict()
@@ -301,4 +328,6 @@ def metadata_questionnaire():
                 habit_bool[clean_name] = response_bool
             
     
-    print(habit_bool, habit_pd)
+    pprint(metadata_dict)
+    pprint(habit_bool)
+    pprint(habit_pd)
