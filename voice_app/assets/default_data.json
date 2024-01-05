@@ -5,9 +5,9 @@
     "F",
     "M"
   ],
+  "min_vhi_score": 0,
   "max_vhi_score": 120,
   "max_vhi10_score": 40,
-  "min_vhi_score": 0,
   "avg_vhi_score": 23,
   "min_rsi_score": 0,
   "max_rsi_score": 45,
@@ -17,8 +17,8 @@
     "Casual",
     "Yes"
   ],
-  "avg_cig_pd": 3,
   "min_cig_pd": 0,
+  "avg_cig_pd": 3,
   "alcohol_options": [
     "Nondrinker",
     "Casual",
@@ -28,5 +28,30 @@
   "avg_alc_pd": 1,
   "avg_alc_pw": 3,
   "min_water": 0.25,
-  "max_water": 5.0
+  "max_water": 5.0,
+  "habit_cols": [
+    "carbonated_beverages",
+    "tomatoes",
+    "coffee",
+    "chocolate",
+    "soft_cheese",
+    "citrus_fruits"
+  ],
+  "habit_options": [
+    "Never",
+    "Almost never",
+    "Sometimes",
+    "Almost always",
+    "Always"
+  ],
+  "avg_carbonated_beverages": 0.5,
+  "avg_coffee": 2,
+  "avg_chocolate": 20,
+  "avg_soft_cheese": 100,
+  "avg_citrus_fruits": 1.0,
+  "max_carbonated_beverages": 4.0,
+  "max_coffee": 8,
+  "max_chocolate": 300,
+  "max_soft_cheese": 400,
+  "max_citrus_fruits": 3.0
 }

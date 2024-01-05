@@ -182,6 +182,80 @@ def main():
         value = 0.5 * data['max_water'],
         step = 0.25
     )
+    
+    # Habits
+    habit_bool = dict()
+    
+    for habit in sorted(data['habit_cols']):
+        # Clean up the name
+        clean_name = habit.replace("_", " ").capitalize()
+        
+        # If not 'tomatoes' create columns
+        if habit != 'tomatoes':
+            selection_col, pd_col = st.columns(2)
+            with selection_col:
+                # Create a toggle
+                response_bool = st.radio(
+                    label = clean_name,
+                    options = data['habit_options']
+                )
+
+                # Save the response to the dictionary
+                habit_bool[clean_name] = response_bool
+
+            with pd_col:
+                if response_bool != "Never":
+                    # Integer habits
+                    if habit in ['chocolate', 'coffee', 'soft_cheese']:
+                        response_pd = st.slider(
+                            label = f"How many {habit} per day?",
+                            min_value = 0,
+                            max_value = data[f'max_{habit}'],
+                            value = data[f'avg_{habit}'],
+                            step = 10
+                        )
+                    # Float habits
+                    else:
+                        response_pd = st.slider(
+                            label = f"How many {habit} per day?",
+                            min_value = 0.0,
+                            max_value = data[f'max_{habit}'],
+                            value = data[f'avg_{habit}'],
+                            step = 0.5
+                        )
+                else:
+                    # Disable selection if: never
+                    # Integer habits
+                    if habit in ['chocolate', 'coffee', 'soft_cheese']:
+                        st.slider(
+                            label = f"How many {habit} per day?",
+                            min_value = 0,
+                            max_value = data[f'max_{habit}'],
+                            value = data[f'avg_{habit}'],
+                            disabled = True
+                        )
+                    # Float habits
+                    else:
+                        st.slider(
+                            label = f"How many {habit} per day?",
+                            min_value = 0.0,
+                            max_value = data[f'max_{habit}'],
+                            value = data[f'avg_{habit}'],
+                            disabled = True
+                        )
+        else:
+            # If 'tomatoes' column, create a toggle
+                response_bool = st.radio(
+                    label = clean_name,
+                    options = data['habit_options'],
+                    horizontal = True
+                )
+
+                # Save the response to the dictionary
+                habit_bool[clean_name] = response_bool
+            
+    
+    print(habit_bool)
 
     
 
