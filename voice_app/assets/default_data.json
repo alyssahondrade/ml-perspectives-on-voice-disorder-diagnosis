@@ -4,5 +4,7 @@
   "gender_options": [
     "F",
     "M"
-  ]
+  ],
+  "max_vhi_score": 120,
+  "max_vhi10_score": 40
 }

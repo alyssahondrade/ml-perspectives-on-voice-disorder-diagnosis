@@ -4,6 +4,12 @@ import numpy as np
 import librosa
 import librosa.display
 import matplotlib.pyplot as plt
+import json
+
+# Read JSON file
+data_path = 'assets/default_data.json'
+with open(data_path, 'r') as file:
+    data = json.load(file)
 
 
 def display_waveform(filepath_audio):
@@ -143,7 +149,9 @@ def create_questionnaire(type, questions, options):
         
         # Scale the score
         if type == 'vhi':
-            final_score = raw_score * 106 / 40
+            # Scaling factor
+            scale_factor = data['max_vhi_score'] / data['max_vhi10_score']
+            final_score = raw_score * scale_factor
         else:
             final_score = raw_score
 
