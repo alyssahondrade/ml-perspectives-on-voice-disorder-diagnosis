@@ -116,7 +116,7 @@ def main():
     # Lifestyle questions
     st.subheader("Lifestyle")
     
-    # Set up two columns for the smoker questions
+    # Smoker
     initial_smoker, followup_smoker = st.columns(2)
     with initial_smoker:
         # Options: no, casual, yes
@@ -139,7 +139,7 @@ def main():
                 disabled = True
             )
 
-    # Set up two columns for alcohol consumption questions
+    # Alcohol Consumption
     initial_alcohol, followup_alcohol = st.columns(2)
     with initial_alcohol:
         # Options: nondrinker, casual, habitual
@@ -174,6 +174,16 @@ def main():
                 disabled = True
             )
 
+    # Water consumption
+    user_water = st.slider(
+        label = "How many litres of water do you drink per day?",
+        min_value = data['min_water'],
+        max_value = data['max_water'],
+        value = 0.5 * data['max_water'],
+        step = 0.25
+    )
+
+    
 
 if __name__ == '__main__':
     main()

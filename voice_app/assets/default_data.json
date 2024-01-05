@@ -26,5 +26,7 @@
   ],
   "min_alc_pd": 0.0,
   "avg_alc_pd": 1,
-  "avg_alc_pw": 3
+  "avg_alc_pw": 3,
+  "min_water": 0.25,
+  "max_water": 5.0
 }
