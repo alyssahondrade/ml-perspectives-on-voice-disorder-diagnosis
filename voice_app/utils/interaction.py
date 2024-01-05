@@ -99,12 +99,16 @@ def create_questionnaire(type, questions, options):
     
     return final_score
 
-def metadata_questionnaire():
-    # Initialise dictionary to hold results
-    metadata_dict = dict()
+
+def meta_demographic(metadata_dict):
+    """
+    Purpose: Builds the demographic section of metadata questionnaire
+    """
     
-    # Demographic questions
+    # Initialise two columns
     demographic, sa_scores = st.columns(2)
+    
+    # First column
     with demographic:
         st.subheader("Demographic Information")
 
@@ -127,12 +131,17 @@ def metadata_questionnaire():
         metadata_dict['age'] = user_age
         metadata_dict['gender'] = user_gender
         
+    # Second column
     with sa_scores:
         st.subheader("Self-Assessment Scores")
         
-        # VHI Score
+        # Labels
+        vhi = f"VHI Score ({data['min_vhi_score']}-{data['max_vhi_score']})"
+        rsi = f"RSI Score ({data['min_rsi_score']}-{data['max_rsi_score']})"
+        
+        # VHI Score        
         user_vhi = st.number_input(
-            label = f"VHI Score ({data['min_vhi_score']}-{data['max_vhi_score']})",
+            label = vhi,
             min_value = data['min_vhi_score'],
             max_value = data['max_vhi_score'],
             value = data['avg_vhi_score']
@@ -140,7 +149,7 @@ def metadata_questionnaire():
         
         # RSI Score
         user_rsi = st.number_input(
-            label = f"RSI Score ({data['min_rsi_score']}-{data['max_rsi_score']})",
+            label = rsi,
             min_value = data['min_rsi_score'],
             max_value = data['max_rsi_score'],
             value = data['avg_rsi_score']
@@ -150,11 +159,16 @@ def metadata_questionnaire():
         metadata_dict['vhi_score'] = user_vhi
         metadata_dict['rsi_score'] = user_rsi
 
-    # Lifestyle questions
-    st.subheader("Lifestyle")
+
+def metadata_smoker(metadata_dict):
+    """
+    Purpose: Builds the smoker section of metadata questionnaire
+    """
     
-    # Smoker
+    # Initialise two columns
     initial_smoker, followup_smoker = st.columns(2)
+    
+    # First column
     with initial_smoker:
         # Options: no, casual, yes
         user_smoker_opt = st.radio(
@@ -162,6 +176,8 @@ def metadata_questionnaire():
             options = data['smoker_options'],
             index = int(len(data['smoker_options'])/2)
         )
+    
+    # Second column
     with followup_smoker:
         # Number of cigarettes per day
         if user_smoker_opt in ["Casual", "Yes"]:
@@ -176,12 +192,21 @@ def metadata_questionnaire():
                 value = data['min_cig_pd'],
                 disabled = True
             )
+    
     # Save the responses to the dictionary
     metadata_dict['smoker'] = user_smoker_opt
     metadata_dict['cigarettes_pd'] = user_smoker_count
 
-    # Alcohol Consumption
+
+def metadata_alcohol(metadata_dict):
+    """
+    Purpose: Builds the alcohol section of metadata questionnaire
+    """
+    
+    # Initialise two columns
     initial_alcohol, followup_alcohol = st.columns(2)
+    
+    # First column
     with initial_alcohol:
         # Options: nondrinker, casual, habitual
         user_alc_opt = st.radio(
@@ -189,7 +214,11 @@ def metadata_questionnaire():
             options = data['alcohol_options'],
             index = int(len(data['alcohol_options'])/2)
         )
+        
+    # Second column
     with followup_alcohol:
+        
+        # Trigger options if selected
         if user_alc_opt in ["Casual", "Habitual"]:
             # User to select units: per day v. per week
             alc_units = st.selectbox(
@@ -224,13 +253,18 @@ def metadata_questionnaire():
                 value = data['avg_alc_pd'],
                 disabled = True
             )
+
     # Save the responses to the dictionary
     metadata_dict['alcohol_consumption'] = user_alc_opt
     metadata_dict['alcohol_units'] = alc_units
-    
-    
 
-    # Water consumption
+
+def metadata_water(metadata_dict):
+    """
+    Purpose: Builds the water section of metadata questionnaire
+    """
+    
+    # Create the slider
     user_water = st.slider(
         label = "How many litres of water do you drink per day?",
         min_value = data['min_water'],
@@ -238,22 +272,32 @@ def metadata_questionnaire():
         value = 0.5 * data['max_water'],
         step = 0.25
     )
+    
     # Save the response to the dictionary
     metadata_dict['water_litres_pd'] = user_water
+
     
-    # Habits
-    habit_bool = dict()
-    habit_pd = dict()
+def metadata_habits(habit_bool, habit_pd):
+    """
+    Purpose: Builds the eating habits section of metadata questionnaire
+    """
     
+    # Loop through each habit
     for habit in sorted(data['habit_cols']):
+        
         # Clean up the name
         clean_name = habit.replace("_", " ").capitalize()
         
         # If not 'tomatoes' create columns
         if habit != 'tomatoes':
+            
+            # Initialise two columns
             selection_col, pd_col = st.columns(2)
+            
+            # First column
             with selection_col:
-                # Create a toggle
+                
+                # Create a set of radio buttons
                 response_bool = st.radio(
                     label = clean_name,
                     options = data['habit_options'],
@@ -263,9 +307,13 @@ def metadata_questionnaire():
                 # Save the response to the dictionary
                 habit_bool[clean_name] = response_bool
 
+            # Second column
             with pd_col:
+                
+                # Trigger based on selected option
                 if response_bool != "Never":
-                    # Integer habits
+                    
+                    # Integer (large values) habits
                     if habit in ['chocolate', 'soft_cheese']:
                         response_pd = st.slider(
                             label = f"How many {habit} per day?",
@@ -274,6 +322,8 @@ def metadata_questionnaire():
                             value = data[f'avg_{habit}'],
                             step = 10
                         )
+                    
+                    # Integer (small values) habits
                     elif habit == 'coffee':
                         response_pd = st.slider(
                             label = f"How many {habit} per day?",
@@ -282,6 +332,7 @@ def metadata_questionnaire():
                             value = data[f'avg_{habit}'],
                             step = 1
                         )
+                    
                     # Float habits
                     else:
                         response_pd = st.slider(
@@ -294,9 +345,10 @@ def metadata_questionnaire():
                     
                     # Save the response to the dictionary
                     habit_pd[clean_name] = response_pd
-                    
+                
+                # Disable selection if: never
                 else:
-                    # Disable selection if: never
+
                     # Integer habits
                     if habit in ['chocolate', 'coffee', 'soft_cheese']:
                         st.slider(
@@ -306,6 +358,7 @@ def metadata_questionnaire():
                             value = data[f'avg_{habit}'],
                             disabled = True
                         )
+                        
                     # Float habits
                     else:
                         st.slider(
@@ -316,17 +369,36 @@ def metadata_questionnaire():
                             disabled = True
                         )
         else:
-            # If 'tomatoes' column, create a toggle
-                response_bool = st.radio(
-                    label = clean_name,
-                    options = data['habit_options'],
-                    index = int(len(data['habit_options'])/2),
-                    horizontal = True
-                )
+            # If 'tomatoes' column, create a horizontal selection
+            response_bool = st.radio(
+                label = clean_name,
+                options = data['habit_options'],
+                index = int(len(data['habit_options'])/2),
+                horizontal = True
+            )
 
-                # Save the response to the dictionary
-                habit_bool[clean_name] = response_bool
-            
+            # Save the response to the dictionary
+            habit_bool[clean_name] = response_bool
+
+    
+def metadata_questionnaire():
+    # Initialise dictionary to hold results
+    metadata_dict = dict()
+    
+    meta_demographic(metadata_dict)
+    
+    # Lifestyle questions
+    st.subheader("Lifestyle")
+    metadata_smoker(metadata_dict)
+    metadata_alcohol(metadata_dict)
+    metadata_water(metadata_dict)
+    
+    # Habits
+    st.subheader("Eating Habits")
+    habit_bool = dict()
+    habit_pd = dict()
+    metadata_habits(habit_bool, habit_pd)
+    
     
     pprint(metadata_dict)
     pprint(habit_bool)
