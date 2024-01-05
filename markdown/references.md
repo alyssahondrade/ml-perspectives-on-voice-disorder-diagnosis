@@ -69,7 +69,10 @@
 
 - [] Multi-Page Apps [https://docs.streamlit.io/library/advanced-features/multipage-apps](https://docs.streamlit.io/library/advanced-features/multipage-apps)
 
-- [] st.radio [https://docs.streamlit.io/library/api-reference/widgets/st.radio](https://docs.streamlit.io/library/api-reference/widgets/st.radio)
+- [] Input Widgets [https://docs.streamlit.io/library/api-reference/widgets](https://docs.streamlit.io/library/api-reference/widgets)
+
+- [] Caching [https://docs.streamlit.io/library/advanced-features/caching](https://docs.streamlit.io/library/advanced-features/caching)
+
 
 ## Voice Disorders
 - [] Voice Disorders [https://www.asha.org/practice-portal/clinical-topics/voice-disorders/](https://www.asha.org/practice-portal/clinical-topics/voice-disorders/)

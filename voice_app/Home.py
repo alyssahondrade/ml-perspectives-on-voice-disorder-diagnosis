@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import os
 import json
+import tensorflow as tf
 
 import matplotlib.pyplot as plt
 from utils.visualisation import display_waveform, display_spectrogram
@@ -64,6 +65,14 @@ def audio_select():
     st.pyplot(fig_spec)
 
 
+@st.cache_resource # Only load the model once
+def load_model():
+    model_path = "../models/run_21_0.824.h5"
+    model = tf.keras.models.load_model(model_path)
+    return model
+
+
+
 def main():
     page_configuration()
     st.divider()
@@ -82,5 +91,8 @@ def main():
     meta_preprocessing(user_responses)
     
 
+    with st.spinner("Loading model..."):
+        model = load_model()
+    
 if __name__ == '__main__':
     main()
