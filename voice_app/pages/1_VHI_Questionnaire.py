@@ -1,6 +1,6 @@
 # Import dependencies
 import streamlit as st
-from utils.visualisation import create_questionnaire
+from utils.interaction import create_questionnaire
 
 def build_header():
     # Title
