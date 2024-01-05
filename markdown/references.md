@@ -83,3 +83,5 @@
 - [] Voice Handicap Index (VHI-10) [https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Voice-Handicap-Index-VHI-10.pdf](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Voice-Handicap-Index-VHI-10.pdf)
 
 - [] Reflux Severity Index (RSI) [https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf)
+
+- [] Voice Handicap Index (VHI) – Jacobson et al., 1997 (AJSLP, Volume 6, pp. 66-70) [https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf](https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf)

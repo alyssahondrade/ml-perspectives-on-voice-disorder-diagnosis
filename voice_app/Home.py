@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import json
 
 import matplotlib.pyplot as plt
 from utils.visualisation import display_waveform, display_spectrogram
@@ -66,9 +67,13 @@ def main():
     st.divider()
     audio_select()
     
+    # Read JSON file
+    data_path = 'assets/default_data.json'
+    with open(data_path, 'r') as file:
+        data = json.load(file)
+    
     st.header('Questionnaire')
     
-
     
     col1, col2 = st.columns(2)
 
@@ -80,17 +85,21 @@ def main():
         # Age input
         user_age = st.number_input(
             label = "Age",
-            min_value = 18,
-            max_value = 70,
+            min_value = data['min_age'],
+            max_value = data['max_age'],
             value = "min"
         )
         
         # Gender input
         user_gender = st.radio(
             label = "Gender",
-            options = ['F', 'M'],
+            options = data['gender_options'],
             horizontal = True
         )
+        
+        # VHI Score
+        # user_vhi = st.number_input(
+            # label = "VHI Score",
 
 
 if __name__ == '__main__':
