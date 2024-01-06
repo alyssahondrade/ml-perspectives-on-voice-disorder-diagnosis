@@ -55,6 +55,7 @@
 
 - [] Classify MNIST Audio using Spectrograms/Keras CNN [https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn](https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn)
 
+
 ## Python
 - [] Hide axes and gridlines in matplotlib [https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib](https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib)
 
