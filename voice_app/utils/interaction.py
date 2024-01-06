@@ -127,6 +127,12 @@ def meta_demographic(metadata_dict):
             horizontal = True
         )
         
+        # Occupation input
+        user_occupation = st.selectbox(
+            label = "Occupation",
+            options = data['occupation_options']
+        )
+        
         # Save the responses to the dictionary
         metadata_dict['age'] = user_age
         metadata_dict['gender'] = user_gender
