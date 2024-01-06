@@ -5,7 +5,7 @@
     "F",
     "M"
   ],
-  "occupation_status": [
+  "occupation_options": [
     "Doctor",
     "Employee",
     "Housewife",
@@ -64,16 +64,5 @@
   "avg_soft_cheese": 100,
   "max_soft_cheese": 400,
   "avg_citrus_fruits": 1.0,
-  "max_citrus_fruits": 3.0,
-  "occupation_options": [
-    "Doctor",
-    "Employee",
-    "Housewife",
-    "Pensioner",
-    "Researcher",
-    "Singer",
-    "Student",
-    "Technical Operator",
-    "Other"
-  ]
+  "max_citrus_fruits": 3.0
 }
