@@ -47,6 +47,13 @@
 
 - [] Simple MNIST convnet [https://keras.io/examples/vision/mnist_convnet/](https://keras.io/examples/vision/mnist_convnet/)
 
+- [] AlexNet Architecture - A Complete Guide [https://www.kaggle.com/code/blurredmachine/alexnet-architecture-a-complete-guide](https://www.kaggle.com/code/blurredmachine/alexnet-architecture-a-complete-guide)
+
+- [] SMOTE for Imbalanced Classification with Python [https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/](https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/)
+
+- [] How to Use SMOTE for an Imbalanced Dataset [https://www.turing.com/kb/smote-for-an-imbalanced-dataset](https://www.turing.com/kb/smote-for-an-imbalanced-dataset)
+
+- [] Classify MNIST Audio using Spectrograms/Keras CNN [https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn](https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn)
 
 ## Python
 - [] Hide axes and gridlines in matplotlib [https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib](https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib)
@@ -60,6 +67,8 @@
 - [] Joblib [https://joblib.readthedocs.io/en/stable/](https://joblib.readthedocs.io/en/stable/)
 
 - [] Save Python Terminal Output to a Text File [https://blog.finxter.com/5-easy-ways-to-save-python-terminal-output-to-a-text-file/](https://blog.finxter.com/5-easy-ways-to-save-python-terminal-output-to-a-text-file/)
+
+- [] Imbalanced Learn - SMOTE [https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html](https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html)
 
 
 ## Signal Processing
