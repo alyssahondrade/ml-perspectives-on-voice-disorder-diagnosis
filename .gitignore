@@ -4,6 +4,7 @@
 *.virtual_documents
 *.$
 *.sqlite
+models/cnn/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
