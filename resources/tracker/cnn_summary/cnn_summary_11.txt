@@ -1,0 +1,58 @@
+Model: "sequential_2"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 128, 128, 32)      896       
+                                                                 
+ batch_normalization (Batch  (None, 128, 128, 32)      128       
+ Normalization)                                                  
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 64, 64, 32)        0         
+ D)                                                              
+                                                                 
+ batch_normalization_1 (Bat  (None, 64, 64, 32)        128       
+ chNormalization)                                                
+                                                                 
+ conv2d_1 (Conv2D)           (None, 64, 64, 64)        18496     
+                                                                 
+ batch_normalization_2 (Bat  (None, 64, 64, 64)        256       
+ chNormalization)                                                
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 32, 32, 64)        0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_3 (Bat  (None, 32, 32, 64)        256       
+ chNormalization)                                                
+                                                                 
+ conv2d_2 (Conv2D)           (None, 32, 32, 128)       73856     
+                                                                 
+ batch_normalization_4 (Bat  (None, 32, 32, 128)       512       
+ chNormalization)                                                
+                                                                 
+ max_pooling2d_2 (MaxPoolin  (None, 16, 16, 128)       0         
+ g2D)                                                            
+                                                                 
+ batch_normalization_5 (Bat  (None, 16, 16, 128)       512       
+ chNormalization)                                                
+                                                                 
+ flatten (Flatten)           (None, 32768)             0         
+                                                                 
+ dense (Dense)               (None, 256)               8388864   
+                                                                 
+ batch_normalization_6 (Bat  (None, 256)               1024      
+ chNormalization)                                                
+                                                                 
+ dropout (Dropout)           (None, 256)               0         
+                                                                 
+ dense_1 (Dense)             (None, 1)                 257       
+                                                                 
+=================================================================
+Total params: 8485185 (32.37 MB)
+Trainable params: 8483777 (32.36 MB)
+Non-trainable params: 1408 (5.50 KB)
+_________________________________________________________________
+{'change_message': "new spectrogram images, returned to 'adam'",
+ 'model_accuracy': 0.7254902124404907,
+ 'model_loss': 1.1635761260986328,
+ 'runtime': 126.95105409622192,
+ 'timestamp': datetime.datetime(2024, 1, 6, 19, 55, 7, 546224)}

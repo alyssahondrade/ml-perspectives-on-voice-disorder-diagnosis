@@ -1,0 +1,45 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 55, 55, 96)        34944     
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 27, 27, 96)        0         
+ D)                                                              
+                                                                 
+ conv2d_1 (Conv2D)           (None, 27, 27, 256)       614656    
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 13, 13, 256)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_2 (Conv2D)           (None, 13, 13, 384)       885120    
+                                                                 
+ conv2d_3 (Conv2D)           (None, 13, 13, 384)       1327488   
+                                                                 
+ conv2d_4 (Conv2D)           (None, 13, 13, 256)       884992    
+                                                                 
+ max_pooling2d_2 (MaxPoolin  (None, 6, 6, 256)         0         
+ g2D)                                                            
+                                                                 
+ flatten (Flatten)           (None, 9216)              0         
+                                                                 
+ dense (Dense)               (None, 4096)              37752832  
+                                                                 
+ dropout (Dropout)           (None, 4096)              0         
+                                                                 
+ dense_1 (Dense)             (None, 4096)              16781312  
+                                                                 
+ dropout_1 (Dropout)         (None, 4096)              0         
+                                                                 
+ dense_2 (Dense)             (None, 1)                 4097      
+                                                                 
+=================================================================
+Total params: 58285441 (222.34 MB)
+Trainable params: 58285441 (222.34 MB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+{'change_message': 'increased epochs to 100',
+ 'model_accuracy': 0.7254902124404907,
+ 'model_loss': 0.5880802273750305,
+ 'runtime': 309.84623169898987,
+ 'timestamp': datetime.datetime(2024, 1, 6, 19, 18, 24, 303098)}
