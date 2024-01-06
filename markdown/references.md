@@ -57,6 +57,8 @@
 
 - [] Seaborn Heatmap [https://seaborn.pydata.org/generated/seaborn.heatmap.html](https://seaborn.pydata.org/generated/seaborn.heatmap.html)
 
+- [] Joblib [https://joblib.readthedocs.io/en/stable/](https://joblib.readthedocs.io/en/stable/)
+
 
 ## Signal Processing
 - [] Audio Analysis with Machine Learning [https://www.altexsoft.com/blog/audio-analysis/](https://www.altexsoft.com/blog/audio-analysis/)
