@@ -59,6 +59,8 @@
 
 - [] Joblib [https://joblib.readthedocs.io/en/stable/](https://joblib.readthedocs.io/en/stable/)
 
+- [] Save Python Terminal Output to a Text File [https://blog.finxter.com/5-easy-ways-to-save-python-terminal-output-to-a-text-file/](https://blog.finxter.com/5-easy-ways-to-save-python-terminal-output-to-a-text-file/)
+
 
 ## Signal Processing
 - [] Audio Analysis with Machine Learning [https://www.altexsoft.com/blog/audio-analysis/](https://www.altexsoft.com/blog/audio-analysis/)
