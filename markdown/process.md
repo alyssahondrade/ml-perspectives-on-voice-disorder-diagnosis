@@ -182,16 +182,16 @@ Created `reflux_indicated` column, based on domain knowledge ([Source](https://m
 #### Voice Handicap Index (VHI Impact) Z-Score
 Created `vhi_zscore` column, based on the paper ([Source](https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf)):
 
-> `Normal mean = 8.75`
+- `Normal mean = 8.75`
+- `Standard deviation = 14.97`
 
-> `Standard deviation = 14.97`
-
-> Interpretation:
+Interpretation:
 
 > - Negative values are WNL (within normal limits), means no perception of handicap.
 
 > - Positive values indicate that voice impairment has a negative impact on aspects of daily life.
 
 |![zscore_interpretation](https://github.com/alyssahondrade/Project4/blob/main/images/zscore_interpretation.png)|
+|:---:|
 |Z-Score Interpretation Table|
 
