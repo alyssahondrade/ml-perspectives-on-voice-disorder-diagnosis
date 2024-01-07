@@ -296,17 +296,13 @@ This section uses visualisations to explore the data extracted from the informat
 
 |![age_distribution](https://github.com/alyssahondrade/Project4/blob/main/images/viz_demographics.png)|
 |:---:|
-|Age Distribution|
 
 |![diagnosis_distribution](https://github.com/alyssahondrade/Project4/blob/main/images/viz_diagnosis_distribution.png)|
 |:---:|
-|Diagnosis Distribution|
 
 |![subtype_distribution](https://github.com/alyssahondrade/Project4/blob/main/images/viz_subtype_distribution.png)|
 |:---:|
-|Subtype Distribution|
 
 |![subtype_heatmap](https://github.com/alyssahondrade/Project4/blob/main/images/viz_subtype_heatmap.png)|
 |:---:|
-|Diagnosis vs Subtype|
 
