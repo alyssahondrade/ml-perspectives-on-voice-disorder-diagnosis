@@ -26,6 +26,10 @@
     2. [Convolutional Neural Network for Spectrograms]()
     3. [Recurrent Neural Network for Short Term Features]()
 8. [Streamlit App]
+    1. [Directory Structure]()
+    2. [Visualisation]()
+    3. [User Interaction]()
+    4. [Preprocessing]()
 
 
 ## Introduction
@@ -258,6 +262,8 @@ Created `vhi_impact` column, based on the z-score interpretation table above.
     - Ensure there is no border using: `pad_inches=0` with `plt.savefig()`.
     - Use `plt.close()` to prevent each image plotting, to improve code runtime.
 
+> Note: The spectrograms used in the project uses a `linear` frequency type ([Source](https://librosa.org/doc/0.10.1/generated/librosa.display.specshow.html#librosa.display.specshow)).
+
 2. Resize the image to reduce the number of feature inputs for the machine learning model later.
     - Refer to the `resize_option()` function in [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
 
@@ -305,4 +311,36 @@ This section uses visualisations to explore the data extracted from the informat
 
 |![subtype_heatmap](https://github.com/alyssahondrade/Project4/blob/main/images/viz_subtype_heatmap.png)|
 |:---:|
+
+
+
+## Machine Learning Models
+
+### Deep Learning for Metadata
+
+
+
+### Convolutional Neural Network for Spectrograms
+
+
+### Recurrent Neural Network for Short Term Features
+
+
+## Streamlit App
+
+### Directory Structure
+
+
+
+### Visualisation
+
+
+
+### User Interaction
+
+
+
+### Preprocessing
+
+
 
