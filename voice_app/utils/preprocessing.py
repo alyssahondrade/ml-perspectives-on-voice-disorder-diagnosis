@@ -23,7 +23,7 @@ def meta_preprocessing(metadata_dict):
     PURPOSE: Convert user responses to preprocessed equivalent.
     
     Input: user responses as a dictionary
-    Output: preprocessed responses as a dictionary
+    Output: dataframe to be passed to scaler
     """
     
     # Create a copy of the dictionary as the output
@@ -143,3 +143,14 @@ def meta_preprocessing(metadata_dict):
     
     pprint(output_dict)
     return output_df
+
+
+def spec_preprocessing(audio_file):
+    """
+    PURPOSE: Convert supplied audio to spectrogram for analysis.
+    
+    Input: audio file (.wav format)
+    Output: dataframe to be passed to scaler
+    """
+    
+    print(audio_file)

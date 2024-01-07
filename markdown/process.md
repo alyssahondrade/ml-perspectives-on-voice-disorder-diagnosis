@@ -2,7 +2,13 @@
 
 ## Table of Contents
 1. [Introduction]()
-2. [Data Cleaning]()
+2. [Data Conversion]()
+3. [Data Cleaning]()
+    1. [Duplicates]()
+    
+
+
+
     1. [Metadata]()
         1. [Skew Function]()
         2. [Encoding]()
@@ -18,7 +24,39 @@ The intent is to build a modularised workflow to minimise repetition and optimis
     - CNN for visual features (spectrogram)
     - RNN for features with temporal component (MFCCs)
 
+## Data Conversion
+[Link to the notebook]()
+
+Convert the `wfdb` to `wav` format.
+1. Define constants necessary to convert:
+    - `SIGNED_32BIT = 2 ** 31 - 1`. A signed 32-bit is required, 32-bit in this case [Source](https://physionet.org/content/voiced/1.0.0/).
+    - `SAMPLE_WIDTH = 4`. Since 32-bit, 8 bits per byte.
+2. Import the raw data to confirm the information text file is available with the corresponding audio file.
+3. Use the `wfdb` library the read the `wfdb` record, extracting both the signal and its sampling frequency.
+4. Normalise and scale to the 32-bit range.
+5. Use the `pydub` library to create an `AudioSegment` object, for export as a `wav` file.
+
 ## Data Cleaning
+[Link to the notebook]()
+
+### Duplicates
+Checked the ID distribution using `value_counts()`, with `voice005` and `voice055` identified to have duplicates.
+
+1. All duplicate rows displayed for inspection, using: `duplicated(keep=False)`.
+2. On initial inspection, only `Reflux Symptom Index (RSI) Score` were different.
+3. Created a loop to compare duplicates column-wise using a mask, to confirm only the RSI Score is different.
+
+Due to the dataset size, initial response was to calculate the average RSI Score and retain the duplicates. However, it was noted the error originated from the information text files itself, that the audio files are not duplicates. As a result, the following IDs are to be removed from all future code:
+
+    `[voice005, voice006, voice054, voice055]`
+
+
+
+
+
+
+
+
 
 ### Metadata
 1. Simplify the column names: lowercase and underscores
