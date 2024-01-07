@@ -55,6 +55,12 @@
 
 - [] Classify MNIST Audio using Spectrograms/Keras CNN [https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn](https://www.kaggle.com/code/christianlillelund/classify-mnist-audio-using-spectrograms-keras-cnn)
 
+- [] Introduction to RNN and LSTM [https://www.theaidream.com/post/introduction-to-rnn-and-lstm](https://www.theaidream.com/post/introduction-to-rnn-and-lstm)
+
+- [] What are some examples of LSTM architectures? [https://ai.stackexchange.com/questions/14280/what-are-some-examples-of-lstm-architectures](https://ai.stackexchange.com/questions/14280/what-are-some-examples-of-lstm-architectures)
+
+- [] How to Develop LSTM Models for Time Series Forecasting [https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/](https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/)
+
 
 ## Python
 - [] Hide axes and gridlines in matplotlib [https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib](https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib)
