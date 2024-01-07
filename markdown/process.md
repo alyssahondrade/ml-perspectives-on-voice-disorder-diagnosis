@@ -8,12 +8,12 @@
     2. [Names and Nulls]()
     3. [Categorical Columns]()
     4. [Numerical Columns]()
-
-
-    1. [Metadata]()
-        1. [Skew Function]()
-        2. [Encoding]()
-    2. [Spectrograms]()
+    5. [Imputation]()
+    6. [Target Variable]()
+    7. [Feature Engineering]()
+        1. [Reflux Indicated]()
+        2. [Voice Handicap Index (VHI) Z-Score]()
+        3. [VHI Impact]()
 
 
 ## Introduction
@@ -104,6 +104,46 @@ Due to the dataset size, initial response was to calculate the average RSI Score
 2. `cigarettes_pd` column:
     - Null values for `yes` in the `smoker` column, hence a valid response is required for `cigarettes_pd` column.
     - Defined a method for [imputation]() to determine whether the missing data should be imputed with a __mean__ or __median__.
+    - Convert the imputation method to a function to minimise repetition.
+
+3. `alcohol_pd` column:
+    - Define a function to handle the `per week` values, as well as the `/` and use of commas instead of decimal points.
+    - Use the `apply()` method with the created function.
+    - Impute missing values, as with the previous column.
+    - Convert the column type to a `float` with 2 decimal points to capture the detail from the `per week` responses.
+
+4. `water_litres_pd` column:
+    - No null values.
+    - Convert the commas to decimal points.
+    - Convert the column type to a `float` with 2 decimal points, as per the original format.
+
+5. `carbonated_pd` column:
+    - Alter the function used to clean `alcohol_pd` to handle the following: `for week`, `-`, `for mounth`.
+    - Impute missing values where applicable.
+    - `always` failed with imputation as no valid values exist. Explore methods for imputation:
+        - Check the `mean` and `median` for each unique value.
+        - Check the summary statistics for its closest neighbour: `almost always`.
+        - Use the maximum value for `almost always` as the value for all `always`.
+    
+6. `coffee_pd` column:
+    - Impute missing values.
+    - Convert the column type to an `int` as this is the original format and the imputed values are reasonably close to integer values.
+
+7. `chocolate_grams_pd` column:
+    - Create a function to handle the `gr` and `g`.
+    - Alter the function used to clean `alcohol_pd` to handle the result after using the previous function.
+    - Impute missing values.
+    - As with `coffee_pd`, cast to integers.
+
+8. `soft_cheese_pd` column:
+    - Alter the function used to clean `alcohol_pd` to handle: `gr/ month`, `gr.`, and combinations of `/` with `gr`,
+    - As with `coffee_pd`, cast to integers.
+
+9. `citrus_fruits_pd` column:
+    - Write a function to convert the gram-value to the number of fruits.
+    - Apply the function used to clean `alcohol_pd`.
+    - Impute missing values.
+    - Convert the column type to a `float` with 2 decimal points, as with `alcohol_pd`.
 
 
 ### Imputation
@@ -119,14 +159,35 @@ Due to the dataset size, initial response was to calculate the average RSI Score
 4. Calculate this for each unique value in the column and update missing values accordingly.
 
 
-### Metadata
-1. Simplify the column names: lowercase and underscores
-2. Convert `NU` values to `NaN`
-3. Clean categorical columns
-4. Clean numerical columns
+### Target Variable
+1. Isolate the `diagnosis` column.
 
-#### Skew Function
-Due to the dataset size, needed to minimise dropping rows, used imputation instead. Skew function used to determine whether to use `mean` or `median` to impute missing values.
+2. Use regex to separate the primary diagnosis (`base`) and the `subtype`.
+
+3. Fill the null values in the `subtype` with `no subtype`.
+
+4. Rename `base` back to `diagnosis`.
 
 
-### Spectrograms
+### Feature Engineering
+
+#### Reflux Indicated
+Created `reflux_indicated` column, based on domain knowledge ([Source](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf)):
+
+> Normative data suggests that a RSI of greater than or equal to 13 is clinically significant
+> Therefore, a RSI > 13 may be indicative of significant reflux disease.
+
+
+#### Voice Handicap Index (VHI Impact) Z-Score
+Created `vhi_zscore` column, based on the paper ([Source](https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf)):
+
+> `Normal mean = 8.75`
+> `Standard deviation = 14.97`
+
+Interpretation: 
+- Negative values are WNL (within normal limits), means no perception of handicap.
+- Positive values indicate that voice impairment has a negative impact on aspects of daily life.
+
+|![zscore_interpretation]()|
+|Z-Score Interpretation Table|
+
