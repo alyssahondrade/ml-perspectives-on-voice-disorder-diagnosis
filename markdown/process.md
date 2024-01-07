@@ -18,7 +18,9 @@
     1. [Short Term Features]()
     2. [Spectrograms]()
 5. [Build Database]()
-6. [Data Analysis]()
+6. [Data Analysis & Visualisation]()
+    1. [Analysis]()
+    2. [Visualisation]()
 7. [Machine Learning Models]()
     1. [Deep Learning for Metadata]()
     2. [Convolutional Neural Network for Spectrograms]()
@@ -28,12 +30,18 @@
 
 ## Introduction
 The intent is to build a modularised workflow to minimise repetition and optimise the ML model workflow (build, train, test, optimise).
+
 1. Convert the `wfdb` to `wav` format for use with python libraries to extract features.
+
 2. Extract features and store in a dataframe.
+
 3. Data cleaning for storage in SQL database.
+
 4. Build machine learning models:
     - CNN for visual features (spectrogram)
     - RNN for features with temporal component (MFCCs)
+
+
 
 ## Data Conversion
 [Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/01_convert_raw_data.ipynb)
@@ -42,13 +50,20 @@ Convert the `wfdb` to `wav` format.
 1. Define constants necessary to convert:
     - `SIGNED_32BIT = 2 ** 31 - 1`. A signed 32-bit is required, 32-bit in this case [Source](https://physionet.org/content/voiced/1.0.0/).
     - `SAMPLE_WIDTH = 4`. Since 32-bit, 8 bits per byte.
+
 2. Import the raw data to confirm the information text file is available with the corresponding audio file.
-3. Use the `wfdb` library the read the `wfdb` record, extracting both the signal and its sampling frequency.
+
+3. Use the [`wfdb`](https://wfdb.io) library the read the `wfdb` record, extracting both the signal and its sampling frequency.
+
 4. Normalise and scale to the 32-bit range.
-5. Use the `pydub` library to create an `AudioSegment` object, for export as a `wav` file.
+
+5. Use the [`pydub`](http://pydub.com) library to create an `AudioSegment` object, for export as a `wav` file.
+
+
 
 ## Data Cleaning
 [Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/02_metadata_cleaning.ipynb)
+
 
 ### Duplicates
 Checked the ID distribution using `value_counts()`, with `voice005` and `voice055` identified to have duplicates.
@@ -114,10 +129,10 @@ Due to the dataset size, initial response was to calculate the average RSI Score
 2. `cigarettes_pd` column:
     - Null values for `yes` in the `smoker` column, hence a valid response is required for `cigarettes_pd` column.
     - Defined a method for [imputation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#imputation) to determine whether the missing data should be imputed with a __mean__ or __median__.
-    - Convert the imputation method to a function to minimise repetition.
+    - Convert the imputation method to a function to minimise repetition. Refer to the `imputation()` function in [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
 
 3. `alcohol_pd` column:
-    - Define a function to handle the `per week` values, as well as the `/` and use of commas instead of decimal points.
+    - Define a function to handle the `per week` values, as well as the `/` and use of commas instead of decimal points. Refer to the `split_values()` and `clean_pd()` functions in [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
     - Use the `apply()` method with the created function.
     - Impute missing values, as with the previous column.
     - Convert the column type to a `float` with 2 decimal points to capture the detail from the `per week` responses.
@@ -150,7 +165,7 @@ Due to the dataset size, initial response was to calculate the average RSI Score
     - As with `coffee_pd`, cast to integers.
 
 9. `citrus_fruits_pd` column:
-    - Write a function to convert the gram-value to the number of fruits.
+    - Write a function to convert the gram-value to the number of fruits. Refer to the `fruit_gram()` function in [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
     - Apply the function used to clean `alcohol_pd`.
     - Impute missing values.
     - Convert the column type to a `float` with 2 decimal points, as with `alcohol_pd`.
@@ -210,11 +225,11 @@ Created `vhi_impact` column, based on the z-score interpretation table above.
 [Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/03_feature_engineering.ipynb)
 
 ### Short Term Features
-1. Define the frame size and step (in ms), with a 50% overlap: [Source 1](https://github.com/tyiannak/pyAudioAnalysis/wiki/3.-Feature-Extraction#single-file-feature-extraction---storing-to-file), [Source 2](https://www.tandfonline.com/doi/full/10.1080/24751839.2018.1501542)
+1. Define the frame size and step (in ms), with a 50% overlap ([Source 1](https://github.com/tyiannak/pyAudioAnalysis/wiki/3.-Feature-Extraction#single-file-feature-extraction---storing-to-file)), ([Source 2](https://www.tandfonline.com/doi/full/10.1080/24751839.2018.1501542))
     - Set `window_length = 0.050`.
     - Set `hop_size = 0.025`.
 
-2. Use the `pyAudioAnalysis` library to extract the short term features ([Source](https://github.com/tyiannak/pyAudioAnalysis/wiki/3.-Feature-Extraction#single-file-feature-extraction---storing-to-file). The features available are:
+2. Use the [`pyAudioAnalysis`](https://github.com/tyiannak/pyAudioAnalysis) library to extract the short term features ([Source](https://github.com/tyiannak/pyAudioAnalysis/wiki/3.-Feature-Extraction#single-file-feature-extraction---storing-to-file)). The features available are:
 
 | Feature ID | Feature Name | Description |
 |:---:|:---:|---|
@@ -238,4 +253,43 @@ Created `vhi_impact` column, based on the z-score interpretation table above.
 
 
 ### Spectrograms
+1. Use the `librosa` library to create the spectrogram for each voice sample.
+    - Remove labels and the border using: `plt.tight_layout()` and `plt.axis('off')`.
+    - Ensure there is no border using: `pad_inches=0` with `plt.savefig()`.
+    - Use `plt.close()` to prevent each image plotting, to improve code runtime.
 
+2. Resize the image to reduce the number of feature inputs for the machine learning model later.
+    - Refer to the `resize_option()` function in [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
+
+3. Parse each image to separate RGBA channel lists, for export as a CSV.
+    - Refer to the `spect_to_csv()` function in [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
+    
+
+
+## Build Database
+[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/04_build_database.ipynb)
+
+1. Create the SQLITE engine using: `create_engine()`.
+
+2. Extract all the files in the [`clean_data`](https://github.com/alyssahondrade/Project4/tree/main/resources/clean_data) subdirectory, reading each CSV to its own dataframe.
+
+3. Write each dataframe to the database using: `to_sql()`.
+
+4. Confirm all the tables were uploaded using: `inspect()`.
+
+
+
+## Data Analysis & Visualisation
+[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/05_data_analysis_visualisation.ipynb)
+
+### Analysis
+This section calculates the default values used in the Streamlit app.
+
+1. Initialise a dictionary to hold all the values.
+
+2. Calculate relevant values used for each metadata feature.
+
+3. Export the dictionary to a JSON file
+
+### Visualisation
+This section uses visualisations to explore the data extracted from the information files.
