@@ -94,7 +94,24 @@ def create_questionnaire(type, questions, options):
             final_score = raw_score
 
         # Display the final score
-        st.subheader(f"{type.upper()} Score: {int(final_score)}")
+        left_col, mid_col, right_col = st.columns(3)
+        with mid_col:
+            st.subheader(f"{type.upper()} Score:")
+            st.metric(
+                label = type.upper(),
+                value = int(final_score),
+                label_visibility = 'hidden'
+            )
+    else:
+        # Default display
+        left_col, mid_col, right_col = st.columns(3)
+        with mid_col:
+            st.subheader(f"{type.upper()} Score:")
+            st.metric(
+                label = type.upper(),
+                value = 0,
+                label_visibility = 'hidden'
+            )
         
     return final_score
 
@@ -411,6 +428,7 @@ def metadata_questionnaire():
     # Initialise dictionary to hold results
     metadata_dict = dict()
     
+    # Demographic questions
     meta_demographic(metadata_dict)
     
     # Lifestyle questions
