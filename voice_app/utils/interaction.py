@@ -130,12 +130,14 @@ def meta_demographic(metadata_dict):
         # Occupation input
         user_occupation = st.selectbox(
             label = "Occupation",
-            options = data['occupation_options']
+            options = data['occupation_options'],
+            index = len(data['occupation_options'])-1
         )
         
         # Save the responses to the dictionary
         metadata_dict['age'] = user_age
         metadata_dict['gender'] = user_gender
+        metadata_dict['occupation_status'] = user_occupation
         
     # Second column
     with sa_scores:
