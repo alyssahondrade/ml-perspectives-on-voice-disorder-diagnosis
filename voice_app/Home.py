@@ -95,14 +95,20 @@ def main():
     # print(processed_sample)
     
     # Load the scaler
-    scaler = joblib.load('assets/scaler.joblib')
+    X_scaler = joblib.load('assets/scaler.joblib')
     
     # Use the scaler
-    # scaled_sample = scaler.transform(processed_sample)
-    # print(scaled_sample)
+    scaled_sample = X_scaler.transform(processed_sample)
+    print(scaled_sample)
 
     with st.spinner("Loading model..."):
         model = load_model()
-    
+        
+    # Make predictions using the loaded model
+    prediction = model.predict(scaled_sample)
+
+    # Display the prediction
+    print("Model Prediction:", prediction)
+
 if __name__ == '__main__':
     main()

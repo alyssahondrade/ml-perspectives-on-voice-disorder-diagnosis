@@ -2,6 +2,7 @@
 import streamlit as st
 import json
 from pprint import pprint
+import pandas as pd
 
 ### Read JSON files ###
 
@@ -25,61 +26,70 @@ def meta_preprocessing(metadata_dict):
     Output: preprocessed responses as a dictionary
     """
     
+    # Create a copy of the dictionary as the output
+    output_dict = dict(metadata_dict)
+    
     # Calculate reflux_indicated
-    rsi_score = metadata_dict['rsi_score']
+    rsi_score = output_dict['rsi_score']
     if rsi_score >= 13:
-        metadata_dict['reflux_indicated'] = 1
+        output_dict['reflux_indicated'] = 1
     else:
-        metadata_dict['reflux_indicated'] = 0
+        output_dict['reflux_indicated'] = 0
 
     # Calculate vhi_zscore, based on research paper
     normal_mean = 8.75
     stddev = 14.97
-    equation = (metadata_dict['vhi_score'] - normal_mean) / stddev
-    metadata_dict['vhi_zscore'] = round(equation, 2)
+    equation = (output_dict['vhi_score'] - normal_mean) / stddev
+    output_dict['vhi_zscore'] = round(equation, 2)
     
     # Add vhi_impact, based on research paper, encode as integers
-    zscore = metadata_dict['vhi_zscore']
+    zscore = output_dict['vhi_zscore']
     if zscore < 0:
         # Within normal limits
-        metadata_dict['vhi_impact'] = 0
+        output_dict['vhi_impact'] = 0
     elif zscore < 1:
         # No significant impact
-        metadata_dict['vhi_impact'] = 1
+        output_dict['vhi_impact'] = 1
     elif zscore < 2:
         # Mild significant impact
-        metadata_dict['vhi_impact'] = 2
+        output_dict['vhi_impact'] = 2
     elif zscore < 3:
         # Moderate significant impact
-        metadata_dict['vhi_impact'] = 3
+        output_dict['vhi_impact'] = 3
     else:
         # Sever significant impact
-        metadata_dict['vhi_impact'] = 4
+        output_dict['vhi_impact'] = 4
     
     # Calculate alcohol_pd
-    if metadata_dict['alcohol_units'] == 'Per week':
-        metadata_dict['alcohol_pd'] = round(metadata_dict['alc_pw'] / 7, 2)
-    elif metadata_dict['alcohol_units'] == 'Per day':
-        metadata_dict['alcohol_pd'] = metadata_dict['alc_pd']
+    if output_dict['alcohol_units'] == 'Per week':
+        output_dict['alcohol_pd'] = round(output_dict['alc_pw'] / 7, 2)
+    elif output_dict['alcohol_units'] == 'Per day':
+        output_dict['alcohol_pd'] = output_dict['alc_pd']
+    else:
+        output_dict['alcohol_pd'] = 0
+        
+    # Encode the smoker column
+    smoker_opt = output_dict['smoker'].lower()
+    output_dict['smoker'] = model_meta['smoker_map'][smoker_opt]
     
-    # Create a copy of the dictionary as the output
-    output_dict = dict(metadata_dict)
-    
+    # Encode the alcohol column
+    alc_opt = output_dict['alcohol_consumption'].lower()
+    output_dict['alcohol_consumption'] = model_meta['alcohol_map'][alc_opt]
+
     # Convert the nested dictionary to correct keys   
     for habit in data['habit_cols']:
-        # Convert the word responses
-        word_option = output_dict['habit_bool'][habit]
-        
-        # if habit == 'smoker':
-            # print(model_meta['smoker_map'])
-        # output_dict[habit] = 
+        # Encode the word responses
+        word_option = output_dict['habit_bool'][habit].lower()
+        output_dict[habit] = model_meta['habit_map'][word_option]
         
         # Convert the values
         if habit == 'carbonated_beverages':
             simple_name = habit.split("_")[0]
             output_dict[f'{simple_name}_pd'] = output_dict['habit_pd'][habit]
+            
         elif habit == 'chocolate':
             output_dict[f'{habit}_grams_pd'] = output_dict['habit_pd'][habit]
+            
         elif habit == 'tomatoes':
             continue
         else:
@@ -116,7 +126,7 @@ def meta_preprocessing(metadata_dict):
     # Drop unnecessary keys
     delete_keys = [
         'alc_pd', 'alc_pw', 'alcohol_units',
-        # 'habit_bool', 'habit_pd',
+        'habit_bool', 'habit_pd',
         'gender', 'occupation_status'
     ]
 
@@ -124,8 +134,12 @@ def meta_preprocessing(metadata_dict):
     for key in delete_keys:
         if key in output_dict:
             del output_dict[key]
-
+    
+    # Convert to a pandas dataframe
+    output_df = pd.DataFrame(output_dict, index=[0])
+    
+    # Rearrange columns, must be in the same order as during fit
+    output_df = output_df[model_meta['feature_names']]
+    
     pprint(output_dict)
-    return output_dict
-
-
+    return output_df
