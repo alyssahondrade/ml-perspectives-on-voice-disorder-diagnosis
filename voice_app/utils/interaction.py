@@ -322,7 +322,7 @@ def metadata_habits(habit_bool, habit_pd):
                 )
 
                 # Save the response to the dictionary
-                habit_bool[clean_name] = response_bool
+                habit_bool[habit] = response_bool
 
             # Second column
             with pd_col:
@@ -361,7 +361,7 @@ def metadata_habits(habit_bool, habit_pd):
                         )
                     
                     # Save the response to the dictionary
-                    habit_pd[clean_name] = response_pd
+                    habit_pd[habit] = response_pd
                 
                 # Disable selection if: never
                 else:
@@ -395,7 +395,7 @@ def metadata_habits(habit_bool, habit_pd):
             )
 
             # Save the response to the dictionary
-            habit_bool[clean_name] = response_bool
+            habit_bool[habit] = response_bool
 
     
 def metadata_questionnaire():

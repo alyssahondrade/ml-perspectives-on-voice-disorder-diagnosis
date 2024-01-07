@@ -1,6 +1,16 @@
 # Import dependencies
 import streamlit as st
+import json
 from pprint import pprint
+
+# Read JSON files
+data_path = 'assets/default_data.json'
+with open(data_path, 'r') as file:
+    data = json.load(file)
+    
+feature_path = 'assets/feature_names.json'
+with open(feature_path, 'r') as file:
+    feature_names = json.load(file)
 
 def meta_preprocessing(metadata_dict):
     
@@ -40,4 +50,65 @@ def meta_preprocessing(metadata_dict):
         metadata_dict['alcohol_pd'] = round(metadata_dict['alc_pw'] / 7, 2)
     else:
         metadata_dict['alcohol_pd'] = metadata_dict['alc_pd']
-    pprint(metadata_dict)
+    
+    # Create a copy of the dictionary as the output
+    output_dict = dict(metadata_dict)
+    
+    # Convert the nested dictionary to correct keys   
+    for habit in data['habit_cols']:
+        # Convert the booleans
+        output_dict[habit] = output_dict['habit_bool'][habit]
+        
+        # Convert the values
+        if habit == 'carbonated_beverages':
+            simple_name = habit.split("_")[0]
+            output_dict[f'{simple_name}_pd'] = output_dict['habit_pd'][habit]
+        elif habit == 'chocolate':
+            output_dict[f'{habit}_grams_pd'] = output_dict['habit_pd'][habit]
+        elif habit == 'tomatoes':
+            continue
+        else:
+            output_dict[f'{habit}_pd'] = output_dict['habit_pd'][habit]
+
+    # Encode the gender column
+    if output_dict['gender'] == 'F':
+        output_dict['gender_f'] = 1
+        output_dict['gender_m'] = 0
+    else:
+        output_dict['gender_f'] = 0
+        output_dict['gender_m'] = 1
+    
+    # Convert string values to lowercase
+    for key, value in output_dict.items():
+        if isinstance(value, str):
+            output_dict[key] = value.lower()
+            
+    # Encode the occupation status column
+    for name in feature_names:
+        
+        # Check the columns with 'occupation_status_'
+        if name.startswith('occupation_status_'):
+            
+            # Find the occupation
+            occ = name.split("_")[2]
+            
+            # Encode the values
+            if output_dict['occupation_status'] == occ:
+                output_dict[name] = 1
+            else:
+                output_dict[name] = 0
+            
+    # Drop unnecessary keys
+    delete_keys = [
+        'alc_pd', 'alc_pw', 'alcohol_units',
+        'habit_bool', 'habit_pd',
+        'gender', 'occupation_status'
+    ]
+
+    # Delete the key that exists
+    for key in delete_keys:
+        if key in output_dict:
+            del output_dict[key]
+
+    pprint(output_dict)
+    return output_dict
