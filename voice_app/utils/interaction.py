@@ -96,7 +96,6 @@ def create_questionnaire(type, questions, options):
         # Display the final score
         st.subheader(f"{type.upper()} Score: {int(final_score)}")
         
-    
     return final_score
 
 
