@@ -174,7 +174,8 @@ Due to the dataset size, initial response was to calculate the average RSI Score
 #### Reflux Indicated
 Created `reflux_indicated` column, based on domain knowledge ([Source](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf)):
 
-> Normative data suggests that a RSI of greater than or equal to 13 is clinically significant
+> Normative data suggests that a RSI of greater than or equal to 13 is clinically significant.
+
 > Therefore, a RSI > 13 may be indicative of significant reflux disease.
 
 
@@ -182,12 +183,15 @@ Created `reflux_indicated` column, based on domain knowledge ([Source](https://m
 Created `vhi_zscore` column, based on the paper ([Source](https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf)):
 
 > `Normal mean = 8.75`
+
 > `Standard deviation = 14.97`
 
-Interpretation: 
-- Negative values are WNL (within normal limits), means no perception of handicap.
-- Positive values indicate that voice impairment has a negative impact on aspects of daily life.
+> Interpretation:
 
-|![zscore_interpretation]()|
+> - Negative values are WNL (within normal limits), means no perception of handicap.
+
+> - Positive values indicate that voice impairment has a negative impact on aspects of daily life.
+
+|![zscore_interpretation](https://github.com/alyssahondrade/Project4/blob/main/images/zscore_interpretation.png)|
 |Z-Score Interpretation Table|
 
