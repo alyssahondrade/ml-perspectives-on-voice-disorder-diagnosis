@@ -184,6 +184,8 @@ def metadata_smoker(metadata_dict):
             options = data['smoker_options'],
             index = int(len(data['smoker_options'])/2)
         )
+        # Save the response
+        metadata_dict['smoker'] = user_smoker_opt
     
     # Second column
     with followup_smoker:
@@ -193,6 +195,8 @@ def metadata_smoker(metadata_dict):
                 label = "How many cigarettes per day?",
                 value = data['avg_cig_pd']
             )
+            # Save the response
+            metadata_dict['cigarettes_pd'] = user_smoker_count
         else:
             # Disable selection if: no
             st.number_input(
@@ -200,10 +204,8 @@ def metadata_smoker(metadata_dict):
                 value = data['min_cig_pd'],
                 disabled = True
             )
-    
-    # Save the responses to the dictionary
-    metadata_dict['smoker'] = user_smoker_opt
-    metadata_dict['cigarettes_pd'] = user_smoker_count
+            # Save the response
+            metadata_dict['cigarettes_pd'] = 0
 
 
 def metadata_alcohol(metadata_dict):
@@ -222,6 +224,8 @@ def metadata_alcohol(metadata_dict):
             options = data['alcohol_options'],
             index = int(len(data['alcohol_options'])/2)
         )
+        # Save the response
+        metadata_dict['alcohol_consumption'] = user_alc_opt
         
     # Second column
     with followup_alcohol:
@@ -233,6 +237,8 @@ def metadata_alcohol(metadata_dict):
                 label = "Units: per day or per week",
                 options = ['Per day', 'Per week']
             )
+            # Save the response
+            metadata_dict['alcohol_units'] = alc_units
 
             # Trigger based on selected option
             if alc_units == "Per day":
@@ -261,10 +267,10 @@ def metadata_alcohol(metadata_dict):
                 value = data['avg_alc_pd'],
                 disabled = True
             )
-
-    # Save the responses to the dictionary
-    metadata_dict['alcohol_consumption'] = user_alc_opt
-    metadata_dict['alcohol_units'] = alc_units
+            # Save the response
+            metadata_dict['alcohol_units'] = 'N/A'
+            metadata_dict['alc_pd'] = 0
+            metadata_dict['alc_pw'] = 0
 
 
 def metadata_water(metadata_dict):
@@ -281,7 +287,7 @@ def metadata_water(metadata_dict):
         step = 0.25
     )
     
-    # Save the response to the dictionary
+    # Save the response
     metadata_dict['water_litres_pd'] = user_water
 
     
@@ -321,7 +327,7 @@ def metadata_habits(habit_bool, habit_pd):
                     index = int(len(data['habit_options'])/2)
                 )
 
-                # Save the response to the dictionary
+                # Save the response
                 habit_bool[habit] = response_bool
 
             # Second column
@@ -360,7 +366,7 @@ def metadata_habits(habit_bool, habit_pd):
                             step = 0.5
                         )
                     
-                    # Save the response to the dictionary
+                    # Save the response
                     habit_pd[habit] = response_pd
                 
                 # Disable selection if: never
@@ -385,6 +391,10 @@ def metadata_habits(habit_bool, habit_pd):
                             value = data[f'avg_{habit}'],
                             disabled = True
                         )
+                    
+                    # Save the response
+                    habit_pd[habit] = 0
+                    
         else:
             # If 'tomatoes' column, create a horizontal selection
             response_bool = st.radio(
@@ -394,7 +404,7 @@ def metadata_habits(habit_bool, habit_pd):
                 horizontal = True
             )
 
-            # Save the response to the dictionary
+            # Save the response
             habit_bool[habit] = response_bool
 
     

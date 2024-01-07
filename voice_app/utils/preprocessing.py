@@ -1,18 +1,29 @@
-# Import dependencies
+### Import dependencies ###
 import streamlit as st
 import json
 from pprint import pprint
 
-# Read JSON files
+### Read JSON files ###
+
+# Data used to populate the default values in the questionnaire
 data_path = 'assets/default_data.json'
 with open(data_path, 'r') as file:
     data = json.load(file)
-    
-feature_path = 'assets/feature_names.json'
-with open(feature_path, 'r') as file:
-    feature_names = json.load(file)
 
+# Feature names to match the ML model
+feature_path = 'assets/model_meta.json'
+with open(feature_path, 'r') as file:
+    model_meta = json.load(file)
+    
+
+### FUNCTIONS ###
 def meta_preprocessing(metadata_dict):
+    """
+    PURPOSE: Convert user responses to preprocessed equivalent.
+    
+    Input: user responses as a dictionary
+    Output: preprocessed responses as a dictionary
+    """
     
     # Calculate reflux_indicated
     rsi_score = metadata_dict['rsi_score']
@@ -48,7 +59,7 @@ def meta_preprocessing(metadata_dict):
     # Calculate alcohol_pd
     if metadata_dict['alcohol_units'] == 'Per week':
         metadata_dict['alcohol_pd'] = round(metadata_dict['alc_pw'] / 7, 2)
-    else:
+    elif metadata_dict['alcohol_units'] == 'Per day':
         metadata_dict['alcohol_pd'] = metadata_dict['alc_pd']
     
     # Create a copy of the dictionary as the output
@@ -56,8 +67,12 @@ def meta_preprocessing(metadata_dict):
     
     # Convert the nested dictionary to correct keys   
     for habit in data['habit_cols']:
-        # Convert the booleans
-        output_dict[habit] = output_dict['habit_bool'][habit]
+        # Convert the word responses
+        word_option = output_dict['habit_bool'][habit]
+        
+        # if habit == 'smoker':
+            # print(model_meta['smoker_map'])
+        # output_dict[habit] = 
         
         # Convert the values
         if habit == 'carbonated_beverages':
@@ -84,7 +99,7 @@ def meta_preprocessing(metadata_dict):
             output_dict[key] = value.lower()
             
     # Encode the occupation status column
-    for name in feature_names:
+    for name in model_meta['feature_names']:
         
         # Check the columns with 'occupation_status_'
         if name.startswith('occupation_status_'):
@@ -101,7 +116,7 @@ def meta_preprocessing(metadata_dict):
     # Drop unnecessary keys
     delete_keys = [
         'alc_pd', 'alc_pw', 'alcohol_units',
-        'habit_bool', 'habit_pd',
+        # 'habit_bool', 'habit_pd',
         'gender', 'occupation_status'
     ]
 
@@ -112,3 +127,5 @@ def meta_preprocessing(metadata_dict):
 
     pprint(output_dict)
     return output_dict
+
+

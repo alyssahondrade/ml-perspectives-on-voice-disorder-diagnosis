@@ -5,6 +5,7 @@ import numpy as np
 import os
 import json
 import tensorflow as tf
+import joblib
 
 import matplotlib.pyplot as plt
 from utils.visualisation import display_waveform, display_spectrogram
@@ -89,8 +90,16 @@ def main():
     st.header('Questionnaire')
     user_responses = metadata_questionnaire()
     
-    meta_preprocessing(user_responses)
+    # Preprocess the user responses
+    processed_sample = meta_preprocessing(user_responses)
+    # print(processed_sample)
     
+    # Load the scaler
+    scaler = joblib.load('assets/scaler.joblib')
+    
+    # Use the scaler
+    # scaled_sample = scaler.transform(processed_sample)
+    # print(scaled_sample)
 
     with st.spinner("Loading model..."):
         model = load_model()
