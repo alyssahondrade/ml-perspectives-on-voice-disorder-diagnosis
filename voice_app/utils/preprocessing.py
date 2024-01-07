@@ -17,4 +17,22 @@ def meta_preprocessing(metadata_dict):
     equation = (metadata_dict['vhi_score'] - normal_mean) / stddev
     metadata_dict['vhi_zscore'] = round(equation, 2)
     
+    # Add vhi_impact, based on research paper, encode as integers
+    zscore = metadata_dict['vhi_zscore']
+    if zscore < 0:
+        # Within normal limits
+        metadata_dict['vhi_impact'] = 0
+    elif zscore < 1:
+        # No significant impact
+        metadata_dict['vhi_impact'] = 1
+    elif zscore < 2:
+        # Mild significant impact
+        metadata_dict['vhi_impact'] = 2
+    elif zscore < 3:
+        # Moderate significant impact
+        metadata_dict['vhi_impact'] = 3
+    else:
+        # Sever significant impact
+        metadata_dict['vhi_impact'] = 4
+    
     pprint(metadata_dict)
