@@ -10,10 +10,20 @@
     4. [Numerical Columns]()
     5. [Imputation]()
     6. [Target Variable]()
-    7. [Feature Engineering]()
+    7. [Metadata Feature Engineering]()
         1. [Reflux Indicated]()
         2. [Voice Handicap Index (VHI) Z-Score]()
         3. [VHI Impact]()
+4. [Feature Engineering]()
+    1. [Short Term Features]()
+    2. [Spectrograms]()
+5. [Build Database]()
+6. [Data Analysis]()
+7. [Machine Learning Models]()
+    1. [Deep Learning for Metadata]()
+    2. [Convolutional Neural Network for Spectrograms]()
+    3. [Recurrent Neural Network for Short Term Features]()
+8. [Streamlit App]
 
 
 ## Introduction
@@ -26,7 +36,7 @@ The intent is to build a modularised workflow to minimise repetition and optimis
     - RNN for features with temporal component (MFCCs)
 
 ## Data Conversion
-[Link to the notebook]()
+[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/01_convert_raw_data.ipynb)
 
 Convert the `wfdb` to `wav` format.
 1. Define constants necessary to convert:
@@ -38,7 +48,7 @@ Convert the `wfdb` to `wav` format.
 5. Use the `pydub` library to create an `AudioSegment` object, for export as a `wav` file.
 
 ## Data Cleaning
-[Link to the notebook]()
+[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/02_metadata_cleaning.ipynb)
 
 ### Duplicates
 Checked the ID distribution using `value_counts()`, with `voice005` and `voice055` identified to have duplicates.
@@ -103,7 +113,7 @@ Due to the dataset size, initial response was to calculate the average RSI Score
 
 2. `cigarettes_pd` column:
     - Null values for `yes` in the `smoker` column, hence a valid response is required for `cigarettes_pd` column.
-    - Defined a method for [imputation]() to determine whether the missing data should be imputed with a __mean__ or __median__.
+    - Defined a method for [imputation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#imputation) to determine whether the missing data should be imputed with a __mean__ or __median__.
     - Convert the imputation method to a function to minimise repetition.
 
 3. `alcohol_pd` column:
@@ -169,14 +179,12 @@ Due to the dataset size, initial response was to calculate the average RSI Score
 4. Rename `base` back to `diagnosis`.
 
 
-### Feature Engineering
+### Metadata Feature Engineering
 
 #### Reflux Indicated
 Created `reflux_indicated` column, based on domain knowledge ([Source](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf)):
 
-> Normative data suggests that a RSI of greater than or equal to 13 is clinically significant.
-
-> Therefore, a RSI > 13 may be indicative of significant reflux disease.
+> Normative data suggests that a RSI of greater than or equal to 13 is clinically significant. Therefore, a RSI > 13 may be indicative of significant reflux disease.
 
 
 #### Voice Handicap Index (VHI Impact) Z-Score
@@ -186,12 +194,39 @@ Created `vhi_zscore` column, based on the paper ([Source](https://therapistsfora
 - `Standard deviation = 14.97`
 
 Interpretation:
-
-> - Negative values are WNL (within normal limits), means no perception of handicap.
-
-> - Positive values indicate that voice impairment has a negative impact on aspects of daily life.
+- Negative values are WNL (within normal limits), means no perception of handicap.
+- Positive values indicate that voice impairment has a negative impact on aspects of daily life.
 
 |![zscore_interpretation](https://github.com/alyssahondrade/Project4/blob/main/images/zscore_interpretation.png)|
 |:---:|
 |Z-Score Interpretation Table|
+
+
+#### VHI Impact
+Created `vhi_impact` column, based on the z-score interpretation table above.
+
+
+## Feature Engineering
+[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/03_feature_engineering.ipynb)
+
+### Short Term Features
+1. Define the frame size and step (in ms), with a 50% overlap: [Source 1](https://github.com/tyiannak/pyAudioAnalysis/wiki/3.-Feature-Extraction#single-file-feature-extraction---storing-to-file), [Source 2](https://www.tandfonline.com/doi/full/10.1080/24751839.2018.1501542)
+    - Set `window_length = 0.050`.
+    - Set `hop_size = 0.025`.
+
+2. Use the `pyAudioAnalysis` library to extract the short term features. The features available are:
+
+| Feature ID | Feature Name | Description |
+|:---:|:---:|:---:|
+|1|Zero Crossing Rate|The rate of sign-changes of the signal during the duration of a particular frame.|
+|2|Energe|The sum of squares of the signal values, normalized by the respective frame length.|
+
+3. Parse each feature per voice sample to an array, convert this to a dataframe: `st_features_df`.
+
+4. Loop through each column in `st_features_df` (i.e. feature) and create a dataframe for each, parsing each array to its own value.
+    - Pad the arrays with zeroes using: `fillna(0)`.
+    - Each feature component becomes its own column, to allow the SQLITE database to handle the data.
+
+
+### Spectrograms
 
