@@ -35,4 +35,9 @@ def meta_preprocessing(metadata_dict):
         # Sever significant impact
         metadata_dict['vhi_impact'] = 4
     
+    # Calculate alcohol_pd
+    if metadata_dict['alcohol_units'] == 'Per week':
+        metadata_dict['alcohol_pd'] = round(metadata_dict['alc_pw'] / 7, 2)
+    else:
+        metadata_dict['alcohol_pd'] = metadata_dict['alc_pd']
     pprint(metadata_dict)
