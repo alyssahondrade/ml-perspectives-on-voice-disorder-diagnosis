@@ -290,6 +290,15 @@ def metadata_habits(habit_bool, habit_pd):
     Purpose: Builds the eating habits section of metadata questionnaire
     """
     
+    # Create a list of questions for the 'per day' sliders
+    habit_qs = {
+        'carbonated_beverages': 'carbonated beverages',
+        'coffee': 'cups of coffee',
+        'chocolate': 'grams of chocolate',
+        'soft_cheese': 'grams of soft cheese',
+        'citrus_fruits': 'citrus fruits eaten'
+    }
+    
     # Loop through each habit
     for habit in sorted(data['habit_cols']):
         
@@ -324,7 +333,7 @@ def metadata_habits(habit_bool, habit_pd):
                     # Integer (large values) habits
                     if habit in ['chocolate', 'soft_cheese']:
                         response_pd = st.slider(
-                            label = f"How many {habit} per day?",
+                            label = f"How many {habit_qs[habit]} per day?",
                             min_value = 0,
                             max_value = data[f'max_{habit}'],
                             value = data[f'avg_{habit}'],
@@ -334,7 +343,7 @@ def metadata_habits(habit_bool, habit_pd):
                     # Integer (small values) habits
                     elif habit == 'coffee':
                         response_pd = st.slider(
-                            label = f"How many {habit} per day?",
+                            label = f"How many {habit_qs[habit]} per day?",
                             min_value = 0,
                             max_value = data[f'max_{habit}'],
                             value = data[f'avg_{habit}'],
@@ -344,7 +353,7 @@ def metadata_habits(habit_bool, habit_pd):
                     # Float habits
                     else:
                         response_pd = st.slider(
-                            label = f"How many {habit} per day?",
+                            label = f"How many {habit_qs[habit]} per day?",
                             min_value = 0.0,
                             max_value = data[f'max_{habit}'],
                             value = data[f'avg_{habit}'],
@@ -360,7 +369,7 @@ def metadata_habits(habit_bool, habit_pd):
                     # Integer habits
                     if habit in ['chocolate', 'coffee', 'soft_cheese']:
                         st.slider(
-                            label = f"How many {habit} per day?",
+                            label = f"How many {habit_qs[habit]} per day?",
                             min_value = 0,
                             max_value = data[f'max_{habit}'],
                             value = data[f'avg_{habit}'],
@@ -370,7 +379,7 @@ def metadata_habits(habit_bool, habit_pd):
                     # Float habits
                     else:
                         st.slider(
-                            label = f"How many {habit} per day?",
+                            label = f"How many {habit_qs[habit]} per day?",
                             min_value = 0.0,
                             max_value = data[f'max_{habit}'],
                             value = data[f'avg_{habit}'],
