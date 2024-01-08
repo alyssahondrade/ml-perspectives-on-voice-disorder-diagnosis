@@ -1,0 +1,25 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ simple_rnn (SimpleRNN)      (None, 68, 192)           73920     
+                                                                 
+ gru (GRU)                   (None, 68, 256)           345600    
+                                                                 
+ batch_normalization (Batch  (None, 68, 256)           1024      
+ Normalization)                                                  
+                                                                 
+ gru_1 (GRU)                 (None, 256)               394752    
+                                                                 
+ dense (Dense)               (None, 1)                 257       
+                                                                 
+=================================================================
+Total params: 815553 (3.11 MB)
+Trainable params: 815041 (3.11 MB)
+Non-trainable params: 512 (2.00 KB)
+_________________________________________________________________
+{'change_message': 'added batch normalisation between GRU layers',
+ 'model_accuracy': 0.7254902124404907,
+ 'model_loss': 0.6018011569976807,
+ 'runtime': 22.14597773551941,
+ 'timestamp': datetime.datetime(2024, 1, 8, 19, 28, 24, 328135)}
