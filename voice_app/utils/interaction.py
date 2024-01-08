@@ -184,7 +184,7 @@ def meta_demographic(metadata_dict):
         metadata_dict['rsi_score'] = user_rsi
 
 
-def metadata_smoker(metadata_dict):
+def meta_smoker(metadata_dict):
     """
     Purpose: Builds the smoker section of metadata questionnaire
     """
@@ -224,7 +224,7 @@ def metadata_smoker(metadata_dict):
             metadata_dict['cigarettes_pd'] = 0
 
 
-def metadata_alcohol(metadata_dict):
+def meta_alcohol(metadata_dict):
     """
     Purpose: Builds the alcohol section of metadata questionnaire
     """
@@ -289,7 +289,7 @@ def metadata_alcohol(metadata_dict):
             metadata_dict['alc_pw'] = 0
 
 
-def metadata_water(metadata_dict):
+def meta_water(metadata_dict):
     """
     Purpose: Builds the water section of metadata questionnaire
     """
@@ -307,7 +307,7 @@ def metadata_water(metadata_dict):
     metadata_dict['water_litres_pd'] = user_water
 
     
-def metadata_habits(habit_bool, habit_pd):
+def meta_habits(habit_bool, habit_pd):
     """
     Purpose: Builds the eating habits section of metadata questionnaire
     """
@@ -433,15 +433,15 @@ def metadata_questionnaire():
     
     # Lifestyle questions
     st.subheader("Lifestyle")
-    metadata_smoker(metadata_dict)
-    metadata_alcohol(metadata_dict)
-    metadata_water(metadata_dict)
+    meta_smoker(metadata_dict)
+    meta_alcohol(metadata_dict)
+    meta_water(metadata_dict)
     
     # Habits
     st.subheader("Eating Habits")
     habit_bool = dict()
     habit_pd = dict()
-    metadata_habits(habit_bool, habit_pd)
+    meta_habits(habit_bool, habit_pd)
     
     # Add the habits to metadata_dict
     metadata_dict['habit_bool'] = habit_bool

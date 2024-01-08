@@ -55,7 +55,7 @@ def display_spectrogram(filepath_audio):
         D,
         sr = sr,
         x_axis = 'time',
-        y_axis = 'log' # can also choose: linear
+        y_axis = 'linear' # can also choose: linear
     )
     
     # Add labels

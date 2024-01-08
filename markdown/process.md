@@ -327,20 +327,48 @@ This section uses visualisations to explore the data extracted from the informat
 
 
 ## Streamlit App
+[Link to subdirectory](https://github.com/alyssahondrade/Project4/tree/main/voice_app)
 
 ### Directory Structure
-
+- `assets` contains resources used in the app, such as images, audio files, and supporting data stored in `JSON` format.
+- `pages` contains the Python scripts for each page in the app.
+- `utils` contains the Python scripts containing functions to support the pages.
 
 
 ### Visualisation
+This script contains the functions used to display visualisations on the app.
 
+1. `display_waveform()` displays the audio file's waveform, using [`waveshow`](https://librosa.org/doc/main/generated/librosa.display.waveshow.html) from the [`librosa`](https://librosa.org/doc/main/index.html) library.
+
+2. `display_spectrogram()` displays the audio file's spectrogram, using [`specshow`](https://librosa.org/doc/main/generated/librosa.display.specshow.html) from the [`librosa`](https://librosa.org/doc/main/index.html) library.
 
 
 ### User Interaction
+This script contains the functions used to create the questionnaires and save the user responses.
 
+1. `calculate_score()` maps the word options to a numerical score for calculations, by using the list indices.
+
+2. `create_questionnaire()` creates the VHI and RSI Questionnaires.
+    - Loop through all the questions, creating a question header and a set of radio buttons.
+    - Create a submit button, which triggers the metric display below the divider.
+    
+3. `metadata_questionnaire()` creates the questionnaire used to gather information to match the metadata available in the original dataset. There are five helper functions written to support this function:
+    - `meta_demographic()` to request input for: `age`, `gender`, `occupation_status`, `vhi_score`, `rsi_score`.
+    - `meta_smoker()` to request input for: `smoker`, `cigarettes_pd`.
+    - `meta_alcohol()` to request input for: `alcohol_consumption`, `alcohol_pd`.
+    - `meta_water()` to request input for: `water_litres_pd`.
+    - `meta_habits()` to request for information regarding: `carbonated_beverages`, `chocolate`, `citrus_fruits`, `coffee`, `soft_cheese`, `tomatoes`.
 
 
 ### Preprocessing
+This script contains the functions used to preprocess user input for use in the machine learning models. The output of each function is an appropriately formatted Pandas DataFrame to pass to the scaler.
 
+1. `meta_preprocessing()` converts user questionnaire responses to its preprocessed equivalent.
+    - Calculates the `reflux_indicated`, `vhi_zscore`, and `vhi_impact`.
+    - Converts the `per week` or `per day` alcohol consumption value to a `per day` standard.
+    - Encodes the categorical columns the same way as is used in training the model.
+    - Converts the dictionary to a Pandas DataFrame, rearranging columns in the same order as in the training phase.
 
+2. `spec_preprocessing()` converts the supplied audio file to a spectrogram for analysis.
 
+3. `st_preprocessing()` calculates the short term features of the supplied audio file.

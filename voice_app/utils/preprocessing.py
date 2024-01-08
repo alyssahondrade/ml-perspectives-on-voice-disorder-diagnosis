@@ -154,3 +154,13 @@ def spec_preprocessing(audio_file):
     """
     
     print(audio_file)
+
+def st_preprocessing(audio_file):
+    """
+    PURPOSE: Calculate the short term features.
+    
+    Input: audio file (.wav format)
+    Output: dataframe to be passed to scaler
+    """
+    
+    print(audio_file)

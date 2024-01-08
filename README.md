@@ -11,7 +11,7 @@ Github repository at: [https://github.com/alyssahondrade/Project4.git](https://g
     3. [Repository Structure](https://github.com/alyssahondrade/Project4#repository-structure)
     4. [Dataset](https://github.com/alyssahondrade/Project4#dataset)
 2. [Technology](https://github.com/alyssahondrade/Project4#technology)
-3. [Future Work]()
+3. [Future Work](https://github.com/alyssahondrade/Project4#future-work)
 4. [Process](https://github.com/alyssahondrade/Project4#process)
 5. [References](https://github.com/alyssahondrade/Project4#references)
 
@@ -25,13 +25,15 @@ The goal of this project is to explore different perspectives, using domain-know
 ### Scope
 The project will tackle the __binary classification problem of predicting a voice disorder diagnosis__.
 
-Perspectives
+__Perspectives__
 1. Time-domain features
     - Extracted from original waveforms.
     - Examples include signal mean, variance, standard deviation, RMS, zero crossing rate, entropy, and energy.
+    
 2. Frequency-domain features
     - Derived from converting the waveforms to spectrum plots.
     - The focus will be on harmonics (which come from vocal folds) and formants (which correspond to resonance in the vocal tract) only.
+    
 3. Time-frequency domain features
     - Mel-frequency cepstral coefficients (MFCCs) only, which capture the overall spectral content of the signal.
 
@@ -40,6 +42,7 @@ Perspectives
 
 
 ### Repository Structure
+- `images` directory contains all images used in the markdown files.
 - `markdown` directory contains all markdown files which support the README and project.
 - `models` directory contains all pre-trained models.
 - `notebooks` directory contains all Jupyter notebooks.
@@ -49,8 +52,9 @@ The `resources` directory contains the following subdirectories:
 - `audio_files` contains the samples in `wav` format.
 - `clean_data` contains the cleaned data in `csv` format.
 - `spectrograms` contains the images in `png` format.
-- `tracker` contains the performance trackers in `csv` format.
+- `tracker` contains the performance trackers in `csv` format and model summaries as `txt` files.
 - `voiced_dataset` is the raw dataset.
+
 
 ### Dataset
 The VOICED database includes clinically-verified 208 voice samples, from 150 pathological and 58 healthy voices.
@@ -65,11 +69,13 @@ The original publication is available at: [https://www.sciencedirect.com/science
 2. Python Matplotlib - for visualising waveforms and spectrograms.
 3. SQL database - to store engineered features.
 
-## Future Work
-
 
 ## Process
 Available at: [https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md)
+
+
+## Future Work
+
 
 
 ## References
