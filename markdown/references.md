@@ -81,6 +81,8 @@
 ## Signal Processing
 - [] Audio Analysis with Machine Learning [https://www.altexsoft.com/blog/audio-analysis/](https://www.altexsoft.com/blog/audio-analysis/)
 
+- [] HyperPhysics - Sound [http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/tralon.html](http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/tralon.html)
+
 
 ## Streamlit
 - [] Create an app [https://docs.streamlit.io/get-started/tutorials/create-an-app](https://docs.streamlit.io/get-started/tutorials/create-an-app)
@@ -108,3 +110,5 @@
 - [] Reflux Severity Index (RSI) [https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf](https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf)
 
 - [] Voice Handicap Index (VHI) – Jacobson et al., 1997 (AJSLP, Volume 6, pp. 66-70) [https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf](https://therapistsforarmenia.org/wp-content/uploads/2021/03/Voice-Handicap-Index-VHI.pdf)
+
+- [] 

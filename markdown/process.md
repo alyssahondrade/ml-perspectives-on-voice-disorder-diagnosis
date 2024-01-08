@@ -286,7 +286,7 @@ Created `vhi_impact` column, based on the z-score interpretation table above.
 
 
 ## Data Analysis & Visualisation
-[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/05_data_analysis_visualisation.ipynb)
+[Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/05_data_analysis_vis.ipynb)
 
 ### Analysis
 This section calculates the default values used in the Streamlit app.

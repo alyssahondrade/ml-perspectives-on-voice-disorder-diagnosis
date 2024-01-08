@@ -67,19 +67,22 @@ def audio_select():
     st.pyplot(fig_spec)
 
     
-def main():
-    page_configuration()
-    build_sidebar()
-    st.divider()
+def build_uploader():
     user_voice = st.file_uploader(
         label = "Upload your voice sample",
         type = "wav",
         accept_multiple_files = False,
         label_visibility = "visible"
     )
+    
+
+def main():
+    page_configuration()
+    build_sidebar()
+    st.divider()
+    build_uploader()
     audio_select()
     st.divider()
-
 
 
 if __name__ == '__main__':

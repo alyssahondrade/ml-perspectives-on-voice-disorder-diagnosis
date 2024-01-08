@@ -25,8 +25,9 @@ def build_header():
     ref_text = "Source: Melbourne ENT Group - Reflux Severity Index (RSI)"
     ref_link = "https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Reflux-Severity-Index-RSI.pdf"
     st.markdown(f"[{ref_text}]({ref_link})")
-    
-def main():    
+
+
+def build_questions():
     # Questions derived from Melbourne ENT Group RSI Questionnaire
     questions = {
         'Question 1': 'Hoarseness or a problem with your voice',
@@ -53,7 +54,12 @@ def main():
     # Use function to create questionnaire
     user_responses = create_questionnaire('rsi', questions, options)
 
-if __name__ == '__main__':
+
+def main():    
     build_header()
+    build_questions()
     build_sidebar()
+
+
+if __name__ == '__main__':
     main()

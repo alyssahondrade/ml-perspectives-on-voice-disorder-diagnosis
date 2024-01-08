@@ -24,7 +24,8 @@ def build_header():
     ref_link = "https://melbentgroup.com.au/wp-content/uploads/2015/10/MEG-Voice-Handicap-Index-VHI-10.pdf"
     st.markdown(f"[{ref_text}]({ref_link})")
     
-def main():
+
+def build_questions():
     # Questions derived from Melbourne ENT Group VHI-10 Questionnaire
     questions = {
         'Question 1': 'My voice makes it difficult for people to hear me',
@@ -43,9 +44,14 @@ def main():
     options = ['Never', 'Almost Never', 'Sometimes', 'Almost Always', 'Always']
 
     # Use function to create questionnaire
-    user_responses = create_questionnaire('vhi', questions, options)
+    user_responses = create_questionnaire('vhi', questions, options)  
+    
+
+def main():
+    build_header()
+    build_questions()
+    build_sidebar()
+
 
 if __name__ == '__main__':
-    build_header()
-    build_sidebar()
     main()
