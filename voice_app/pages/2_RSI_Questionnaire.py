@@ -1,6 +1,7 @@
 # Import dependencies
 import streamlit as st
 from utils.interaction import create_questionnaire
+from utils.interaction import build_sidebar
 
 def build_header():
     # Title
@@ -54,4 +55,5 @@ def main():
 
 if __name__ == '__main__':
     build_header()
+    build_sidebar()
     main()

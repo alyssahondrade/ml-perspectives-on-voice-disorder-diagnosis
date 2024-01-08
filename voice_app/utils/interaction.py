@@ -7,7 +7,24 @@ from pprint import pprint
 data_path = 'assets/default_data.json'
 with open(data_path, 'r') as file:
     data = json.load(file)
+
     
+def build_sidebar():
+    with st.sidebar:
+        # Button to Github repository
+        st.link_button(
+            label = "View on Github",
+            url = "https://github.com/alyssahondrade/Project4.git",
+            use_container_width = True
+        )
+        
+        # Button to project process
+        st.link_button(
+            label = "Learn more about the project",
+            url = "https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md",
+            use_container_width = True
+        )
+
 def calculate_score(options, responses):
     """
     Purposes:
