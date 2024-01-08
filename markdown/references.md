@@ -61,6 +61,10 @@
 
 - [] How to Develop LSTM Models for Time Series Forecasting [https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/](https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/)
 
+- [] 5 Types of LSTM Recurrent Neural Networks [https://www.exxactcorp.com/blog/Deep-Learning/5-types-of-lstm-recurrent-neural-networks-and-what-to-do-with-them](https://www.exxactcorp.com/blog/Deep-Learning/5-types-of-lstm-recurrent-neural-networks-and-what-to-do-with-them)
+
+- [] Working with RNNs [https://www.tensorflow.org/guide/keras/working_with_rnns](https://www.tensorflow.org/guide/keras/working_with_rnns)
+
 - [] Sklearn Random Forest Classifier [https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
 
 - [] Using XGBoost with Scikit Learn [https://www.kaggle.com/code/stuarthallows/using-xgboost-with-scikit-learn](https://www.kaggle.com/code/stuarthallows/using-xgboost-with-scikit-learn)
