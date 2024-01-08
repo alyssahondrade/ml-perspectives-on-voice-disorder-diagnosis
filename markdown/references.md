@@ -61,6 +61,9 @@
 
 - [] How to Develop LSTM Models for Time Series Forecasting [https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/](https://machinelearningmastery.com/how-to-develop-lstm-models-for-time-series-forecasting/)
 
+- [] Sklearn Random Forest Classifier [https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+
+- [] Using XGBoost with Scikit Learn [https://www.kaggle.com/code/stuarthallows/using-xgboost-with-scikit-learn](https://www.kaggle.com/code/stuarthallows/using-xgboost-with-scikit-learn)
 
 ## Python
 - [] Hide axes and gridlines in matplotlib [https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib](https://www.tutorialspoint.com/how-to-hide-axes-and-gridlines-in-matplotlib)
