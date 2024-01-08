@@ -1,7 +1,11 @@
 # Project4
-Data Analytics Bootcamp Project 4
+Project 4 - UWA/edX Data Analytics Bootcamp
 
 Github repository at: [https://github.com/alyssahondrade/Project4.git](https://github.com/alyssahondrade/Project4.git)
+
+Streamlit app at: []
+
+Presentation slides at: []
 
 
 ## Table of Contents
