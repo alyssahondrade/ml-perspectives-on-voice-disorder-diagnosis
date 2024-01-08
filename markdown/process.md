@@ -1,35 +1,35 @@
 # Process
 
 ## Table of Contents
-1. [Introduction]()
-2. [Data Conversion]()
-3. [Data Cleaning]()
-    1. [Duplicates]()
-    2. [Names and Nulls]()
-    3. [Categorical Columns]()
-    4. [Numerical Columns]()
-    5. [Imputation]()
-    6. [Target Variable]()
-    7. [Metadata Feature Engineering]()
-        1. [Reflux Indicated]()
-        2. [Voice Handicap Index (VHI) Z-Score]()
-        3. [VHI Impact]()
-4. [Feature Engineering]()
-    1. [Short Term Features]()
-    2. [Spectrograms]()
-5. [Build Database]()
-6. [Data Analysis & Visualisation]()
-    1. [Analysis]()
-    2. [Visualisation]()
-7. [Machine Learning Models]()
-    1. [Deep Learning for Metadata]()
-    2. [Convolutional Neural Network for Spectrograms]()
-    3. [Recurrent Neural Network for Short Term Features]()
-8. [Streamlit App]
-    1. [Directory Structure]()
-    2. [Visualisation]()
-    3. [User Interaction]()
-    4. [Preprocessing]()
+1. [Introduction](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#introduction)
+2. [Data Conversion](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#data-conversion)
+3. [Data Cleaning](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#data-cleaning)
+    1. [Duplicates](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#duplicates)
+    2. [Names and Nulls](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#names-and-nulls)
+    3. [Categorical Columns](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#categorical-columns)
+    4. [Numerical Columns](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#numerical-columns)
+    5. [Imputation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#imputation)
+    6. [Target Variable](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#target-variable)
+    7. [Metadata Feature Engineering](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#metadata-feature-engineering)
+        1. [Reflux Indicated](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#reflux-indicated)
+        2. [Voice Handicap Index (VHI) Z-Score](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#voice-handicap-index-vhi-impact-z-score)
+        3. [VHI Impact](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#vhi-impact)
+4. [Feature Engineering](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#feature-engineering)
+    1. [Short Term Features](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#short-term-features)
+    2. [Spectrograms](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#spectrograms)
+5. [Build Database](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#build-database)
+6. [Data Analysis & Visualisation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#data-analysis--visualisation)
+    1. [Analysis](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#analysis)
+    2. [Visualisation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#visualisation)
+7. [Machine Learning Models](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#machine-learning-models)
+    1. [Deep Learning for Metadata](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#deep-learning-for-metadata)
+    2. [Convolutional Neural Network for Spectrograms](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#convolutional-neural-network-for-spectrograms)
+    3. [Recurrent Neural Network for Short Term Features](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#recurrent-neural-network-for-short-term-features)
+8. [Streamlit App](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#streamlit-app)
+    1. [Directory Structure](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#directory-structure)
+    2. [Visualisation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#visualisation-1)
+    3. [User Interaction](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#user-interaction)
+    4. [Preprocessing](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#preprocessing)
 
 
 ## Introduction
@@ -324,6 +324,7 @@ This section uses visualisations to explore the data extracted from the informat
 
 
 ### Recurrent Neural Network for Short Term Features
+
 
 
 ## Streamlit App
