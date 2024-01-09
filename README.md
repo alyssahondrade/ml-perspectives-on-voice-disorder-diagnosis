@@ -5,7 +5,7 @@ Github repository at: [https://github.com/alyssahondrade/Project4.git](https://g
 
 Streamlit app at: []
 
-Presentation slides at: []
+Presentation slides at: [Slide Deck](https://www.canva.com/design/DAF5Qyzn8rI/hbJorv3SRrgkLC6FLUEDbg/edit?utm_content=DAF5Qyzn8rI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 
 ## Table of Contents
