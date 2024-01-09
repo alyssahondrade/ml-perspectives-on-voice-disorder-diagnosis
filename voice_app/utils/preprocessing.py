@@ -3,11 +3,13 @@ import streamlit as st
 import json
 from pprint import pprint
 import pandas as pd
+import os
 
 ### Read JSON files ###
 
 # Data used to populate the default values in the questionnaire
-data_path = 'assets/default_data.json'
+# data_path = 'assets/default_data.json'
+data_path = os.path.abspath('assets/default_data.json')
 with open(data_path, 'r') as file:
     data = json.load(file)
 
@@ -151,6 +153,8 @@ def spec_preprocessing(audio_file):
     
     Input: audio file (.wav format)
     Output: dataframe to be passed to scaler
+    
+    CODE: TBA
     """
     
     print(audio_file)
@@ -161,6 +165,8 @@ def st_preprocessing(audio_file):
     
     Input: audio file (.wav format)
     Output: dataframe to be passed to scaler
+    
+    CODE: TBA
     """
     
     print(audio_file)

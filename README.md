@@ -3,7 +3,10 @@ Project 4 - UWA/edX Data Analytics Bootcamp
 
 Github repository at: [https://github.com/alyssahondrade/Project4.git](https://github.com/alyssahondrade/Project4.git)
 
-Streamlit app at: []
+> NOTE: Current issues with deployment, Streamlit app deploys locally.
+> Navigate to the `voice_app` directory and run: `streamlit run Home.py`.
+
+Streamlit app at: [https://voice-disorder-diagnosis-perspectives.streamlit.app](https://voice-disorder-diagnosis-perspectives.streamlit.app)
 
 Presentation slides at: [Slide Deck](https://www.canva.com/design/DAF5Qyzn8rI/hbJorv3SRrgkLC6FLUEDbg/edit?utm_content=DAF5Qyzn8rI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 

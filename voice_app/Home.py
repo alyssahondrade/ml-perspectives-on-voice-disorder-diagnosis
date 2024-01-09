@@ -4,7 +4,6 @@ import pandas as pd
 import numpy as np
 import os
 import json
-import tensorflow as tf
 import joblib
 
 import matplotlib.pyplot as plt
@@ -12,6 +11,7 @@ from utils.visualisation import display_waveform, display_spectrogram
 from utils.interaction import metadata_questionnaire
 from utils.interaction import build_sidebar
 from utils.preprocessing import meta_preprocessing
+
 
 def page_configuration():
     st.set_page_config(
@@ -25,7 +25,8 @@ def page_configuration():
 
 def audio_select():
     # Define the path to the directory
-    audio_path = "assets/sample_audio/"
+    # audio_path = "assets/sample_audio/"
+    audio_path = os.path.abspath("assets/sample_audio/")
     audio_files = os.listdir(audio_path)
     
     # Dynamically update names in the file

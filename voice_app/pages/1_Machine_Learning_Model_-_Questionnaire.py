@@ -4,8 +4,8 @@ import pandas as pd
 import numpy as np
 import os
 import json
-import tensorflow as tf
 import joblib
+import pickle
 
 import matplotlib.pyplot as plt
 from utils.visualisation import display_waveform, display_spectrogram
@@ -24,11 +24,17 @@ def page_configuration():
 
 @st.cache_resource # Only load the model once
 def load_model():
-    # model_path = "../models/dl/run_21_0.824.h5"
-    # model_path = "../models/dl/run_39_0.824.h5"
-    model_path = "../models/dl/run_41_0.824.h5"
+    # Trained model using 82% DNN Model
+    # model_path = "../models/dl/run_41_0.824.h5"
+    # model = tf.keras.models.load_model(model_path)
+    
+    # Pickle
+    model_path = "../models/pickled_run_41_0.824.h5"
+    with open(model_path, 'rb') as file:
+        model = pickle.load(file)
+    
+    # UNCOMMENT BELOW, for 88% Stack Model
     # model_path = "../models/stack/run_18_0.882.h5"
-    model = tf.keras.models.load_model(model_path)
     # model = joblib.load(model_path)
     return model
 
@@ -117,6 +123,8 @@ def main():
     build_sidebar()
     st.divider()
     make_keras_predictions()
+    
+    # UNCOMMENT BELOW, if Stack was used instead of keras
     # make_joblib_predictions()
 
 

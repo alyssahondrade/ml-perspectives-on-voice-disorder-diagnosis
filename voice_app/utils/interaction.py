@@ -2,9 +2,11 @@
 import streamlit as st
 import json
 from pprint import pprint
+import os
 
 # Read JSON file
-data_path = 'assets/default_data.json'
+# data_path = 'assets/default_data.json'
+data_path = os.path.abspath('assets/default_data.json')
 with open(data_path, 'r') as file:
     data = json.load(file)
 
