@@ -79,7 +79,13 @@ Available at: [https://github.com/alyssahondrade/Project4/blob/main/markdown/pro
 
 
 ## Future Work
+1. Explore RNN, LSTM, and GRU models in more depth, with regard to conducting binary classification using temporal features.
 
+2. Explore different spectrogram frequency types. The model used 'linear', however there are multiple other options available. It would also be interesting to use the harmonic spectrum spectrogram as there is a link between the vocal tract and harmonics.
+
+3. Explore multiple imputation to understand the  the effect of uncertainty on the model, as the external factors dataset had a lot of null values.
+
+4. Explore optimisation techniques for tuning, such as nature-based ones like Genetic Algorithms and Particle Swarm Optimisation.
 
 
 ## References

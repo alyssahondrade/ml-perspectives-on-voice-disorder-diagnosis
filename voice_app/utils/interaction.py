@@ -24,6 +24,26 @@ def build_sidebar():
             url = "https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md",
             use_container_width = True
         )
+        
+        # Dislaimer notice
+        st.subheader("Disclaimer")
+        st.write("""
+            This voice disorder diagnostic tool is provided for educational
+            purposes only. It is not intended to replace professional medical
+            advice, diagnosis, or treatment. The tool's results should not be
+            considered a substitute for consultation with a qualified
+            healthcare professional.
+
+            Users are advised to consult with a healthcare professional for
+            accurate diagnosis and appropriate medical guidance. The creators
+            of this tool do not assume any responsibility for decisions made
+            based on the tool's results.
+
+            This tool is designed to serve as an educational resource,
+            promoting awareness and understanding of voice disorders. Users
+            should exercise caution and seek professional medical assistance
+            for any health concerns.
+        """)
 
 def calculate_score(options, responses):
     """
