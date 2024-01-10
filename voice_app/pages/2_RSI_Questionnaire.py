@@ -58,12 +58,6 @@ def build_questions(data):
 
 
 def main():
-    # Read JSON file
-    # data_path = '/voice_app/assets/default_data.json'
-    # data_path = os.path.abspath('/voice_app/assets/default_data.json')
-
-        
-        
     # Get the absolute path to the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -72,9 +66,12 @@ def main():
 
     # Specify the path to the data file in the "assets" folder
     data_path = os.path.join(voice_app_dir, 'assets', 'default_data.json')
+    
+    # Read JSON file
     with open(data_path, 'r') as file:
         data = json.load(file)
 
+    # Build the page
     build_header()
     build_questions(data)
     build_sidebar()

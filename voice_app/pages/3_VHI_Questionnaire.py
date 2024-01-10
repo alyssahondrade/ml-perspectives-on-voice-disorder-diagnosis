@@ -25,7 +25,7 @@ def build_header():
     st.markdown(f"[{ref_text}]({ref_link})")
     
 
-def build_questions():
+def build_questions(data):
     # Questions derived from Melbourne ENT Group VHI-10 Questionnaire
     questions = {
         'Question 1': 'My voice makes it difficult for people to hear me',
@@ -44,12 +44,26 @@ def build_questions():
     options = ['Never', 'Almost Never', 'Sometimes', 'Almost Always', 'Always']
 
     # Use function to create questionnaire
-    user_responses = create_questionnaire('vhi', questions, options)  
+    user_responses = create_questionnaire('vhi', questions, options, data)  
     
 
 def main():
+    # Get the absolute path to the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Navigate up one level to the "voice_app" directory
+    voice_app_dir = os.path.dirname(script_dir)
+
+    # Specify the path to the data file in the "assets" folder
+    data_path = os.path.join(voice_app_dir, 'assets', 'default_data.json')
+    
+    # Read JSON file
+    with open(data_path, 'r') as file:
+        data = json.load(file)
+    
+    # Build the page
     build_header()
-    build_questions()
+    build_questions(data)
     build_sidebar()
 
 
