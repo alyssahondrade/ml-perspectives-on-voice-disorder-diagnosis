@@ -458,13 +458,9 @@ def meta_habits(habit_bool, habit_pd, data):
 
     
 def metadata_questionnaire():
-    # Get the absolute path to the current script
+    # Specify the path to default_data
     script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    # Navigate up one level to the "voice_app" directory
     voice_app_dir = os.path.dirname(script_dir)
-
-    # Specify the path to the data file in the "assets" folder
     data_path = os.path.join(voice_app_dir, 'assets', 'default_data.json')
     
     # Read JSON file
