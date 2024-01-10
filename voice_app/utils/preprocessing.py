@@ -129,7 +129,6 @@ def meta_preprocessing(metadata_dict, data, model_meta):
     # Rearrange columns, must be in the same order as during fit
     output_df = output_df[model_meta['feature_names']]
     
-    pprint(output_dict)
     return output_df
 
 
