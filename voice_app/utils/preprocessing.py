@@ -20,7 +20,7 @@ with open(feature_path, 'r') as file:
     
 
 ### FUNCTIONS ###
-def meta_preprocessing(metadata_dict):
+def meta_preprocessing(metadata_dict, data, model_meta):
     """
     PURPOSE: Convert user responses to preprocessed equivalent.
     

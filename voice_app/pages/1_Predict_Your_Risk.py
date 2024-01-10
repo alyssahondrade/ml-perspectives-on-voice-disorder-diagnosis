@@ -39,11 +39,11 @@ def load_model():
     return model
 
 
-def make_keras_predictions():
+def make_keras_predictions(data, model_meta):
     # Preprocess the user responses
     st.header('Questionnaire')
     user_responses = metadata_questionnaire()
-    processed_sample = meta_preprocessing(user_responses)
+    processed_sample = meta_preprocessing(user_responses, data, model_meta)
     
     # Load the scaler
     X_scaler = joblib.load('assets/scaler.joblib')
@@ -119,10 +119,26 @@ def make_joblib_predictions():
             )
 
 def main():
+    # Get the absolute path to the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Navigate up one level to the "voice_app" directory
+    voice_app_dir = os.path.dirname(script_dir)
+
+    # Specify the path to default_data in the "assets" folder
+    data_path = os.path.join(voice_app_dir, 'assets', 'default_data.json')
+    with open(data_path, 'r') as file:
+        data = json.load(file)
+    
+    # Specify the path to model_meta in the "assets" folder
+    model_path = os.path.join(voice_app_dir, 'assets', 'model_meta.json')
+    with open(data_path, 'r') as file:
+        model_meta = json.load(file)
+
     page_configuration()
     build_sidebar()
     st.divider()
-    make_keras_predictions()
+    make_keras_predictions(data, model_meta)
     
     # UNCOMMENT BELOW, if Stack was used instead of keras
     # make_joblib_predictions()

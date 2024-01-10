@@ -149,7 +149,7 @@ def create_questionnaire(qtype, questions, options, data):
     return final_score
 
 
-def meta_demographic(metadata_dict):
+def meta_demographic(metadata_dict, data):
     """
     Purpose: Builds the demographic section of metadata questionnaire
     """
@@ -217,7 +217,7 @@ def meta_demographic(metadata_dict):
         metadata_dict['rsi_score'] = user_rsi
 
 
-def meta_smoker(metadata_dict):
+def meta_smoker(metadata_dict, data):
     """
     Purpose: Builds the smoker section of metadata questionnaire
     """
@@ -257,7 +257,7 @@ def meta_smoker(metadata_dict):
             metadata_dict['cigarettes_pd'] = 0
 
 
-def meta_alcohol(metadata_dict):
+def meta_alcohol(metadata_dict, data):
     """
     Purpose: Builds the alcohol section of metadata questionnaire
     """
@@ -322,7 +322,7 @@ def meta_alcohol(metadata_dict):
             metadata_dict['alc_pw'] = 0
 
 
-def meta_water(metadata_dict):
+def meta_water(metadata_dict, data):
     """
     Purpose: Builds the water section of metadata questionnaire
     """
@@ -340,7 +340,7 @@ def meta_water(metadata_dict):
     metadata_dict['water_litres_pd'] = user_water
 
     
-def meta_habits(habit_bool, habit_pd):
+def meta_habits(habit_bool, habit_pd, data):
     """
     Purpose: Builds the eating habits section of metadata questionnaire
     """
@@ -458,23 +458,36 @@ def meta_habits(habit_bool, habit_pd):
 
     
 def metadata_questionnaire():
+    # Get the absolute path to the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Navigate up one level to the "voice_app" directory
+    voice_app_dir = os.path.dirname(script_dir)
+
+    # Specify the path to the data file in the "assets" folder
+    data_path = os.path.join(voice_app_dir, 'assets', 'default_data.json')
+    
+    # Read JSON file
+    with open(data_path, 'r') as file:
+        data = json.load(file)
+
     # Initialise dictionary to hold results
     metadata_dict = dict()
     
     # Demographic questions
-    meta_demographic(metadata_dict)
+    meta_demographic(metadata_dict, data)
     
     # Lifestyle questions
     st.subheader("Lifestyle")
-    meta_smoker(metadata_dict)
-    meta_alcohol(metadata_dict)
-    meta_water(metadata_dict)
+    meta_smoker(metadata_dict, data)
+    meta_alcohol(metadata_dict, data)
+    meta_water(metadata_dict, data)
     
     # Habits
     st.subheader("Eating Habits")
     habit_bool = dict()
     habit_pd = dict()
-    meta_habits(habit_bool, habit_pd)
+    meta_habits(habit_bool, habit_pd, data)
     
     # Add the habits to metadata_dict
     metadata_dict['habit_bool'] = habit_bool
