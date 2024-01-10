@@ -25,6 +25,8 @@
     1. [Deep Learning for Metadata](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#deep-learning-for-metadata)
     2. [Convolutional Neural Network for Spectrograms](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#convolutional-neural-network-for-spectrograms)
     3. [Recurrent Neural Network for Short Term Features](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#recurrent-neural-network-for-short-term-features)
+    4. [Other Models]()
+    5. [Stacking Classifier]()
 8. [Streamlit App](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#streamlit-app)
     1. [Directory Structure](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#directory-structure)
     2. [Visualisation](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#visualisation-1)
@@ -317,14 +319,19 @@ This section uses visualisations to explore the data extracted from the informat
 ## Machine Learning Models
 
 ### Deep Learning for Metadata
-
-
+TBA
 
 ### Convolutional Neural Network for Spectrograms
-
+TBA
 
 ### Recurrent Neural Network for Short Term Features
+TBA
 
+### Other Models
+TBA
+
+### Stacking Classifier
+TBA
 
 
 ## Streamlit App
