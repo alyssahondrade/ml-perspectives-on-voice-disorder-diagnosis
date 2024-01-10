@@ -8,15 +8,15 @@ import os
 ### Read JSON files ###
 
 # Data used to populate the default values in the questionnaire
-# data_path = 'assets/default_data.json'
-data_path = os.path.abspath('assets/default_data.json')
-with open(data_path, 'r') as file:
-    data = json.load(file)
+# # data_path = 'assets/default_data.json'
+# data_path = os.path.abspath('assets/default_data.json')
+# with open(data_path, 'r') as file:
+#     data = json.load(file)
 
-# Feature names to match the ML model
-feature_path = 'assets/model_meta.json'
-with open(feature_path, 'r') as file:
-    model_meta = json.load(file)
+# # Feature names to match the ML model
+# feature_path = 'assets/model_meta.json'
+# with open(feature_path, 'r') as file:
+#     model_meta = json.load(file)
     
 
 ### FUNCTIONS ###
