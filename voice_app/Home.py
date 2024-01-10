@@ -26,7 +26,16 @@ def page_configuration():
 def audio_select():
     # Define the path to the directory
     # audio_path = "assets/sample_audio/"
-    audio_path = os.path.abspath("assets/sample_audio/")
+    # audio_path = os.path.abspath("assets/sample_audio/")
+    # audio_files = os.listdir(audio_path)
+    
+    # Get the absolute path to the current script (Home.py)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Specify the path to the "assets/sample_audio" folder
+    audio_path = os.path.join(script_dir, 'assets', 'sample_audio')
+
+    # List the files in the "sample_audio" folder
     audio_files = os.listdir(audio_path)
     
     # Dynamically update names in the file
