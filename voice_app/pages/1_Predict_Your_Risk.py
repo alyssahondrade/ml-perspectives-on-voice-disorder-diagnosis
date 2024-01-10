@@ -132,8 +132,10 @@ def main():
     
     # Specify the path to model_meta in the "assets" folder
     model_path = os.path.join(voice_app_dir, 'assets', 'model_meta.json')
-    with open(data_path, 'r') as file:
+    with open(model_path, 'r') as file:
         model_meta = json.load(file)
+    from pprint import pprint
+    pprint(model_meta)
 
     page_configuration()
     build_sidebar()
