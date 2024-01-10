@@ -1,5 +1,7 @@
 # Import dependencies
 import streamlit as st
+import os
+import json
 from utils.interaction import create_questionnaire
 from utils.interaction import build_sidebar
 
@@ -27,7 +29,7 @@ def build_header():
     st.markdown(f"[{ref_text}]({ref_link})")
 
 
-def build_questions():
+def build_questions(data):
     # Questions derived from Melbourne ENT Group RSI Questionnaire
     questions = {
         'Question 1': 'Hoarseness or a problem with your voice',
@@ -52,12 +54,29 @@ def build_questions():
     ]
 
     # Use function to create questionnaire
-    user_responses = create_questionnaire('rsi', questions, options)
+    user_responses = create_questionnaire('rsi', questions, options, data)
 
 
-def main():    
+def main():
+    # Read JSON file
+    # data_path = '/voice_app/assets/default_data.json'
+    # data_path = os.path.abspath('/voice_app/assets/default_data.json')
+
+        
+        
+    # Get the absolute path to the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Navigate up one level to the "voice_app" directory
+    voice_app_dir = os.path.dirname(script_dir)
+
+    # Specify the path to the data file in the "assets" folder
+    data_path = os.path.join(voice_app_dir, 'assets', 'default_data.json')
+    with open(data_path, 'r') as file:
+        data = json.load(file)
+
     build_header()
-    build_questions()
+    build_questions(data)
     build_sidebar()
 
 

@@ -4,12 +4,6 @@ import json
 from pprint import pprint
 import os
 
-# Read JSON file
-# data_path = 'assets/default_data.json'
-data_path = os.path.abspath('assets/default_data.json')
-with open(data_path, 'r') as file:
-    data = json.load(file)
-
     
 def build_sidebar():
     with st.sidebar:
@@ -65,7 +59,7 @@ def calculate_score(options, responses):
     return sum(num_response)
 
 
-def create_questionnaire(type, questions, options):
+def create_questionnaire(qtype, questions, options, data):
     """
     Purpose:
     - Build questionnaire
@@ -94,7 +88,7 @@ def create_questionnaire(type, questions, options):
         st.subheader(value)
 
         # Radiobutton
-        if type == 'vhi':
+        if qtype == 'vhi':
             
             # Horizontal buttons for VHI
             response = st.radio(
@@ -125,7 +119,7 @@ def create_questionnaire(type, questions, options):
         raw_score = calculate_score(options, responses)
         
         # Scale the score
-        if type == 'vhi':
+        if qtype == 'vhi':
             # Scaling factor
             scale_factor = data['max_vhi_score'] / data['max_vhi10_score']
             final_score = raw_score * scale_factor
@@ -135,9 +129,9 @@ def create_questionnaire(type, questions, options):
         # Display the final score
         left_col, mid_col, right_col = st.columns(3)
         with mid_col:
-            st.subheader(f"{type.upper()} Score:")
+            st.subheader(f"{qtype.upper()} Score:")
             st.metric(
-                label = type.upper(),
+                label = qtype.upper(),
                 value = int(final_score),
                 label_visibility = 'hidden'
             )
@@ -145,9 +139,9 @@ def create_questionnaire(type, questions, options):
         # Default display
         left_col, mid_col, right_col = st.columns(3)
         with mid_col:
-            st.subheader(f"{type.upper()} Score:")
+            st.subheader(f"{qtype.upper()} Score:")
             st.metric(
-                label = type.upper(),
+                label = qtype.upper(),
                 value = 0,
                 label_visibility = 'hidden'
             )
