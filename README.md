@@ -1,4 +1,4 @@
-# Project4
+# Machine Learning Perspectives on Voice Disorder Diagnosis
 Project 4 - UWA/edX Data Analytics Bootcamp
 
 Github repository at: [https://github.com/alyssahondrade/Project4.git](https://github.com/alyssahondrade/Project4.git)
