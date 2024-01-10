@@ -39,14 +39,15 @@ def load_model(model_path):
     return model
 
 
-def make_keras_predictions(data, model_meta, model_path):
+def make_keras_predictions(data, model_meta, model_path, scaler_path):
     # Preprocess the user responses
     st.header('Questionnaire')
     user_responses = metadata_questionnaire()
     processed_sample = meta_preprocessing(user_responses, data, model_meta)
     
     # Load the scaler
-    X_scaler = joblib.load('assets/scaler.joblib')
+    # X_scaler = joblib.load('assets/scaler.joblib')
+    X_scaler = joblib.load(scaler_path)
     scaled_sample = X_scaler.transform(processed_sample)
     
     # Load the model
@@ -141,10 +142,13 @@ def main():
     model_path = os.path.join(root_dir, 'models', model_name)
     # model_path = "../models/
 
+    # Specify the path to the scaler
+    scaler_path = os.path.join(voice_app_dir, 'assets', 'scaler.joblib')
+    
     page_configuration()
     build_sidebar()
     st.divider()
-    make_keras_predictions(data, model_meta, model_path)
+    make_keras_predictions(data, model_meta, model_path, scaler_path)
     
     
     # UNCOMMENT BELOW, if Stack was used instead of keras
