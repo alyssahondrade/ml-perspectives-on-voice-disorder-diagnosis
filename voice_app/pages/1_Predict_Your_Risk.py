@@ -23,13 +23,13 @@ def page_configuration():
 
 
 @st.cache_resource # Only load the model once
-def load_model():
+def load_model(model_path):
     # Trained model using 82% DNN Model
     # model_path = "../models/dl/run_41_0.824.h5"
     # model = tf.keras.models.load_model(model_path)
     
     # Pickle
-    model_path = "../models/pickled_run_41_0.824.h5"
+    # model_path = "../models/pickled_run_41_0.824.h5"
     with open(model_path, 'rb') as file:
         model = pickle.load(file)
     
@@ -39,7 +39,7 @@ def load_model():
     return model
 
 
-def make_keras_predictions(data, model_meta):
+def make_keras_predictions(data, model_meta, model_path):
     # Preprocess the user responses
     st.header('Questionnaire')
     user_responses = metadata_questionnaire()
@@ -51,7 +51,7 @@ def make_keras_predictions(data, model_meta):
     
     # Load the model
     with st.spinner("Loading model..."):
-        model = load_model()
+        model = load_model(model_path)
         
     # Make predictions using the loaded model
     prediction = model.predict(scaled_sample)
@@ -131,16 +131,21 @@ def main():
         data = json.load(file)
     
     # Specify the path to model_meta in the "assets" folder
-    model_path = os.path.join(voice_app_dir, 'assets', 'model_meta.json')
-    with open(model_path, 'r') as file:
+    meta_path = os.path.join(voice_app_dir, 'assets', 'model_meta.json')
+    with open(meta_path, 'r') as file:
         model_meta = json.load(file)
-    from pprint import pprint
-    pprint(model_meta)
+
+    # Specify the path to the trained model
+    model_name = "pickled_run_41_0.824.h5"
+    root_dir = os.path.dirname(os.path.dirname(script_dir))
+    model_path = os.path.join(root_dir, 'models', model_name)
+    # model_path = "../models/
 
     page_configuration()
     build_sidebar()
     st.divider()
-    make_keras_predictions(data, model_meta)
+    make_keras_predictions(data, model_meta, model_path)
+    
     
     # UNCOMMENT BELOW, if Stack was used instead of keras
     # make_joblib_predictions()
