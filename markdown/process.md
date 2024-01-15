@@ -290,6 +290,7 @@ Created `vhi_impact` column, based on the z-score interpretation table above.
 ## Data Analysis & Visualisation
 [Link to the notebook](https://github.com/alyssahondrade/Project4/blob/main/notebooks/05_data_analysis_vis.ipynb)
 
+
 ### Analysis
 This section calculates the default values used in the Streamlit app.
 
@@ -298,6 +299,7 @@ This section calculates the default values used in the Streamlit app.
 2. Calculate relevant values used for each metadata feature.
 
 3. Export the dictionary to a JSON file
+
 
 ### Visualisation
 This section uses visualisations to explore the data extracted from the information files.
@@ -407,7 +409,28 @@ This section uses visualisations to explore the data extracted from the informat
 
 
 ### Recurrent Neural Network for Short Term Features
-TBA
+1. Import dependencies.
+
+2. Import the datasets using SQLAlchemy.
+    - Define the tables to import.
+    - Initialise the dictionary to hold the dataframes.
+
+3. Preprocessing
+    - Recombine the feature variables using a for-loop.
+    - Use `df.values[:, 1:]` to get the feature array only.
+    - Use `df.values[:, 0]` to get all the voice IDs.
+    - Note: In the future, for simplicity, use `to_sql(dtype={'col_name': JSON})` to eliminate code required to parse and recombine the feature arrays [Source: Pandas Documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.to_sql.html)
+
+4. Split and Scale, as with [Convolutional Neural Network for Spectrograms](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md#convolutional-neural-network-for-spectrograms)
+
+5. Define the RNN model. This section is still in progress.
+
+6. Evaluate the Model Results, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+7. Save Results to Performance Tracker, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+8. Understand the Predictions, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
 
 ### Other Models
 This section outlines the process for the following models:
@@ -455,7 +478,25 @@ The following steps are the same for the models:
 
 
 ### Stacking Classifier
-TBA
+This section follows the same process as the [Other Models]((https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#other-models), the main difference being the model:
+
+1. Define the parameters per model, as outlined in [Other Models]((https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#other-models).
+
+2. Define the base models using a list, in the following order: `[rfc, xgb, lr]`.
+
+3. Create the meta-model using: `MLCLassifier()`
+    - Define the `hidden_layer_sizes` as `(80,)`.
+    - Define the `max_iter` as `1500`.
+
+4. Create the Stacking Classifier using: `StackingClassifier()`
+    - Where `estimators` are the base models defined earlier.
+    - Where `final_estimator` is the meta-model defined earlier.
+
+5. Fit the model and make predictions, calculating the confusion matrix and classification report.
+    
+6. Save Results to Performance Tracker, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+7. Understand the Predictions, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
 
 
 ## Streamlit App
