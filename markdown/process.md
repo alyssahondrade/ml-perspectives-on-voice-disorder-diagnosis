@@ -435,13 +435,13 @@ This section uses visualisations to explore the data extracted from the informat
 ### Other Models
 This section outlines the process for the following models:
 
-1. Random Forest Classifier (RFC): [`06d_rfc_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06d_rfc_test.ipynb)
+1. Random Forest Classifier (RFC): [Link to the notebook](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06d_rfc_test.ipynb)
 
-2. XGBoost: [`06e_xgb_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06e_xgb_test.ipynb)
+2. XGBoost: [Link to the notebook](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06e_xgb_test.ipynb)
 
-3. Support Vector Machine (SVM): [`06f_svm_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06f_svm_test.ipynb)
+3. Support Vector Machine (SVM): [Link to the notebook](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06f_svm_test.ipynb)
 
-4. Logistic Regression: [`06g_lr_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06g_lr_test.ipynb)
+4. Logistic Regression: [Link to the notebook](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06g_lr_test.ipynb)
 
 The following steps are the same for the models:
 1. Import dependencies.
