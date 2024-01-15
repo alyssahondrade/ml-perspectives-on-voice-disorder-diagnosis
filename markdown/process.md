@@ -321,52 +321,85 @@ This section uses visualisations to explore the data extracted from the informat
 ### Deep Learning for Metadata
 1. Import dependencies.
 
-2. Code to time the run: `start_time = time.time()`
-
-3. Import the datasets using SQLAlchemy.
+2. Import the datasets using SQLAlchemy.
     - Define the tables to import.
     - Initialise the dictionary to hold the dataframes.
     - Merge the dataframes: `on = 'id'`.
 
-4. Preprocessing
+3. Preprocessing
     - Separate the target and feature variables. The `subtype` column is dropped as this could cause leakage, since all `healthy` samples have `no subtype`, which could be a pattern the model could overfit to.
     - Encode the target variable for binary classification.
     - Bin the `occupation_status` column so that there is a maximum of 10 unique values.
-    - Encode the feature columns as per the plan outlined in [Categorical Columns]().
+    - Encode the feature columns as per the plan outlined in [Categorical Columns](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#categorical-columns).
     - Collect the information to export as a JSON file, which will be used by the Streamlit app to preprocess user provided responses.
 
-5. Split and Scale
+4. Split and Scale
     - Use `stratify = y` since there is an imbalance in the dataset.
     - Use `StandardScaler()` to scale the data.
     - Save the scaler using `dump()` from `joblib`.
 
-6. Hyperparameter Tuning
+5. Hyperparameter Tuning
     - Define the model parameters.
     - Extract the kernel regularisation details for the performance tracker.
     - Initialise the Hyperband tuner, using `create_model` from [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
     - Find the best hyperparameters using `search()`.
 
-7. Compile, Train, and Evaluate the Best Model
+6. Compile, Train, and Evaluate the Best Model
     - Use `get_best_hyperparameters()` to get the top 3 models.
     - Get the best model and parse the results to variables.
     - Build, compile, train, and evaluate the model using these variables.
     
-8. Evaluate the Model Results
+7. Evaluate the Model Results
     - Use the test data to get the model loss and accuracy.
     - Check the prediction's output probabilities to ensure valid results (not the model guessing the same probability for each sample).
     - Display the confusion matrix and classificaiton report.
     
-9. Save Results to Performance Tracker
+8. Save Results to Performance Tracker
     - Save model and tuner details to a dictionary.
     - Provide a change message.
     - Export the trained model using keras' in-built `save()` function.
     - Update the performance tracker.
 
-10. Understand the Predictions. This section identifies the incorrect predictions and displays the sample's actual diagnosis information.
+9. Understand the Predictions. This section identifies the incorrect predictions and displays the sample's actual diagnosis information.
     
 
 ### Convolutional Neural Network for Spectrograms
-TBA
+1. Import dependencies.
+
+2. Import the datasets using SQLAlchemy.
+    - Define the tables to import.
+    - Initialise the dictionary to hold the dataframes.
+
+3. Preprocessing
+    - Define the target variable, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+    - Check the A-channel to confirm the value is all the same, which may not be adding value. This channel will be excluded from the model.
+    - Reshape the feature variables:
+        - Define the array shape (i.e. pixel width, height, number of channels).
+        - Loop through all the dataframes and reshape to its original dimensions.
+        - Display the first sample to visually check reshaping was successful.
+
+4. Split and Scale
+    - Use `stratify = y` since there is an imbalance in the dataset.
+    - Reshape the dataset for use with the `MinMaxScaler()`, to normalise the RGB values to be between `0` and `1`.
+    - Use the scaler then reshape back to the original dataset.
+
+5. Initial Test Model
+    - The following guidelines was used to build the model:
+        - The number of filters for convolutional layers should:
+            - Be a value to the power of 2
+            - Increase for each following layer (i.e. `32`, `64`, `128`)
+        - The number of neurons for the fully connected layers should:
+            - Be a value to the power of 2
+            - Decrease for each following layer (i.e. `64`, `32`)
+        - Kernel size must be an odd integer
+    - The following adjustments and observations were made:
+        - The initial run had 2 convolutional layers and 2 fully connected (FC) layers, however the model was too simple and was guessing the same probability for each sample.
+        - The second run used a vanilla AlexNet architecture, however the image was not resized to match the size used in the architecture. The same result as the initial run was observed, however this could now be due to the architecture being too complex.
+        - Another attempt was made with the AlexNet architecture, however the images were resized. The model was still guessing the same probability for each sample, the only difference from the previous runs is the percentage it guesses (i.e. 71% then 75%). The A-channel was also dropped at this point, to match AlexNet inputs.
+        - Returned to the original architecture, but added a third convolutional layer. This broke the pattern, with the model now predicting different probabilities per sample.
+        - Experimented with adding another FC layer, which improved the accuracy.
+        - Experimented with adding `BatchNormalisation()` where it was noted the accuracy was taking too long to improve over time.
+        - Full details on all attempts can be found in the [`cnn_performance_tracker`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/resources/tracker/cnn_performance_tracker.csv).
 
 ### Recurrent Neural Network for Short Term Features
 TBA
