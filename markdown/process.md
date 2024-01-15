@@ -394,18 +394,65 @@ This section uses visualisations to explore the data extracted from the informat
         - Kernel size must be an odd integer
     - The following adjustments and observations were made:
         - The initial run had 2 convolutional layers and 2 fully connected (FC) layers, however the model was too simple and was guessing the same probability for each sample.
-        - The second run used a vanilla AlexNet architecture, however the image was not resized to match the size used in the architecture. The same result as the initial run was observed, however this could now be due to the architecture being too complex.
+        - The second run used a vanilla [AlexNet architecture](https://www.kaggle.com/code/blurredmachine/alexnet-architecture-a-complete-guide), however the image was not resized to match the size used in the architecture. The same result as the initial run was observed, however this could now be due to the architecture being too complex.
         - Another attempt was made with the AlexNet architecture, however the images were resized. The model was still guessing the same probability for each sample, the only difference from the previous runs is the percentage it guesses (i.e. 71% then 75%). The A-channel was also dropped at this point, to match AlexNet inputs.
         - Returned to the original architecture, but added a third convolutional layer. This broke the pattern, with the model now predicting different probabilities per sample.
         - Experimented with adding another FC layer, which improved the accuracy.
         - Experimented with adding `BatchNormalisation()` where it was noted the accuracy was taking too long to improve over time.
         - Full details on all attempts can be found in the [`cnn_performance_tracker`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/resources/tracker/cnn_performance_tracker.csv).
 
+6. Save Results to Performance Tracker, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+7. Understand the Predictions, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+
 ### Recurrent Neural Network for Short Term Features
 TBA
 
 ### Other Models
-TBA
+This section outlines the process for the following models:
+
+1. Random Forest Classifier (RFC): [`06d_rfc_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06d_rfc_test.ipynb)
+
+2. XGBoost: [`06e_xgb_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06e_xgb_test.ipynb)
+
+3. Support Vector Machine (SVM): [`06f_svm_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06f_svm_test.ipynb)
+
+4. Logistic Regression: [`06g_lr_test`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/notebooks/06g_lr_test.ipynb)
+
+The following steps are the same for the models:
+1. Import dependencies.
+
+2. Import the datasets using SQLAlchemy, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+3. Preprocessing, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+4. Split and Scale, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+5. Models:
+    - For RFC: `RandomForestClassifier()`
+        - Define the `n_estimators` as `1000`.
+        - Define the `criterion` as `gini`.
+        - Refer to [`rfc_performance_tracker`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/resources/tracker/rfc_performance_tracker.csv) for more details.
+    - For XGBoost: `xgb.XGBClassifier()`
+        - Define the `objective` as `binary:logistic`.
+        - Refer to [`xgb_performance_tracker`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/resources/tracker/xgb_performance_tracker.csv) for more details.
+    - For SVM: `SVC()`
+        - Define the `kernel` as `poly`.
+        - Add: `class_weight='balanced'` to account for class imbalance.
+        - Refer to [`svm_performance_tracker`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/resources/tracker/svm_performance_tracker.csv) for more details.
+    - For Logistic Regression: `LogisticRegression()`
+        - Define the `solver` as `liblinear`.
+        - Refer to [`lr_performance_tracker`](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/resources/tracker/lr_performance_tracker.csv) for more details.
+
+6. Fit the model and make predictions.
+    - Calculate the confusion matrix and classification report.
+    - For RFC and XGBoost, use: `feature_importances_` to get the feature importance array.
+
+7. Save Results to Performance Tracker, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
+8. Understand the Predictions, as with [Deep Learning for Metadata](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/markdown/process.md#deep-learning-for-metadata).
+
 
 ### Stacking Classifier
 TBA
