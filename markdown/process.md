@@ -319,7 +319,51 @@ This section uses visualisations to explore the data extracted from the informat
 ## Machine Learning Models
 
 ### Deep Learning for Metadata
-TBA
+1. Import dependencies.
+
+2. Code to time the run: `start_time = time.time()`
+
+3. Import the datasets using SQLAlchemy.
+    - Define the tables to import.
+    - Initialise the dictionary to hold the dataframes.
+    - Merge the dataframes: `on = 'id'`.
+
+4. Preprocessing
+    - Separate the target and feature variables. The `subtype` column is dropped as this could cause leakage, since all `healthy` samples have `no subtype`, which could be a pattern the model could overfit to.
+    - Encode the target variable for binary classification.
+    - Bin the `occupation_status` column so that there is a maximum of 10 unique values.
+    - Encode the feature columns as per the plan outlined in [Categorical Columns]().
+    - Collect the information to export as a JSON file, which will be used by the Streamlit app to preprocess user provided responses.
+
+5. Split and Scale
+    - Use `stratify = y` since there is an imbalance in the dataset.
+    - Use `StandardScaler()` to scale the data.
+    - Save the scaler using `dump()` from `joblib`.
+
+6. Hyperparameter Tuning
+    - Define the model parameters.
+    - Extract the kernel regularisation details for the performance tracker.
+    - Initialise the Hyperband tuner, using `create_model` from [functions.ipynb](https://github.com/alyssahondrade/Project4/blob/main/notebooks/functions.ipynb).
+    - Find the best hyperparameters using `search()`.
+
+7. Compile, Train, and Evaluate the Best Model
+    - Use `get_best_hyperparameters()` to get the top 3 models.
+    - Get the best model and parse the results to variables.
+    - Build, compile, train, and evaluate the model using these variables.
+    
+8. Evaluate the Model Results
+    - Use the test data to get the model loss and accuracy.
+    - Check the prediction's output probabilities to ensure valid results (not the model guessing the same probability for each sample).
+    - Display the confusion matrix and classificaiton report.
+    
+9. Save Results to Performance Tracker
+    - Save model and tuner details to a dictionary.
+    - Provide a change message.
+    - Export the trained model using keras' in-built `save()` function.
+    - Update the performance tracker.
+
+10. Understand the Predictions. This section identifies the incorrect predictions and displays the sample's actual diagnosis information.
+    
 
 ### Convolutional Neural Network for Spectrograms
 TBA
