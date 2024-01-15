@@ -6,11 +6,10 @@ import os
 import json
 import joblib
 
-import matplotlib.pyplot as plt
-from utils.visualisation import display_waveform, display_spectrogram
 from utils.interaction import metadata_questionnaire
 from utils.interaction import build_sidebar
 from utils.preprocessing import meta_preprocessing
+from utils.preprocessing import spec_preprocessing, st_preprocessing
 
 
 def page_configuration():
@@ -41,8 +40,8 @@ def audio_select():
 
     # Create the buttons for the audio files
     selected_radiobutton = st.radio(
-        "Select a sample audio file",
-        list(audio_mapping.keys()),
+        label = "Select a sample audio file",
+        options = list(audio_mapping.keys()),
         horizontal = True
     )
     
@@ -54,22 +53,19 @@ def audio_select():
     
     # Button to play the audio
     st.audio(
-        selected_audio,
+        data = selected_audio,
         format = "audio/wav",
         start_time = 0
     )
     
-    # Plot the selected waveform
-    st.subheader("Waveform")
-    fig_wave = plt.figure()
-    display_waveform(selected_audio)
-    st.pyplot(fig_wave)
-
-    # Plot the selected spectrogram
-    st.subheader("Spectrogram")
-    fig_spec = plt.figure()
-    display_spectrogram(selected_audio)
-    st.pyplot(fig_spec)
+    # Pass the selected audio to the preprocessing functions
+    spec_preprocessing(selected_audio)
+    
+#     # Plot the selected waveform
+#     st.subheader("Waveform")
+#     fig_wave = plt.figure()
+#     display_waveform(selected_audio)
+#     st.pyplot(fig_wave)
 
     
 def build_uploader():

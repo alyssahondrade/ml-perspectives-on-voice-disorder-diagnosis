@@ -3,7 +3,9 @@ import streamlit as st
 import json
 from pprint import pprint
 import pandas as pd
-import os    
+import os
+import matplotlib.pyplot as plt
+from utils.visualisation import display_waveform, display_spectrogram, export_spectrogram
 
 ### FUNCTIONS ###
 def meta_preprocessing(metadata_dict, data, model_meta):
@@ -143,6 +145,17 @@ def spec_preprocessing(audio_file):
     """
     
     print(audio_file)
+    
+    # Plot the selected spectrogram
+    st.subheader("Spectrogram")
+    fig_spec = plt.figure()
+    display_spectrogram(audio_file)
+    st.pyplot(fig_spec)
+    
+    # Export the spectrogram
+    export_spectrogram(audio_file)
+    
+    
 
 def st_preprocessing(audio_file):
     """
