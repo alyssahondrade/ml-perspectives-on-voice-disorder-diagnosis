@@ -59,13 +59,9 @@ def audio_select():
     )
     
     # Pass the selected audio to the preprocessing functions
-    spec_preprocessing(selected_audio)
+    reshaped_array = spec_preprocessing(selected_audio)
     
-#     # Plot the selected waveform
-#     st.subheader("Waveform")
-#     fig_wave = plt.figure()
-#     display_waveform(selected_audio)
-#     st.pyplot(fig_wave)
+
 
     
 def build_uploader():

@@ -6,6 +6,8 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 from utils.visualisation import display_waveform, display_spectrogram, export_spectrogram
+from PIL import Image as pil_Image
+from keras.preprocessing.image import img_to_array
 
 ### FUNCTIONS ###
 def meta_preprocessing(metadata_dict, data, model_meta):
@@ -144,8 +146,6 @@ def spec_preprocessing(audio_file):
     CODE: TBA
     """
     
-    print(audio_file)
-    
     # Plot the selected spectrogram
     st.subheader("Spectrogram")
     fig_spec = plt.figure()
@@ -155,6 +155,28 @@ def spec_preprocessing(audio_file):
     # Export the spectrogram
     export_spectrogram(audio_file)
     
+    # Define the resized image path
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    voice_app_dir = os.path.dirname(script_dir)
+    resized_spec = os.path.join(
+        voice_app_dir, 'temp', 'resized_spectrogram.png')
+    
+    # Open the image file
+    img = pil_Image.open(resized_spec)
+    
+    # Convert image to array
+    img_array = img_to_array(img).astype(int)
+    
+    # Drop the A-channel
+    rgb_array = img_array[:, :, :3]
+
+    # Reshape the data for the scaler
+    height_px = img.height
+    width_px = img.width
+    reshaped = rgb_array.reshape((1, height_px * width_px * 3))
+    
+    return reshaped
+    # RESEARCH HOW TO DELETE TEMP FILES WHEN APP IS RUN.
     
 
 def st_preprocessing(audio_file):
@@ -168,3 +190,9 @@ def st_preprocessing(audio_file):
     """
     
     print(audio_file)
+    
+    #     # Plot the selected waveform
+#     st.subheader("Waveform")
+#     fig_wave = plt.figure()
+#     display_waveform(selected_audio)
+#     st.pyplot(fig_wave)
