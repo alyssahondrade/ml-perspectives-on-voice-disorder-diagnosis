@@ -11,8 +11,14 @@ from utils.interaction import build_sidebar
 from utils.preprocessing import meta_preprocessing
 from utils.preprocessing import spec_preprocessing, st_preprocessing
 
-import soundfile as sf
 
+def page_configuration():
+    st.set_page_config(
+        page_title = "Explore Voice"
+    )
+    
+    st.title("Explore Voice")
+    # st.header("Machine Learning Model - Questionnaire")
 
 def audio_select():
     # Get the absolute path to the current script (Home.py)
@@ -36,20 +42,6 @@ def audio_select():
 
     return [audio_mapping, audio_path]
 
-#     # Create the buttons for the audio files
-#     selected_radiobutton = st.radio(
-#         label = "Select a sample audio file",
-#         options = list(audio_mapping.keys()),
-#         horizontal = True
-#     )
-    
-#     # Get the file selected
-#     selected_audio = os.path.join(
-#         audio_path,
-#         audio_mapping[selected_radiobutton]
-#     )
-    
-    # return selected_audio
 
 def audio_interface(selected_audio):
     
@@ -64,147 +56,88 @@ def audio_interface(selected_audio):
     reshaped_array = spec_preprocessing(selected_audio)
 
 
+def user_selection():
+    # Get the audio files to choose from
+    audio_mapping, audio_path = audio_select()
     
-# def build_uploader():
-#     user_voice = st.file_uploader(
-#         label = "Upload your voice sample",
-#         type = "wav",
-#         accept_multiple_files = False,
-#         label_visibility = "visible"
-#     )
-    
-#     return user_voice
-    
-    
-def main():
-    build_sidebar()
+    # Add the upload option as a key to audio_mapping
+    audio_mapping['Upload Sample'] = ""
+    print(audio_mapping)
     
     left_col, right_col = st.columns(2)
     with left_col:
-        # User to upload a file
-        uploaded_file = st.file_uploader(
-            label = "Upload your voice sample",
-            type = "wav",
-            accept_multiple_files = False,
-            label_visibility = "visible",
-            disabled = False
-        )
-
-        # Confirm file upload
-        if uploaded_file is not None:
-            # Confirm the file the user uploaded
-            st.success(f"File: {uploaded_file.name}")
-            
-            # Temp folder path
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            root_dir = os.path.dirname(os.path.dirname(script_dir))
-            voice_app_dir = os.path.dirname(script_dir)
-            temp_sample_path = os.path.join(voice_app_dir, 'temp', 'sample.wav')
-            
-            with open(temp_sample_path, "wb") as temp_file:
-                temp_file.write(uploaded_file.read())
-
-        else:
-            st.warning("Please upload a file.")
-            
-        # Get the user to submit the file
-        # submit_sample = st.button(label="Submit")
-            
-    with right_col:
-        # Get the audio files to choose from
-        audio_mapping, audio_path = audio_select()
-        
-        # User to select a sample
+        # User selection buttons
         selected_radiobutton = st.radio(
-            label = "Select a sample audio file",
-            options = list(audio_mapping.keys()),
-            horizontal = False,
-            disabled = False
+            label = "Select/Upload a Sample",
+            options = list(audio_mapping.keys())
         )
 
         # Get the file selected
-        selected_audio = os.path.join(
-            audio_path,
-            audio_mapping[selected_radiobutton]
-        )
+        if selected_radiobutton != 'Upload Sample':
+            selected_audio = os.path.join(
+                audio_path,
+                audio_mapping[selected_radiobutton]
+            )
         
-    st.divider()
+    with right_col:
+        # Check if upload option selected
+        if selected_radiobutton == 'Upload Sample':
+
+            # Enable the file uploader
+            uploaded_file = st.file_uploader(
+                label = "Upload your voice sample",
+                type = "wav",
+                accept_multiple_files = False,
+                disabled = False
+            )
+
+            # Confirm file upload
+            if uploaded_file is not None:
+                
+                # Temp folder path
+                script_dir = os.path.dirname(os.path.abspath(__file__))
+                root_dir = os.path.dirname(os.path.dirname(script_dir))
+                voice_app_dir = os.path.dirname(script_dir)
+                temp_sample_path = os.path.join(voice_app_dir, 'temp', 'sample.wav')
+
+                # Read the file to the temp folder
+                with open(temp_sample_path, "wb") as temp_file:
+                    temp_file.write(uploaded_file.read())
+
+        else:
+            # Disable the file uploader
+            st.file_uploader(
+                label = "Upload your voice sample",
+                type = "wav",
+                accept_multiple_files = False,
+                disabled = True
+            )
+    
+    # Run button
     run_button = st.button(
         label = "Run",
         use_container_width = True
     )
     
+    st.divider()
+    
     if run_button:
-        # Run the interface
-        if uploaded_file is not None:
-        # if submit_sample:
-            audio_interface(temp_sample_path)
-            st.success(f"Running: {uploaded_file.name}")
-        else:
+        if selected_radiobutton != 'Upload Sample':
             audio_interface(selected_audio)
             st.success(f"Running: {selected_audio.split('/')[-1]}")
+        else:
+            if uploaded_file is not None:
+                audio_interface(temp_sample_path)
+                st.success(f"Running: {uploaded_file.name}")
+            else:
+                st.warning("Please upload a file or choose a sample.")
+
+
+def main():
+    page_configuration()
+    build_sidebar()
+    user_selection()
     
-#     # Initialize selected_audio with a default value
-#     selected_audio = None
-    
-#     left_button, right_button = st.columns(2)
-#     with left_button:
-#         left_btn = st.button(
-#             label = "Upload a sample",
-#             use_container_width = True
-#         )
-        
-#         if left_btn:
-            # selected_audio = st.file_uploader(
-            #     label = "Upload your voice sample",
-            #     type = "wav",
-            #     accept_multiple_files = False,
-            #     label_visibility = "visible",
-            #     disabled = False
-            # )
-            
-#         # else:
-#         #     # Disable the uploader
-#         #     st.file_uploader(
-#         #         label = "Upload your voice sample",
-#         #         disabled = True
-#         #     )
-
-#     with right_button:
-#         right_btn = st.button(
-#             label = "Choose a sample",
-#             use_container_width = True
-#         )
-        
-#         audio_mapping, audio_path = audio_select()
-        
-#         if right_btn:
-#             # Create the buttons for the audio files
-#             selected_radiobutton = st.radio(
-#                 label = "Select a sample audio file",
-#                 options = list(audio_mapping.keys()),
-#                 horizontal = True,
-#                 disabled = False
-#             )
-
-#             # Get the file selected
-#             selected_audio = os.path.join(
-#                 audio_path,
-#                 audio_mapping[selected_radiobutton]
-#             )
-#         # else:
-#         #     # Disable the buttons
-#         #     st.radio(
-#         #         label = "Select a sample audio file",
-#         #         options = list(audio_mapping.keys()),
-#         #         horizontal = True,
-#         #         disabled = True
-#         #     )
-    
-#     # Run the interface
-#     audio_interface(selected_audio)
-
-
 
 if __name__ == '__main__':
     main()
