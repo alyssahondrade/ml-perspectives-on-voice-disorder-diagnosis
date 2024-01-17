@@ -174,7 +174,6 @@ def user_selection():
     )
     
     st.divider()
-    
     if run_button:
         if selected_radiobutton != 'Upload Sample':
             reshaped = audio_interface(selected_audio)
