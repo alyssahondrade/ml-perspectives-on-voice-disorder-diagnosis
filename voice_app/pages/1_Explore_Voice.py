@@ -140,6 +140,16 @@ def user_selection():
                 # Read the file to the temp folder
                 with open(temp_sample_path, "wb") as temp_file:
                     temp_file.write(uploaded_file.read())
+            
+                
+                
+            if st.button(
+                label = "Delete uploaded sample.",
+                use_container_width = True
+            ):
+                # Empty the contents of the temp folder
+                temp_folder_path = os.path.join(voice_app_dir, 'temp')
+                delete_temp_contents(temp_folder_path)
 
         else:
             # Disable the file uploader
@@ -147,6 +157,13 @@ def user_selection():
                 label = "Upload your voice sample",
                 type = "wav",
                 accept_multiple_files = False,
+                disabled = True
+            )
+            
+            # Disable the delete button
+            st.button(
+                label = "Delete uploaded sample.",
+                use_container_width = True,
                 disabled = True
             )
     
@@ -193,28 +210,17 @@ def make_cnn_predictions(reshaped_data, scaler_path, model_path):
     return prediction[0][0]
 
 
-# def delete_temp_contents(temp_folder_path):
-#     for file_name in os.listdir(temp_folder_path):
-#         file_path = os.path.join(temp_folder_path, file_name)
-#         try:
-#             if os.path.isfile(file_path):
-#                 os.unlink(file_path)
-#             elif os.path.isdir(file_path):
-#                 os.rmdir(file_path)
-#         except Exception as e:
-#             print(f"Error deleting {file_path}: {e}")
+def delete_temp_contents(temp_folder_path):
+    for file_name in os.listdir(temp_folder_path):
+        file_path = os.path.join(temp_folder_path, file_name)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                os.rmdir(file_path)
+        except Exception as e:
+            print(f"Error deleting {file_path}: {e}")
 
-def delete_temp_contents(temp_folder_path, session_state):
-    if st.session_state.page_refreshed:
-        for file_name in os.listdir(temp_folder_path):
-            file_path = os.path.join(temp_folder_path, file_name)
-            try:
-                if os.path.isfile(file_path):
-                    os.unlink(file_path)
-                elif os.path.isdir(file_path):
-                    os.rmdir(file_path)
-            except Exception as e:
-                print(f"Error deleting {file_path}: {e}")
 
 def main():
     # Get the absolute path to the current script
@@ -267,22 +273,9 @@ def main():
             fig_wave = plt.figure()
             display_waveform(audio_path)
             st.pyplot(fig_wave)
-            
-        # Mark the page as refreshed in session state
-        st.session_state.page_refreshed = True
-            
-        # Empty the contents of the temp folder
-        temp_folder_path = os.path.join(voice_app_dir, 'temp')
-        delete_temp_contents(temp_folder_path, st.session_state)
 
-    except TypeError as te:
-        # st.warning(f"TypeError: {te}. Please check the inputs and try again.")
+    except:
         st.warning("Please upload a file or choose a sample.")
-    except Exception as e:
-        st.warning(f"An error occurred: {e}. Please try again.")
-    
-    # except:
-    #     st.warning("Please upload a file or choose a sample.")
     
 
 if __name__ == '__main__':
