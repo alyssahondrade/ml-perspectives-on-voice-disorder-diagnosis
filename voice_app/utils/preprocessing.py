@@ -5,7 +5,7 @@ from pprint import pprint
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-from utils.visualisation import display_waveform, display_spectrogram, export_spectrogram
+from utils.visualisation import export_spectrogram
 from PIL import Image as pil_Image
 from keras.preprocessing.image import img_to_array
 
@@ -146,12 +146,6 @@ def spec_preprocessing(audio_file):
     CODE: TBA
     """
     
-    # Plot the selected spectrogram
-    st.subheader("Spectrogram")
-    fig_spec = plt.figure()
-    display_spectrogram(audio_file)
-    st.pyplot(fig_spec)
-    
     # Export the spectrogram
     export_spectrogram(audio_file)
     
@@ -190,9 +184,3 @@ def st_preprocessing(audio_file):
     """
     
     print(audio_file)
-    
-    #     # Plot the selected waveform
-#     st.subheader("Waveform")
-#     fig_wave = plt.figure()
-#     display_waveform(selected_audio)
-#     st.pyplot(fig_wave)

@@ -7,28 +7,28 @@ import matplotlib.pyplot as plt
 import os
 from PIL import Image as pil_Image
 
-def display_waveform(filepath_audio):
-    """
-    Purpose:
-    - Display audio file's waveform.
+# def display_waveform(filepath_audio):
+#     """
+#     Purpose:
+#     - Display audio file's waveform.
 
-    Input: filepath_audio
-    Output: Displays plot
-    """
+#     Input: filepath_audio
+#     Output: Displays plot
+#     """
 
-    # Load the audio file using librosa
-    y, sr = librosa.load(
-        filepath_audio,
-        sr = None # preserve sampling rate
-    )
+#     # Load the audio file using librosa
+#     y, sr = librosa.load(
+#         filepath_audio,
+#         sr = None # preserve sampling rate
+#     )
 
-    # Plot the waveform
-    librosa.display.waveshow(y, sr=sr)
+#     # Plot the waveform
+#     librosa.display.waveshow(y, sr=sr)
 
-    # Add the labels
-    plt.title('Waveform')
-    plt.xlabel('Time (s)')
-    plt.ylabel('Amplitude')
+#     # Add the labels
+#     plt.title('Waveform')
+#     plt.xlabel('Time (s)')
+#     plt.ylabel('Amplitude')
 
     
 def load_audio(filepath_audio):
@@ -76,6 +76,28 @@ def display_spectrogram(filepath_audio):
     # Add labels
     plt.title('Spectrogram')
     plt.colorbar(format='%+2.0f dB')
+    
+    
+def display_waveform(filepath_audio):
+    """
+    Purpose:
+    - Display audio file's waveform.
+
+    Input: filepath_audio
+    Output: Displays plot
+    """
+    
+    # Load the audio file
+    y, sr, D = load_audio(filepath_audio)
+
+    # Plot the waveform
+    librosa.display.waveshow(y, sr=sr)
+    
+    # Add labels
+    plt.title('Waveform')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Amplitude')
+
 
 def export_spectrogram(filepath_audio):
     """

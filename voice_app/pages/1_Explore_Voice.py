@@ -6,12 +6,13 @@ import os
 import json
 import joblib
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 from utils.interaction import metadata_questionnaire
 from utils.interaction import build_sidebar
 from utils.preprocessing import meta_preprocessing
 from utils.preprocessing import spec_preprocessing, st_preprocessing
-
+from utils.visualisation import display_waveform, display_spectrogram
 
 
 def build_header():
@@ -161,12 +162,12 @@ def user_selection():
         if selected_radiobutton != 'Upload Sample':
             reshaped = audio_interface(selected_audio)
             st.success(f"Running: {selected_audio.split('/')[-1]}")
-            return reshaped
+            return [reshaped, selected_audio]
         else:
             if uploaded_file is not None:
                 reshaped = audio_interface(temp_sample_path)
                 st.success(f"Running: {uploaded_file.name}")
-                return reshaped
+                return [reshaped, temp_sample_path]
             else:
                 st.warning("Please upload a file or choose a sample.")
 
@@ -190,7 +191,20 @@ def make_cnn_predictions(reshaped_data, scaler_path, model_path):
     prediction = model.predict(scaled_reshaped)
 
     return prediction[0][0]
-    
+
+
+def delete_temp_contents(temp_folder_path):
+    for file_name in os.listdir(temp_folder_path):
+        file_path = os.path.join(temp_folder_path, file_name)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                os.rmdir(file_path)
+        except Exception as e:
+            print(f"Error deleting {file_path}: {e}")
+
+
 def main():
     # Get the absolute path to the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -209,9 +223,11 @@ def main():
     # Build the page
     build_header()
     build_sidebar()
-    reshaped_data = user_selection()
     
     try:
+        # Get the user selection
+        reshaped_data, audio_path = user_selection()
+        
         # Make a prediction
         prediction = make_cnn_predictions(reshaped_data, scaler_path, model_path)
         
@@ -223,9 +239,31 @@ def main():
                 label = "Probability of Voice Disorder",
                 value = f'{round(prediction * 100, 1)}%'
             )
+            
+        # Plot the visuals
+        st.divider()
+        first_col, second_col = st.columns(2)
+        with first_col:
+            # Plot the selected spectrogram
+            st.subheader("Spectrogram")
+            fig_spec = plt.figure()
+            display_spectrogram(audio_path)
+            st.pyplot(fig_spec)
+
+        with second_col:
+            # Plot the selected waveform
+            st.subheader("Waveform")
+            fig_wave = plt.figure()
+            display_waveform(audio_path)
+            st.pyplot(fig_wave)
+
     except:
         st.warning("Please upload a file or choose a sample.")
-
+    
+    # Empty the contents of the temp folder
+    temp_folder_path = os.path.join(voice_app_dir, 'temp')
+    delete_temp_contents(temp_folder_path)
+    
 
 if __name__ == '__main__':
     main()
