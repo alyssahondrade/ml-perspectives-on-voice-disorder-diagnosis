@@ -240,74 +240,42 @@ def main():
     # Build the page
     build_header()
     build_sidebar()
-  
-    # Get the user selection
-    reshaped_data, audio_path = user_selection()
 
-    # Make a prediction
-    prediction = make_cnn_predictions(reshaped_data, scaler_path, model_path)
-
-    # Display the prediction
-    st.divider()
-    left_col, mid_col, right_col = st.columns(3)
-    with mid_col:
-        st.metric(
-            label = "Probability of Voice Disorder",
-            value = f'{round(prediction * 100, 1)}%'
-        )
-
-    # Plot the visuals
-    st.divider()
-    first_col, second_col = st.columns(2)
-    with first_col:
-        # Plot the selected spectrogram
-        st.subheader("Spectrogram")
-        fig_spec = plt.figure()
-        display_spectrogram(audio_path)
-        st.pyplot(fig_spec)
-
-    with second_col:
-        # Plot the selected waveform
-        st.subheader("Waveform")
-        fig_wave = plt.figure()
-        display_waveform(audio_path)
-        st.pyplot(fig_wave)
-
-#     try:
-#         # Get the user selection
-#         reshaped_data, audio_path = user_selection()
+    try:
+        # Get the user selection
+        reshaped_data, audio_path = user_selection()
         
-#         # Make a prediction
-#         prediction = make_cnn_predictions(reshaped_data, scaler_path, model_path)
+        # Make a prediction
+        prediction = make_cnn_predictions(reshaped_data, scaler_path, model_path)
         
-#         # Display the prediction
-#         st.divider()
-#         left_col, mid_col, right_col = st.columns(3)
-#         with mid_col:
-#             st.metric(
-#                 label = "Probability of Voice Disorder",
-#                 value = f'{round(prediction * 100, 1)}%'
-#             )
+        # Display the prediction
+        st.divider()
+        left_col, mid_col, right_col = st.columns(3)
+        with mid_col:
+            st.metric(
+                label = "Probability of Voice Disorder",
+                value = f'{round(prediction * 100, 1)}%'
+            )
             
-#         # Plot the visuals
-#         st.divider()
-#         first_col, second_col = st.columns(2)
-#         with first_col:
-#             # Plot the selected spectrogram
-#             st.subheader("Spectrogram")
-#             fig_spec = plt.figure()
-#             display_spectrogram(audio_path)
-#             st.pyplot(fig_spec)
+        # Plot the visuals
+        st.divider()
+        first_col, second_col = st.columns(2)
+        with first_col:
+            # Plot the selected spectrogram
+            st.subheader("Spectrogram")
+            fig_spec = plt.figure()
+            display_spectrogram(audio_path)
+            st.pyplot(fig_spec)
 
-#         with second_col:
-#             # Plot the selected waveform
-#             st.subheader("Waveform")
-#             fig_wave = plt.figure()
-#             display_waveform(audio_path)
-#             st.pyplot(fig_wave)
+        with second_col:
+            # Plot the selected waveform
+            st.subheader("Waveform")
+            fig_wave = plt.figure()
+            display_waveform(audio_path)
+            st.pyplot(fig_wave)
 
-#     except:
-#         st.warning("Please upload a file or choose a sample.")
+    except:
+        st.warning("Please upload a file or choose a sample.")
     
 
 if __name__ == '__main__':
