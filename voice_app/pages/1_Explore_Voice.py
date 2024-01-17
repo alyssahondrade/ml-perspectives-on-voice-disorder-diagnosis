@@ -194,19 +194,16 @@ def make_cnn_predictions(reshaped_data, scaler_path, model_path):
 
 
 def delete_temp_contents(temp_folder_path):
-    # Check if the folder is not empty
-    if any(os.scandir(temp_folder_path)):
-        for file_name in os.listdir(temp_folder_path):
-            file_path = os.path.join(temp_folder_path, file_name)
-            try:
-                if os.path.isfile(file_path):
-                    os.unlink(file_path)
-                elif os.path.isdir(file_path):
-                    os.rmdir(file_path)
-            except Exception as e:
-                print(f"Error deleting {file_path}: {e}")
-    else:
-        print(f"The folder {temp_folder_path} is already empty.")
+    for file_name in os.listdir(temp_folder_path):
+        file_path = os.path.join(temp_folder_path, file_name)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                os.rmdir(file_path)
+        except Exception as e:
+            print(f"Error deleting {file_path}: {e}")
+
 
 def main():
     # Get the absolute path to the current script
@@ -259,13 +256,13 @@ def main():
             fig_wave = plt.figure()
             display_waveform(audio_path)
             st.pyplot(fig_wave)
+            
+        # Empty the contents of the temp folder
+        temp_folder_path = os.path.join(voice_app_dir, 'temp')
+        delete_temp_contents(temp_folder_path)
 
     except:
         st.warning("Please upload a file or choose a sample.")
-    
-    # Empty the contents of the temp folder
-    temp_folder_path = os.path.join(voice_app_dir, 'temp')
-    delete_temp_contents(temp_folder_path)
     
 
 if __name__ == '__main__':
