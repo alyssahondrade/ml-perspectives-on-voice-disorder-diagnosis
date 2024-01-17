@@ -1,0 +1,18 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm (LSTM)                 (None, 192)               295680    
+                                                                 
+ dense (Dense)               (None, 1)                 193       
+                                                                 
+=================================================================
+Total params: 295873 (1.13 MB)
+Trainable params: 295873 (1.13 MB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+{'change_message': 'no changes, first run of the day',
+ 'model_accuracy': 0.7254902124404907,
+ 'model_loss': 0.58941251039505,
+ 'runtime': 6.6028900146484375,
+ 'timestamp': datetime.datetime(2024, 1, 8, 19, 5, 30, 413260)}

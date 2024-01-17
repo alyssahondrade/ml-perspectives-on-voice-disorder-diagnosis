@@ -1,0 +1,50 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 164, 223, 32)      896       
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 82, 111, 32)       0         
+ D)                                                              
+                                                                 
+ conv2d_1 (Conv2D)           (None, 80, 109, 64)       18496     
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 40, 54, 64)        0         
+ g2D)                                                            
+                                                                 
+ conv2d_2 (Conv2D)           (None, 38, 52, 128)       73856     
+                                                                 
+ batch_normalization (Batch  (None, 38, 52, 128)       512       
+ Normalization)                                                  
+                                                                 
+ max_pooling2d_2 (MaxPoolin  (None, 19, 26, 128)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_3 (Conv2D)           (None, 17, 24, 256)       295168    
+                                                                 
+ max_pooling2d_3 (MaxPoolin  (None, 8, 12, 256)        0         
+ g2D)                                                            
+                                                                 
+ conv2d_4 (Conv2D)           (None, 6, 10, 512)        1180160   
+                                                                 
+ max_pooling2d_4 (MaxPoolin  (None, 3, 5, 512)         0         
+ g2D)                                                            
+                                                                 
+ flatten (Flatten)           (None, 7680)              0         
+                                                                 
+ dense (Dense)               (None, 256)               1966336   
+                                                                 
+ dense_1 (Dense)             (None, 64)                16448     
+                                                                 
+ dense_2 (Dense)             (None, 1)                 65        
+                                                                 
+=================================================================
+Total params: 3551937 (13.55 MB)
+Trainable params: 3551681 (13.55 MB)
+Non-trainable params: 256 (1.00 KB)
+_________________________________________________________________
+{'change_message': 'all kernel size to 3, added 5th conv layer',
+ 'model_accuracy': 0.7058823704719543,
+ 'model_loss': 0.6449562311172485,
+ 'runtime': 30.964040279388428,
+ 'timestamp': datetime.datetime(2024, 1, 7, 10, 3, 47, 860613)}

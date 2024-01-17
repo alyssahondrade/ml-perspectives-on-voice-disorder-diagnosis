@@ -1,0 +1,20 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm (LSTM)                 (None, 68, 68)            70992     
+                                                                 
+ lstm_1 (LSTM)               (None, 68)                37264     
+                                                                 
+ dense (Dense)               (None, 1)                 69        
+                                                                 
+=================================================================
+Total params: 108325 (423.14 KB)
+Trainable params: 108325 (423.14 KB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+{'change_message': 'removed bidirectional, changed units to num features (68)',
+ 'model_accuracy': 0.7254902124404907,
+ 'model_loss': 0.589697003364563,
+ 'runtime': 5.222717046737671,
+ 'timestamp': datetime.datetime(2024, 1, 7, 10, 56, 57, 72438)}
