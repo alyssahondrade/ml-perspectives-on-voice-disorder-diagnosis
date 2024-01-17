@@ -261,8 +261,14 @@ def main():
         temp_folder_path = os.path.join(voice_app_dir, 'temp')
         delete_temp_contents(temp_folder_path)
 
-    except:
+    except TypeError as te:
+        # st.warning(f"TypeError: {te}. Please check the inputs and try again.")
         st.warning("Please upload a file or choose a sample.")
+    except Exception as e:
+        st.warning(f"An error occurred: {e}. Please try again.")
+    
+    # except:
+    #     st.warning("Please upload a file or choose a sample.")
     
 
 if __name__ == '__main__':
