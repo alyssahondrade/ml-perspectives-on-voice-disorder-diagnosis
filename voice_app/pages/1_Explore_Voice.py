@@ -193,17 +193,28 @@ def make_cnn_predictions(reshaped_data, scaler_path, model_path):
     return prediction[0][0]
 
 
-def delete_temp_contents(temp_folder_path):
-    for file_name in os.listdir(temp_folder_path):
-        file_path = os.path.join(temp_folder_path, file_name)
-        try:
-            if os.path.isfile(file_path):
-                os.unlink(file_path)
-            elif os.path.isdir(file_path):
-                os.rmdir(file_path)
-        except Exception as e:
-            print(f"Error deleting {file_path}: {e}")
+# def delete_temp_contents(temp_folder_path):
+#     for file_name in os.listdir(temp_folder_path):
+#         file_path = os.path.join(temp_folder_path, file_name)
+#         try:
+#             if os.path.isfile(file_path):
+#                 os.unlink(file_path)
+#             elif os.path.isdir(file_path):
+#                 os.rmdir(file_path)
+#         except Exception as e:
+#             print(f"Error deleting {file_path}: {e}")
 
+def delete_temp_contents(temp_folder_path, session_state):
+    if st.session_state.page_refreshed:
+        for file_name in os.listdir(temp_folder_path):
+            file_path = os.path.join(temp_folder_path, file_name)
+            try:
+                if os.path.isfile(file_path):
+                    os.unlink(file_path)
+                elif os.path.isdir(file_path):
+                    os.rmdir(file_path)
+            except Exception as e:
+                print(f"Error deleting {file_path}: {e}")
 
 def main():
     # Get the absolute path to the current script
@@ -257,9 +268,12 @@ def main():
             display_waveform(audio_path)
             st.pyplot(fig_wave)
             
+        # Mark the page as refreshed in session state
+        st.session_state.page_refreshed = True
+            
         # Empty the contents of the temp folder
         temp_folder_path = os.path.join(voice_app_dir, 'temp')
-        delete_temp_contents(temp_folder_path)
+        delete_temp_contents(temp_folder_path, st.session_state)
 
     except TypeError as te:
         # st.warning(f"TypeError: {te}. Please check the inputs and try again.")
