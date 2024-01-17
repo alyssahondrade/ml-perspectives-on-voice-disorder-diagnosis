@@ -36,9 +36,12 @@ def audio_select():
     
     # Dynamically update names in the file
     audio_mapping = dict()
-    for idx, filename in enumerate(audio_files):
-        audio_name = f"Audio {idx + 1}"
-        audio_mapping[audio_name] = filename
+    counter = 0
+    for filename in audio_files:
+        if filename.endswith(".wav"):
+            counter += 1
+            audio_name = f"Audio {counter}"
+            audio_mapping[audio_name] = filename
 
     return [audio_mapping, audio_path]
 
@@ -62,7 +65,6 @@ def user_selection():
     
     # Add the upload option as a key to audio_mapping
     audio_mapping['Upload Sample'] = ""
-    print(audio_mapping)
     
     left_col, right_col = st.columns(2)
     with left_col:
