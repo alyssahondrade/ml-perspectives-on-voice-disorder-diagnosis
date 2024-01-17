@@ -114,8 +114,8 @@ def export_spectrogram(filepath_audio):
     plt.close()
     
     # Define resize parameters
-    new_width = 305
-    new_height = 225
+    new_width = 293
+    new_height = 216
     
     # Resize the image
     img = pil_Image.open(orig_spec)

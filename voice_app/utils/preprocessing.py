@@ -175,7 +175,7 @@ def spec_preprocessing(audio_file):
     width_px = img.width
     reshaped = rgb_array.reshape((1, height_px * width_px * 3))
     
-    return reshaped
+    return [height_px, width_px, reshaped]
     # RESEARCH HOW TO DELETE TEMP FILES WHEN APP IS RUN.
     
 

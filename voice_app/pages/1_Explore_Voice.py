@@ -5,11 +5,13 @@ import numpy as np
 import os
 import json
 import joblib
+import tensorflow as tf
 
 from utils.interaction import metadata_questionnaire
 from utils.interaction import build_sidebar
 from utils.preprocessing import meta_preprocessing
 from utils.preprocessing import spec_preprocessing, st_preprocessing
+
 
 
 def build_header():
@@ -78,6 +80,9 @@ def audio_select():
 
 def audio_interface(selected_audio):
     
+    # Pass the selected audio to the preprocessing functions
+    reshaped_array = spec_preprocessing(selected_audio)
+    
     # Button to play the audio
     st.audio(
         data = selected_audio,
@@ -85,8 +90,7 @@ def audio_interface(selected_audio):
         start_time = 0
     )
     
-    # Pass the selected audio to the preprocessing functions
-    reshaped_array = spec_preprocessing(selected_audio)
+    return reshaped_array
 
 
 def user_selection():
@@ -155,21 +159,73 @@ def user_selection():
     
     if run_button:
         if selected_radiobutton != 'Upload Sample':
-            audio_interface(selected_audio)
+            reshaped = audio_interface(selected_audio)
             st.success(f"Running: {selected_audio.split('/')[-1]}")
+            return reshaped
         else:
             if uploaded_file is not None:
-                audio_interface(temp_sample_path)
+                reshaped = audio_interface(temp_sample_path)
                 st.success(f"Running: {uploaded_file.name}")
+                return reshaped
             else:
                 st.warning("Please upload a file or choose a sample.")
 
 
+def make_cnn_predictions(reshaped_data, scaler_path, model_path):
+    # Define the pixel dimension for scaling
+    height_px = reshaped_data[0]
+    width_px = reshaped_data[1]
+    
+    # Load the scaler
+    X_scaler = joblib.load(scaler_path)
+    scaled_sample = X_scaler.transform(reshaped_data[2])
+    
+    # Reshape the sample
+    scaled_reshaped = scaled_sample.reshape((1, height_px, width_px, 3))
+    
+    # Load the model
+    model = tf.keras.models.load_model(model_path)
+    
+    # Make predictions
+    prediction = model.predict(scaled_reshaped)
+
+    return prediction[0][0]
+    
 def main():
+    # Get the absolute path to the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Define the directories
+    root_dir = os.path.dirname(os.path.dirname(script_dir))
+    voice_app_dir = os.path.dirname(script_dir)
+
+    # Specify the path to the trained model
+    model_name = "best_cnn_0.784.h5" # Trained model using 82% DNN Model
+    model_path = os.path.join(root_dir, 'models', model_name)
+
+    # Specify the path to the scaler
+    scaler_path = os.path.join(voice_app_dir, 'assets', 'cnn_scaler.joblib')
+    
+    # Build the page
     build_header()
     build_sidebar()
-    user_selection()
+    reshaped_data = user_selection()
     
+    try:
+        # Make a prediction
+        prediction = make_cnn_predictions(reshaped_data, scaler_path, model_path)
+        
+        # Display the prediction
+        st.divider()
+        left_col, mid_col, right_col = st.columns(3)
+        with mid_col:
+            st.metric(
+                label = "Probability of Voice Disorder",
+                value = f'{round(prediction * 100, 1)}%'
+            )
+    except:
+        st.warning("Please upload a file or choose a sample.")
+
 
 if __name__ == '__main__':
     main()
