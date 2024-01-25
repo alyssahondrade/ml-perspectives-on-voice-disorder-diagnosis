@@ -77,6 +77,10 @@ The original publication is available at: [https://www.sciencedirect.com/science
 ## Process
 Available at: [https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md](https://github.com/alyssahondrade/Project4/blob/main/markdown/process.md)
 
+|![coding_approach](https://github.com/alyssahondrade/ml-perspectives-on-voice-disorder-diagnosis/blob/main/images/coding_approach.png)|
+|:---:|
+|Coding Approach|
+
 
 ## Future Work
 1. Explore RNN, LSTM, and GRU models in more depth, with regard to conducting binary classification using temporal features.
